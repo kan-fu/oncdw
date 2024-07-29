@@ -1,0 +1,115 @@
+[
+  {
+    "deviceId": "12003",
+    "deviceName": "Nortek Aquadopp HR-Profiler 2 MHz 2978",
+    "locationCode": "BACME",
+    "locationName": "Barkley Canyon Mid-East",
+    "dataPreviewOptions": [
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        57,
+        1
+      ],
+      [
+        57,
+        2
+      ]
+    ],
+    "searchTreeNodeId": 18,
+    "deviceCategoryId": 73,
+    "deviceCode": "NTAquadoppHRCP2978",
+    "fileExtensions": null
+  },
+  {
+    "deviceId": "11206",
+    "deviceName": "RDI Workhorse Quartermaster ADCP 150 kHz (9455)",
+    "locationCode": "BACME",
+    "locationName": "Barkley Canyon Mid-East",
+    "dataPreviewOptions": [
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        10,
+        1
+      ],
+      [
+        10,
+        2
+      ],
+      [
+        11,
+        1
+      ],
+      [
+        11,
+        2
+      ]
+    ],
+    "searchTreeNodeId": 18,
+    "deviceCategoryId": 69,
+    "deviceCode": "BC_POD3_ADCP",
+    "fileExtensions": [
+      "txt",
+      "dt4"
+    ]
+  },
+  {
+    "deviceId": "11401",
+    "deviceName": "Kongsberg Mesotech Rotary Sonar 1071 (0711215)",
+    "locationCode": "BACME",
+    "locationName": "Barkley Canyon Mid-East",
+    "dataPreviewOptions": [
+      [
+        210,
+        1
+      ],
+      [
+        210,
+        2
+      ]
+    ],
+    "searchTreeNodeId": 18,
+    "deviceCategoryId": 34,
+    "deviceCode": "BC_POD3_ROTSONAR",
+    "fileExtensions": [
+      "txt",
+      "dt4"
+    ]
+  },
+  {
+    "deviceId": "24074",
+    "deviceName": "Nanometrics TitanEA (S/N 000646)",
+    "locationCode": "BACME",
+    "locationName": "Barkley Canyon Mid-East",
+    "dataPreviewOptions": [
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ]
+    ],
+    "searchTreeNodeId": 494,
+    "deviceCategoryId": 43,
+    "deviceCode": "NANOMETRICSTITANEA000646",
+    "fileExtensions": [
+      "txt",
+      "dt4"
+    ]
+  }
+]

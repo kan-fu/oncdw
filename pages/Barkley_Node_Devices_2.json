@@ -1,0 +1,25 @@
+[
+  {
+    "deviceId": "24154",
+    "deviceName": "RBRconcerto Tilt Meter ACC.BPR 63056",
+    "locationCode": "BACND",
+    "locationName": "Barkley Node",
+    "dataPreviewOptions": [
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ]
+    ],
+    "searchTreeNodeId": 1785,
+    "deviceCategoryId": 46,
+    "deviceCode": "RBRTILTMETERACCBPR63056",
+    "fileExtensions": [
+      "txt",
+      "dt4"
+    ]
+  }
+]

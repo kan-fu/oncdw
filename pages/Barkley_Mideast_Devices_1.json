@@ -1,0 +1,83 @@
+[
+  {
+    "deviceId": "23843",
+    "deviceName": "Sea-Bird SeaCAT SBE19plus V2 7028",
+    "sensors": [
+      [
+        "16713",
+        "Pressure"
+      ],
+      [
+        "16711",
+        "Sound Speed"
+      ],
+      [
+        "16712",
+        "Temperature"
+      ],
+      [
+        "16708",
+        "Conductivity"
+      ],
+      [
+        "16710",
+        "Density"
+      ],
+      [
+        "16720",
+        "Practical Salinity"
+      ],
+      [
+        "16721",
+        "Sigma-t"
+      ],
+      [
+        "16709",
+        "Sigma-theta (0 dbar)"
+      ]
+    ],
+    "locationCode": "BACME",
+    "locationName": "Barkley Canyon Mid-East",
+    "deviceCode": "SBECTD19p7028"
+  },
+  {
+    "deviceId": "23048",
+    "deviceName": "Sea-Bird SBE 63 Dissolved Oxygen Sensor 630109",
+    "sensors": [
+      [
+        "9228",
+        "Oxygen Concentration Corrected"
+      ],
+      [
+        "9668",
+        "Oxygen Concentration Uncorrected"
+      ],
+      [
+        "9374",
+        "Temperature"
+      ]
+    ],
+    "locationCode": "BACME",
+    "locationName": "Barkley Canyon Mid-East",
+    "deviceCode": "SBE63630109"
+  },
+  {
+    "deviceId": "23843 & 23048",
+    "deviceName": "Sea-Bird SeaCAT SBE19plus V2 7028 & Sea-Bird SBE 63 Dissolved Oxygen Sensor 630109",
+    "sensors": [
+      [
+        [
+          16712,
+          "Temperatures"
+        ],
+        [
+          9374,
+          "Temperatures"
+        ]
+      ]
+    ],
+    "locationCode": "BACME",
+    "locationName": "Barkley Canyon Mid-East",
+    "deviceCode": "SBECTD19p7028 & SBE63630109"
+  }
+]

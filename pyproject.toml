@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools >= 61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "oncdw"
+version = "0.0.1"
+dependencies = [
+    "streamlit",
+    "plotly",
+    "onc"
+]
+
+requires-python = ">= 3.10"
+
+[project.optional-dependencies]
+dev = [
+    "ipykernel",
+    "tox",
+    "black",
+    "isort",
+    "ruff",
+]
+
+[tool.ruff.lint]
+# Reference for the rules https://docs.astral.sh/ruff/rules/
+select = [
+    "E", "W", # pycodestyle
+    "F", # pyflakes
+    "UP", # pyupgrade
+    "B", # flake8-bugbear
+    "SIM", # flake8-simplify
+]
+
+ignore = [
+    "E501",
+]

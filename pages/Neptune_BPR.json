@@ -1,0 +1,317 @@
+[
+  {
+    "locationCode": "CDFM",
+    "deviceCode": "RBRQUARTZ3BPRZERO207600",
+    "deviceCategoryId": 3,
+    "lat": 48.598887,
+    "lon": -127.079527,
+    "locationName": "Clayoquot Deformation Front Middle",
+    "deviceId": 67660,
+    "sensors": [
+      {
+        "sensorId": 77540,
+        "sensorName": "AZA Seafloor Pressure"
+      },
+      {
+        "sensorId": 77600,
+        "sensorName": "AZA Raw Pressure"
+      }
+    ],
+    "sitedeviceid": 1213669,
+    "searchTreeNodeId": 2868
+  },
+  {
+    "locationCode": "CNE20",
+    "deviceCode": "BPR_BC",
+    "deviceCategoryId": 3,
+    "lat": 47.906236,
+    "lon": -127.620529,
+    "locationName": "North East 20km",
+    "deviceId": 12501,
+    "sensors": [
+      {
+        "sensorId": 4176,
+        "sensorName": "Seafloor Pressure"
+      },
+      {
+        "sensorId": 3016,
+        "sensorName": "DART Pressure Residual"
+      }
+    ],
+    "sitedeviceid": 1194503,
+    "searchTreeNodeId": 446
+  },
+  {
+    "locationCode": "CSE25",
+    "deviceCode": "NRCANBPR87",
+    "deviceCategoryId": 3,
+    "lat": 47.669787,
+    "lon": -127.593355,
+    "locationName": "South East 25km",
+    "deviceId": 21502,
+    "sensors": [
+      {
+        "sensorId": 4185,
+        "sensorName": "Seafloor Pressure"
+      },
+      {
+        "sensorId": 3136,
+        "sensorName": "DART Pressure Residual"
+      }
+    ],
+    "sitedeviceid": 1208044,
+    "searchTreeNodeId": 47
+  },
+  {
+    "locationCode": "CW25",
+    "deviceCode": "BPR-1027NW",
+    "deviceCategoryId": 3,
+    "lat": 47.764034,
+    "lon": -128.057662,
+    "locationName": "West 25km",
+    "deviceId": 21501,
+    "sensors": [
+      {
+        "sensorId": 4182,
+        "sensorName": "Seafloor Pressure"
+      },
+      {
+        "sensorId": 7712,
+        "sensorName": "Uncompensated Seafloor Pressure"
+      }
+    ],
+    "sitedeviceid": 1194260,
+    "searchTreeNodeId": 51
+  },
+  {
+    "locationCode": "ENEF",
+    "deviceCode": "RBRQUARTZ3BPR204484",
+    "deviceCategoryId": 3,
+    "lat": 47.958352,
+    "lon": -129.035593,
+    "locationName": "Endeavour East",
+    "deviceId": 65180,
+    "sensors": [
+      {
+        "sensorId": 71781,
+        "sensorName": "Seafloor Pressure"
+      },
+      {
+        "sensorId": 71781,
+        "sensorName": "Seafloor Pressure"
+      }
+    ],
+    "sitedeviceid": 1212206,
+    "searchTreeNodeId": 1310
+  },
+  {
+    "locationCode": "ENWF",
+    "deviceCode": "RBRQUARTZ3BPR204483",
+    "deviceCategoryId": 3,
+    "lat": 47.959888,
+    "lon": -129.124356,
+    "locationName": "West Flank",
+    "deviceId": 49700,
+    "sensors": [
+      {
+        "sensorId": 63302,
+        "sensorName": "Seafloor Pressure"
+      },
+      {
+        "sensorId": 63302,
+        "sensorName": "Seafloor Pressure"
+      }
+    ],
+    "sitedeviceid": 1213765,
+    "searchTreeNodeId": 448
+  },
+  {
+    "locationCode": "FGPD",
+    "deviceCode": "NRCANBPR05",
+    "deviceCategoryId": 3,
+    "lat": 48.814027,
+    "lon": -125.280989,
+    "locationName": "Folger Deep",
+    "deviceId": 22790,
+    "sensors": [
+      {
+        "sensorId": 8812,
+        "sensorName": "Seafloor Pressure"
+      },
+      {
+        "sensorId": 916,
+        "sensorName": "DART Pressure Residual"
+      }
+    ],
+    "sitedeviceid": 1196282,
+    "searchTreeNodeId": 27
+  },
+  {
+    "locationCode": "KEMF",
+    "deviceCode": "NRCANBPR80",
+    "deviceCategoryId": 3,
+    "lat": 47.948583,
+    "lon": -129.098678,
+    "locationName": "Main Endeavour Field",
+    "deviceId": 10703,
+    "sensors": [
+      {
+        "sensorId": 9082,
+        "sensorName": "Seafloor Pressure"
+      },
+      {
+        "sensorId": 1511,
+        "sensorName": "DART Pressure Residual"
+      }
+    ],
+    "sitedeviceid": 1190615,
+    "searchTreeNodeId": 30
+  },
+  {
+    "locationCode": "KEMO",
+    "deviceCode": "NRCANBPRBB",
+    "deviceCategoryId": 3,
+    "lat": 47.924013,
+    "lon": -129.10818,
+    "locationName": "Mothra",
+    "deviceId": 32359,
+    "sensors": [
+      {
+        "sensorId": 39079,
+        "sensorName": "Seafloor Pressure"
+      },
+      {
+        "sensorId": 39099,
+        "sensorName": "DART Pressure Residual"
+      }
+    ],
+    "sitedeviceid": 1212221,
+    "searchTreeNodeId": 33
+  },
+  {
+    "locationCode": "MEFS",
+    "deviceCode": "RBRQUARTZ3BPRZERO207601",
+    "deviceCategoryId": 3,
+    "lat": 47.948169,
+    "lon": -129.098833,
+    "locationName": "Main Endeavour Field South",
+    "deviceId": 67680,
+    "sensors": [
+      {
+        "sensorId": 77542,
+        "sensorName": "AZA Seafloor Pressure"
+      },
+      {
+        "sensorId": 77544,
+        "sensorName": "AZA Raw Pressure"
+      }
+    ],
+    "sitedeviceid": 1214263,
+    "searchTreeNodeId": 1423
+  },
+  {
+    "locationCode": "NC27",
+    "deviceCode": "NRCANBPR52",
+    "deviceCategoryId": 3,
+    "lat": 47.762609,
+    "lon": -127.75829,
+    "locationName": "ODP 1026",
+    "deviceId": 22791,
+    "sensors": [
+      {
+        "sensorId": 3762,
+        "sensorName": "Seafloor Pressure"
+      },
+      {
+        "sensorId": 1515,
+        "sensorName": "DART Pressure Residual"
+      }
+    ],
+    "sitedeviceid": 1190641,
+    "searchTreeNodeId": 37
+  },
+  {
+    "locationCode": "NC89",
+    "deviceCode": "RBRQUARTZ3BPR203659",
+    "deviceCategoryId": 3,
+    "lat": 48.670826,
+    "lon": -126.847987,
+    "locationName": "Bullseye",
+    "deviceId": 49180,
+    "sensors": [
+      {
+        "sensorId": 62541,
+        "sensorName": "Seafloor Pressure"
+      },
+      {
+        "sensorId": 62541,
+        "sensorName": "Seafloor Pressure"
+      }
+    ],
+    "sitedeviceid": 1212227,
+    "searchTreeNodeId": 23
+  },
+  {
+    "locationCode": "NCBC",
+    "deviceCode": "RBRQUARTZ3BPR202320",
+    "deviceCategoryId": 3,
+    "lat": 48.426754,
+    "lon": -126.174691,
+    "locationName": "Barkley Upper Slope",
+    "deviceId": 40460,
+    "sensors": [
+      {
+        "sensorId": 51560,
+        "sensorName": "Seafloor Pressure"
+      },
+      {
+        "sensorId": 51560,
+        "sensorName": "Seafloor Pressure"
+      }
+    ],
+    "sitedeviceid": 1213848,
+    "searchTreeNodeId": 20
+  },
+  {
+    "locationCode": "NCHR",
+    "deviceCode": "NRCANBPRB9",
+    "deviceCategoryId": 3,
+    "lat": 47.9735,
+    "lon": -129.081861,
+    "locationName": "Endeavour North",
+    "deviceId": 74480,
+    "sensors": [
+      {
+        "sensorId": 90861,
+        "sensorName": "Seafloor Pressure"
+      },
+      {
+        "sensorId": 90883,
+        "sensorName": "DART Pressure Residual"
+      }
+    ],
+    "sitedeviceid": 1211672,
+    "searchTreeNodeId": 43
+  },
+  {
+    "locationCode": "RCS",
+    "deviceCode": "NRCANBPR83",
+    "deviceCategoryId": 3,
+    "lat": 47.933101,
+    "lon": -129.098849,
+    "locationName": "Endeavour South",
+    "deviceId": 20501,
+    "sensors": [
+      {
+        "sensorId": 4179,
+        "sensorName": "Seafloor Pressure"
+      },
+      {
+        "sensorId": 8286,
+        "sensorName": "DART Pressure Residual"
+      }
+    ],
+    "sitedeviceid": 1194454,
+    "searchTreeNodeId": 44
+  }
+]
