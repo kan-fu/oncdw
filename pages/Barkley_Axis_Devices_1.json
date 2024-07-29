@@ -1,0 +1,100 @@
+[
+  {
+    "deviceId": "23840",
+    "deviceName": "Sea-Bird SeaCAT SBE19plus V2 6002",
+    "sensors": [
+      [
+        "16673",
+        "Pressure"
+      ],
+      [
+        "16671",
+        "Sound Speed"
+      ],
+      [
+        "16672",
+        "Temperature"
+      ],
+      [
+        "16668",
+        "Conductivity"
+      ],
+      [
+        "16670",
+        "Density"
+      ],
+      [
+        "16666",
+        "Practical Salinity"
+      ],
+      [
+        "16667",
+        "Sigma-t"
+      ],
+      [
+        "16669",
+        "Sigma-theta (0 dbar)"
+      ]
+    ],
+    "locationCode": "BACAX",
+    "locationName": "Barkley Canyon Axis",
+    "deviceCode": "SBECTD19p6002"
+  },
+  {
+    "deviceId": "23283",
+    "deviceName": "Sea-Bird SBE 63 Dissolved Oxygen Sensor 630637",
+    "sensors": [
+      [
+        "13326",
+        "Oxygen Concentration Corrected"
+      ],
+      [
+        "13328",
+        "Oxygen Concentration Uncorrected"
+      ],
+      [
+        "13327",
+        "Temperature"
+      ]
+    ],
+    "locationCode": "BACAX",
+    "locationName": "Barkley Canyon Axis",
+    "deviceCode": "SBE63630637"
+  },
+  {
+    "deviceId": "23133",
+    "deviceName": "WET Labs ECO FLNTURTD 2973",
+    "sensors": [
+      [
+        "9771",
+        "Chlorophyll"
+      ],
+      [
+        "9772",
+        "Turbidity"
+      ]
+    ],
+    "locationCode": "BACAX",
+    "locationName": "Barkley Canyon Axis",
+    "deviceCode": "WETLABSECOFLNTURD2973"
+  },
+  {
+    "deviceId": "23840 & 23283",
+    "deviceName": "Sea-Bird SeaCAT SBE19plus V2 6002 & Sea-Bird SBE 63 Dissolved Oxygen Sensor 630637",
+    "sensors": [
+      [
+        [
+          16672,
+          "Temperatures"
+        ],
+        [
+          13327,
+          "Temperatures"
+        ]
+      ]
+    ],
+    "locationCode": "BACAX",
+    "locationName": "Barkley Canyon Axis",
+    "deviceCode": "SBECTD19p6002 & SBE63630637"
+  }
+]

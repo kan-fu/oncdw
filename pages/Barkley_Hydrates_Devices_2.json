@@ -1,0 +1,48 @@
+[
+  {
+    "deviceId": "23108",
+    "deviceName": "Kongsberg Mesotech Rotary Sonar 1171 (1206086)",
+    "locationCode": "BACHY",
+    "locationName": "Barkley Canyon Hydrates",
+    "dataPreviewOptions": [
+      [
+        210,
+        1
+      ],
+      [
+        210,
+        2
+      ]
+    ],
+    "searchTreeNodeId": 123,
+    "deviceCategoryId": 34,
+    "deviceCode": "KONGSBERGSONAR1171SN1206086",
+    "fileExtensions": [
+      "txt",
+      "dt4"
+    ]
+  },
+  {
+    "deviceId": "23107",
+    "deviceName": "Kongsberg Mesotech Rotary Sonar 1171 (1206085)",
+    "locationCode": "BACHY",
+    "locationName": "Barkley Canyon Hydrates",
+    "dataPreviewOptions": [
+      [
+        210,
+        1
+      ],
+      [
+        210,
+        2
+      ]
+    ],
+    "searchTreeNodeId": 122,
+    "deviceCategoryId": 34,
+    "deviceCode": "KONGSBERGSONAR1171SN1206085",
+    "fileExtensions": [
+      "txt",
+      "dt4"
+    ]
+  }
+]

@@ -1,0 +1,92 @@
+[
+  {
+    "deviceId": "11302",
+    "deviceName": "Nortek Aquadopp HR-Profiler 2 MHz 2700",
+    "locationCode": "BACAX",
+    "locationName": "Barkley Canyon Axis",
+    "dataPreviewOptions": [
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        57,
+        1
+      ],
+      [
+        57,
+        2
+      ]
+    ],
+    "searchTreeNodeId": 15,
+    "deviceCategoryId": 73,
+    "deviceCode": "BC_POD1_AD2M",
+    "fileExtensions": null
+  },
+  {
+    "deviceId": "24420",
+    "deviceName": "Nortek Signature55 Current Profiler 200066",
+    "locationCode": "BACAX",
+    "locationName": "Barkley Canyon Axis",
+    "dataPreviewOptions": [
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        57,
+        1
+      ],
+      [
+        57,
+        2
+      ]
+    ],
+    "searchTreeNodeId": 15,
+    "deviceCategoryId": 98,
+    "deviceCode": "NORTEKSIGNATURE200066",
+    "fileExtensions": [
+      "txt",
+      "dt4"
+    ]
+  },
+  {
+    "deviceId": "12007",
+    "deviceName": "Kongsberg Mesotech Rotary Sonar 1071 (0711216)",
+    "locationCode": "BACAX",
+    "locationName": "Barkley Canyon Axis",
+    "dataPreviewOptions": [
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        210,
+        1
+      ],
+      [
+        210,
+        2
+      ]
+    ],
+    "searchTreeNodeId": 15,
+    "deviceCategoryId": 34,
+    "deviceCode": "BH_POD2_ROTSONAR",
+    "fileExtensions": [
+      "txt",
+      "dt4"
+    ]
+  }
+]
