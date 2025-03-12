@@ -1,0 +1,109 @@
+[
+  {
+    "deviceId": "23065",
+    "deviceName": "RDI Workhorse Long Ranger ADCP 75 kHz (17431)",
+    "locationCode": "NCBC",
+    "locationName": "Barkley Upper Slope",
+    "dataPreviewOptions": [
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        10,
+        1
+      ],
+      [
+        10,
+        2
+      ],
+      [
+        10,
+        3
+      ],
+      [
+        10,
+        4
+      ],
+      [
+        11,
+        1
+      ],
+      [
+        11,
+        2
+      ],
+      [
+        11,
+        3
+      ],
+      [
+        11,
+        4
+      ]
+    ],
+    "searchTreeNodeId": 20,
+    "deviceCategoryId": 72,
+    "deviceCode": "RDIADCP75WH17431",
+    "fileExtensions": null
+  },
+  {
+    "deviceId": "40460",
+    "deviceName": "RBR Quartz3 BPR SN 202320",
+    "locationCode": "NCBC",
+    "locationName": "Barkley Upper Slope",
+    "dataPreviewOptions": [
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        220,
+        1
+      ],
+      [
+        220,
+        2
+      ],
+      [
+        220,
+        3
+      ],
+      [
+        220,
+        4
+      ]
+    ],
+    "searchTreeNodeId": 20,
+    "deviceCategoryId": 3,
+    "deviceCode": "RBRQUARTZ3BPR202320",
+    "fileExtensions": [
+      "txt",
+      "dt4"
+    ]
+  }
+]

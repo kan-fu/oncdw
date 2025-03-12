@@ -1,0 +1,83 @@
+[
+  {
+    "deviceId": "23579",
+    "deviceName": "Sea-Bird SeaCAT SBE19plus V2 7026",
+    "sensors": [
+      [
+        "15665",
+        "Pressure"
+      ],
+      [
+        "15663",
+        "Sound Speed"
+      ],
+      [
+        "15664",
+        "Temperature"
+      ],
+      [
+        "15661",
+        "Conductivity"
+      ],
+      [
+        "15662",
+        "Density"
+      ],
+      [
+        "15672",
+        "Practical Salinity"
+      ],
+      [
+        "15673",
+        "Sigma-t"
+      ],
+      [
+        "15889",
+        "Sigma-theta (0 dbar)"
+      ]
+    ],
+    "locationCode": "NCBC",
+    "locationName": "Barkley Upper Slope",
+    "deviceCode": "SBECTD19p7026"
+  },
+  {
+    "deviceId": "23046",
+    "deviceName": "Sea-Bird SBE 63 Dissolved Oxygen Sensor 630103",
+    "sensors": [
+      [
+        "9226",
+        "Oxygen Concentration Corrected"
+      ],
+      [
+        "9666",
+        "Oxygen Concentration Uncorrected"
+      ],
+      [
+        "584",
+        "Temperature"
+      ]
+    ],
+    "locationCode": "NCBC",
+    "locationName": "Barkley Upper Slope",
+    "deviceCode": "SBE63630103"
+  },
+  {
+    "deviceId": "23579 & 23046",
+    "deviceName": "Sea-Bird SeaCAT SBE19plus V2 7026 & Sea-Bird SBE 63 Dissolved Oxygen Sensor 630103",
+    "sensors": [
+      [
+        [
+          15664,
+          "Temperatures"
+        ],
+        [
+          584,
+          "Temperatures"
+        ]
+      ]
+    ],
+    "locationCode": "NCBC",
+    "locationName": "Barkley Upper Slope",
+    "deviceCode": "SBECTD19p7026 & SBE63630103"
+  }
+]
