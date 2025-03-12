@@ -8,13 +8,13 @@ json_filename = "Neptune_BPR"
 page_title = "Neptune BPR"
 
 st.set_page_config(layout="wide", page_title=page_title)
-# custom css
 
 with open(f"pages/{json_filename}.json") as f:
     devices = json.load(f)
 
 client = ONCDW(file=page_title)
 
+# custom css
 client.ui.import_custom_badge_css(sticky_device=True)
 
 st.title("Neptune BPR Monitoring Dashboard")

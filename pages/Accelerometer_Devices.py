@@ -4,13 +4,19 @@ import streamlit as st
 
 from oncdw import ONCDW
 
-st.set_page_config(layout="wide", page_title="Accelerometer and Tiltmeter")
+json_filename = "Accelerometer_Devices"
+page_title = "Accelerometer and Tiltmeter"
+
+st.set_page_config(layout="wide", page_title=page_title)
+
+with open(f"pages/{json_filename}.json") as f:
+    devices = json.load(f)
+
+client = ONCDW(file=page_title)
+
 # custom css
-devices = json.load(open("pages/Accelerometer_Devices.json"))
-
-client = ONCDW()
-
 client.ui.import_custom_badge_css(sticky_device=True)
+
 st.title("Accelerometer Monitoring Dashboard")
 client.ui.show_time_difference(client.now)
 
