@@ -94,19 +94,22 @@ class Chart:
     def scatter_plot(self, df, st_wrapper, engine: str | None):
         return self._get_engine_class(engine).scatter_plot(df, st_wrapper)
 
-    def map(self, df, center_lat, center_lon, st_wrapper):
+    def map(self, df, center_lat, center_lon, zoom, st_wrapper):
         point_layer = pydeck.Layer(
             "ScatterplotLayer",
             data=df,
             get_position=["lon", "lat"],
             get_color="[255, 0, 0]",
-            get_radius="800",
+            get_radius=1000,
             auto_highlight=True,
             pickable=True,
         )
 
         view_state = pydeck.ViewState(
-            latitude=center_lat, longitude=center_lon, controller=True, zoom=6.5
+            latitude=center_lat,
+            longitude=center_lon,
+            controller=True,
+            zoom=zoom,
         )
 
         tooltip = []

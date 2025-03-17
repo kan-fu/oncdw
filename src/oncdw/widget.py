@@ -31,7 +31,7 @@ class Widget:
     def time_series(
         self,
         sensor: int | dict,
-        color: str = "#5276A7",
+        color: str = "#1f77b4",
         last_days: int = 7,
         st_wrapper: bool = True,
         engine: str | None = None,
@@ -51,7 +51,7 @@ class Widget:
         sensor1: int | dict,
         sensor2: int | dict,
         color1: str = "#57A44C",
-        color2: str = "#5276A7",
+        color2: str = "#1f77b4",
         last_days: int = 7,
         st_wrapper: bool = True,
         engine: str | None = None,
@@ -172,7 +172,18 @@ class Widget:
 
         return self._chart.scatter_plot(df, st_wrapper, engine)
 
-    def map(self, devices: list[dict], st_wrapper=True):
+    def map(
+        self,
+        devices: list[dict],
+        center_lat,
+        center_lon,
+        zoom,
+        st_wrapper=True,
+    ):
         return self._chart.map(
-            pd.DataFrame(devices), center_lat=48, center_lon=-127, st_wrapper=st_wrapper
+            pd.DataFrame(devices),
+            center_lat=center_lat,
+            center_lon=center_lon,
+            zoom=zoom,
+            st_wrapper=st_wrapper,
         )

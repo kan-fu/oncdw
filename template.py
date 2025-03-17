@@ -7,15 +7,44 @@ from oncdw import ONCDW
 
 
 def Barkley(
-    json_filename,
-    location_code,
-    page_title,
-    device_name_id,
-    device_console_url,
-    annotation_url,
-    sticky_device=True,
-    sticky_location=True,
+    json_filename: str,
+    location_code: str,
+    page_title: str,
+    device_name_id: str,
+    device_console_url: str,
+    annotation_url: str,
+    sticky_device: bool = True,
+    sticky_location: bool = True,
 ):
+    """
+    Barkely is a template for the dashboard that consists of five sections:
+
+    1. Links to the Oceans 3.0 Device Console and Oceans 3.0 Annotation.
+    2. Three images: State of Ocean Climate plot, State of Ocean Anomaly plot, and State of Ocean Min/Max plot.
+    3. List of devices, each having a list of sensors with a time series plot.
+    4. List of dual devices, each having a two-sensors time series plot.
+    5. List of devices, each having a list of data preview plots and an archive file table.
+
+    Parameters
+    ----------
+    json_filename : str
+        The name of the JSON file that contains the data. It should have suffix _1.json (for section 3 and 4)
+        and _2.json (for section 5).
+    location_code : str
+        The location code of the devices.
+    page_title : str
+        The title of the page.
+    device_name_id : str
+        The name and ID of the device shown in the Oceans 3.0 device console link.
+    device_console_url : str
+        The URL of the device for the Oceans 3.0 device console.
+    annotation_url : str
+        The URL of the device for the Oceans 3.0 annotation.
+    sticky_device : bool, default True
+        Whether to show the device as sticky in the main part.
+    sticky_location : bool, default True
+        Whether to show the location as sticky in the sidebar.
+    """
     st.set_page_config(layout="wide", page_title=page_title)
 
     with open(f"pages/{json_filename}_1.json") as f:
@@ -131,3 +160,94 @@ def Barkley(
         # Archive file table
         st.subheader("Archive file table")
         client.widget.table_archive_files(device)
+
+
+def Neptune(
+    json_filename: str,
+    page_title: str,
+    center_lat: float = 49.3,
+    center_lon: float = -126.3,
+    zoom: float = 6,
+    data_preview_widget: bool = True,
+    sticky_device: bool = True,
+):
+    """
+    Neptune is a template for the dashboard that consists of two sections:
+
+    1. A map of the locations.
+    2. A list of devices, each having three widgets
+        - Data Preview plot, optional
+        - Archive file table
+        - Time series two sensors
+    
+    Parameters
+    ----------
+    json_filename : str
+        The name of the JSON file that contains the data.
+    page_title : str
+        The title of the page.
+    center_lat : float, optional
+        The latitude of the center of the map.
+    center_lon : float, optional
+        The longitude of the center of the map. 
+    zoom : float, optional
+        The zoom level of the map.
+    data_preview_widget : bool, default True
+        Whether to show the data preview widget.
+    sticky_device : bool, default True
+        Whether to show the device as sticky in the main part.
+    """
+    st.set_page_config(layout="wide", page_title=page_title)
+
+    with open(f"pages/{json_filename}.json") as f:
+        devices = json.load(f)
+
+    client = ONCDW(file=page_title)
+
+    # custom css
+    client.ui.import_custom_badge_css(sticky_device=sticky_device)
+
+    st.title(f"{page_title} Monitoring Dashboard")
+    client.ui.show_time_difference(client.now)
+
+    client.widget.map(devices, center_lat=center_lat, center_lon=center_lon, zoom=zoom)
+
+    with st.sidebar:
+        st.title("Device List")
+
+        for device in devices:
+            client.ui.location_sidebar(device)
+            client.ui.device_sidebar(device)
+            for sensor in device["sensors"]:
+                client.ui.sensor_sidebar(sensor)
+            st.divider()
+
+    for device in devices:
+        client.ui.location(device)
+        client.ui.device(device)
+        if data_preview_widget:
+            # Data Preview png
+            st.subheader("Data Preview plot")
+            col1, col2 = st.columns(2)
+            with col1:
+                client.widget.data_preview(device, 3, plot_number=1)
+            with col2:
+                client.widget.data_preview(device, 3, plot_number=2)
+
+        # Archive file table
+        st.subheader("Archive file table")
+        client.widget.table_archive_files(device)
+
+        # Time series two sensors
+        st.subheader("Time series")
+        sensor1, sensor2 = (
+            device["sensors"][0],
+            device["sensors"][1],
+        )
+        col1, col2 = st.columns(2, gap="large")
+        with col1:
+            client.ui.sensor(sensor1)
+        with col2:
+            client.ui.sensor(sensor2)
+
+        client.widget.time_series_two_sensors(sensor1, sensor2, last_days=2)
