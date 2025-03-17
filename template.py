@@ -169,6 +169,8 @@ def Neptune(
     center_lon: float = -126.3,
     zoom: float = 6,
     data_preview_widget: bool = True,
+    time_series_widget: bool = True,
+    map_widget: bool = True,
     sticky_device: bool = True,
 ):
     """
@@ -178,8 +180,28 @@ def Neptune(
     2. A list of devices, each having three widgets
         - Data Preview plot, optional
         - Archive file table
-        - Time series two sensors
-    
+        - Time series two sensors, optional
+
+    A sample format for the expected json file is listed below.
+    Some optional keys can be left out if the corresponding widget is not present.
+    [
+        {
+            "locationCode": "CDFM",  # required
+            "deviceCode": "RBRQUARTZ3BPRZERO207600",  # required
+            "locationName": "Clayoquot Deformation Front Middle",  # requried
+            "deviceId": 67660,  # required
+            "deviceCategoryId": 3,  # optional for data preview widget
+            "lat": 48.598887,  # optional for map widget
+            "lon": -127.079527,  # optional for map widget
+            "sensors": [
+                {"sensorId": 77540, "sensorName": "AZA Seafloor Pressure"},
+                {"sensorId": 77600, "sensorName": "AZA Raw Pressure"},
+            ],  # optional for time series widget
+            "searchTreeNodeId": 2868,  # optional for data preview widget
+            "dataPreviewOptions": [[3, 1], [3, 2]], # optional for data preview widget [(data_product_format_id, plot_number)]
+        }
+    ]
+
     Parameters
     ----------
     json_filename : str
@@ -189,11 +211,13 @@ def Neptune(
     center_lat : float, optional
         The latitude of the center of the map.
     center_lon : float, optional
-        The longitude of the center of the map. 
+        The longitude of the center of the map.
     zoom : float, optional
         The zoom level of the map.
     data_preview_widget : bool, default True
         Whether to show the data preview widget.
+    map_widget: bool, default True
+        Whether to show the map widget.
     sticky_device : bool, default True
         Whether to show the device as sticky in the main part.
     """
@@ -210,7 +234,10 @@ def Neptune(
     st.title(f"{page_title} Monitoring Dashboard")
     client.ui.show_time_difference(client.now)
 
-    client.widget.map(devices, center_lat=center_lat, center_lon=center_lon, zoom=zoom)
+    if map_widget:
+        client.widget.map(
+            devices, center_lat=center_lat, center_lon=center_lon, zoom=zoom
+        )
 
     with st.sidebar:
         st.title("Device List")
@@ -218,8 +245,10 @@ def Neptune(
         for device in devices:
             client.ui.location_sidebar(device)
             client.ui.device_sidebar(device)
-            for sensor in device["sensors"]:
-                client.ui.sensor_sidebar(sensor)
+            if time_series_widget:
+                # Only list sensors if times series widget is present
+                for sensor in device["sensors"]:
+                    client.ui.sensor_sidebar(sensor)
             st.divider()
 
     for device in devices:
@@ -228,26 +257,47 @@ def Neptune(
         if data_preview_widget:
             # Data Preview png
             st.subheader("Data Preview plot")
-            col1, col2 = st.columns(2)
-            with col1:
-                client.widget.data_preview(device, 3, plot_number=1)
-            with col2:
-                client.widget.data_preview(device, 3, plot_number=2)
+
+            # Data preview plots in two columns
+            for i in range(len(device["dataPreviewOptions"]) // 2):
+                # The format of options is (data_product_format_id, plot_number)
+                option1, option2 = (
+                    device["dataPreviewOptions"][2 * i],
+                    device["dataPreviewOptions"][2 * i + 1],
+                )
+
+                data_product_format_id = option1[0]
+                # Assumption check
+                assert (
+                    option2[0] == data_product_format_id
+                ), "two options should have the same format id"
+                assert (
+                    option1[1] + 1 == option2[1]
+                ), "two options should have correct plot number"
+
+                cols = st.columns(2)
+                with st.container():
+                    for plot_number in (option1[1], option2[1]):
+                        with cols[(plot_number - 1) % 2]:
+                            client.widget.data_preview(
+                                device, data_product_format_id, plot_number=plot_number
+                            )
 
         # Archive file table
         st.subheader("Archive file table")
         client.widget.table_archive_files(device)
 
-        # Time series two sensors
-        st.subheader("Time series")
-        sensor1, sensor2 = (
-            device["sensors"][0],
-            device["sensors"][1],
-        )
-        col1, col2 = st.columns(2, gap="large")
-        with col1:
-            client.ui.sensor(sensor1)
-        with col2:
-            client.ui.sensor(sensor2)
+        if time_series_widget:
+            # Time series two sensors
+            st.subheader("Time series")
+            sensor1, sensor2 = (
+                device["sensors"][0],
+                device["sensors"][1],
+            )
+            col1, col2 = st.columns(2, gap="large")
+            with col1:
+                client.ui.sensor(sensor1)
+            with col2:
+                client.ui.sensor(sensor2)
 
-        client.widget.time_series_two_sensors(sensor1, sensor2, last_days=2)
+            client.widget.time_series_two_sensors(sensor1, sensor2, last_days=2)

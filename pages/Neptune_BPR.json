@@ -18,7 +18,17 @@
       }
     ],
     "sitedeviceid": 1213669,
-    "searchTreeNodeId": 2868
+    "searchTreeNodeId": 2868,
+    "dataPreviewOptions": [
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ]
+    ]
   },
   {
     "locationCode": "CNE20",
@@ -39,7 +49,17 @@
       }
     ],
     "sitedeviceid": 1194503,
-    "searchTreeNodeId": 446
+    "searchTreeNodeId": 446,
+    "dataPreviewOptions": [
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ]
+    ]
   },
   {
     "locationCode": "CSE25",
@@ -60,7 +80,17 @@
       }
     ],
     "sitedeviceid": 1208044,
-    "searchTreeNodeId": 47
+    "searchTreeNodeId": 47,
+    "dataPreviewOptions": [
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ]
+    ]
   },
   {
     "locationCode": "CW25",
@@ -81,7 +111,17 @@
       }
     ],
     "sitedeviceid": 1194260,
-    "searchTreeNodeId": 51
+    "searchTreeNodeId": 51,
+    "dataPreviewOptions": [
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ]
+    ]
   },
   {
     "locationCode": "ENEF",
@@ -102,7 +142,17 @@
       }
     ],
     "sitedeviceid": 1212206,
-    "searchTreeNodeId": 1310
+    "searchTreeNodeId": 1310,
+    "dataPreviewOptions": [
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ]
+    ]
   },
   {
     "locationCode": "ENWF",
@@ -123,7 +173,17 @@
       }
     ],
     "sitedeviceid": 1213765,
-    "searchTreeNodeId": 448
+    "searchTreeNodeId": 448,
+    "dataPreviewOptions": [
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ]
+    ]
   },
   {
     "locationCode": "FGPD",
@@ -144,7 +204,17 @@
       }
     ],
     "sitedeviceid": 1196282,
-    "searchTreeNodeId": 27
+    "searchTreeNodeId": 27,
+    "dataPreviewOptions": [
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ]
+    ]
   },
   {
     "locationCode": "KEMF",
@@ -165,7 +235,17 @@
       }
     ],
     "sitedeviceid": 1190615,
-    "searchTreeNodeId": 30
+    "searchTreeNodeId": 30,
+    "dataPreviewOptions": [
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ]
+    ]
   },
   {
     "locationCode": "KEMO",
@@ -186,7 +266,17 @@
       }
     ],
     "sitedeviceid": 1212221,
-    "searchTreeNodeId": 33
+    "searchTreeNodeId": 33,
+    "dataPreviewOptions": [
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ]
+    ]
   },
   {
     "locationCode": "MEFS",
@@ -207,7 +297,17 @@
       }
     ],
     "sitedeviceid": 1214263,
-    "searchTreeNodeId": 1423
+    "searchTreeNodeId": 1423,
+    "dataPreviewOptions": [
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ]
+    ]
   },
   {
     "locationCode": "NC27",
@@ -228,7 +328,17 @@
       }
     ],
     "sitedeviceid": 1190641,
-    "searchTreeNodeId": 37
+    "searchTreeNodeId": 37,
+    "dataPreviewOptions": [
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ]
+    ]
   },
   {
     "locationCode": "NC89",
@@ -249,7 +359,17 @@
       }
     ],
     "sitedeviceid": 1212227,
-    "searchTreeNodeId": 23
+    "searchTreeNodeId": 23,
+    "dataPreviewOptions": [
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ]
+    ]
   },
   {
     "locationCode": "NCBC",
@@ -270,7 +390,17 @@
       }
     ],
     "sitedeviceid": 1213848,
-    "searchTreeNodeId": 20
+    "searchTreeNodeId": 20,
+    "dataPreviewOptions": [
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ]
+    ]
   },
   {
     "locationCode": "NCHR",
@@ -291,7 +421,17 @@
       }
     ],
     "sitedeviceid": 1211672,
-    "searchTreeNodeId": 43
+    "searchTreeNodeId": 43,
+    "dataPreviewOptions": [
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ]
+    ]
   },
   {
     "locationCode": "RCS",
@@ -312,6 +452,16 @@
       }
     ],
     "sitedeviceid": 1194454,
-    "searchTreeNodeId": 44
+    "searchTreeNodeId": 44,
+    "dataPreviewOptions": [
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ]
+    ]
   }
 ]
