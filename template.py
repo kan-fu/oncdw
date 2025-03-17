@@ -6,6 +6,39 @@ import streamlit as st
 from oncdw import ONCDW
 
 
+def data_preview_section(device: dict, client: ONCDW):
+    """
+    Assume data preview plots are placed in two columns,
+    and the options are like [[x,1],[x,2],[x,3],[x,4],[y,1],[y,2]].
+    """
+    st.subheader("Data Preview plot")
+
+    # Data preview plots in two columns
+    for i in range(len(device["dataPreviewOptions"]) // 2):
+        # The format of options is (data_product_format_id, plot_number)
+        option1, option2 = (
+            device["dataPreviewOptions"][2 * i],
+            device["dataPreviewOptions"][2 * i + 1],
+        )
+
+        data_product_format_id = option1[0]
+        # Assumption check
+        assert (
+            option2[0] == data_product_format_id
+        ), "two options should have the same format id"
+        assert (
+            option1[1] + 1 == option2[1]
+        ), "two options should have correct plot number"
+
+        cols = st.columns(2)
+        with st.container():
+            for plot_number in (option1[1], option2[1]):
+                with cols[(plot_number - 1) % 2]:
+                    client.widget.data_preview(
+                        device, data_product_format_id, plot_number=plot_number
+                    )
+
+
 def Barkley(
     json_filename: str,
     location_code: str,
@@ -17,19 +50,59 @@ def Barkley(
     sticky_location: bool = True,
 ):
     """
-    Barkely is a template for the dashboard that consists of five sections:
+    Barkely is a template for the dashboard of only one location that consists of five sections:
 
     1. Links to the Oceans 3.0 Device Console and Oceans 3.0 Annotation.
     2. Three images: State of Ocean Climate plot, State of Ocean Anomaly plot, and State of Ocean Min/Max plot.
     3. List of devices, each having a list of sensors with a time series plot.
-    4. List of dual devices, each having a two-sensors time series plot.
+    4. List of double devices, each having a two-sensors time series plot.
     5. List of devices, each having a list of data preview plots and an archive file table.
+
+    A sample format for the expected xxx_1 json file is listed below. All are required.
+    It is used in the section 3 and section 4.
+    [
+        # One-sensor times series plot
+        {
+            "deviceId": "23580",
+            "deviceName": "Sea-Bird SeaCAT SBE19plus V2 7033",
+            "sensors": [["15678", "Pressure"]],  # [[sensor id, sensor name]]
+            "locationCode": "NC89",
+            "locationName": "Bullseye",
+            "deviceCode": "SBECTD19p7033",
+        },
+        # Two-sensors times series plot
+        {
+            "deviceId": "23840 & 23283",
+            "deviceName": "Sea-Bird SeaCAT SBE19plus V2 6002 & Sea-Bird SBE 63 Dissolved Oxygen Sensor 630637",
+            # [[[sensor id 1, sensor name 1], [sensor id 2, sensor name 2]]]
+            "sensors": [[[16672, "Temperatures"], [13327, "Temperatures"]]],
+            "locationCode": "BACAX",
+            "locationName": "Barkley Canyon Axis",
+            "deviceCode": "SBECTD19p6002 & SBE63630637",
+        }
+    ]
+
+    A sample format for the expected xxx_2 json file is listed below.
+    All are required except `fileExtensions`. It is used in the section 5.
+    [
+        {
+            "deviceId": "24150",
+            "deviceName": "RBRconcerto Tilt Meter ACC.BPR 63055",
+            "locationCode": "NC89",
+            "locationName": "Bullseye",
+            "dataPreviewOptions": [[3, 1], [3, 2]], # [(data_product_format_id, plot_number)]
+            "searchTreeNodeId": 1776,
+            "deviceCategoryId": 46,
+            "deviceCode": "RBRTILTMETERACCBPR63055",
+            "fileExtensions": ["txt", "dt4"], # optional
+        }
+    ]
+
 
     Parameters
     ----------
     json_filename : str
-        The name of the JSON file that contains the data. It should have suffix _1.json (for section 3 and 4)
-        and _2.json (for section 5).
+        The name of the JSON file that contains the data. It should have suffix _1.json and _2.json.
     location_code : str
         The location code of the devices.
     page_title : str
@@ -132,30 +205,9 @@ def Barkley(
 
     for device in devices2:
         client.ui.device(device)
+
         # Data preview plots in two columns
-        for i in range(len(device["dataPreviewOptions"]) // 2):
-            # The format of options is (data_product_format_id, plot_number)
-            option1, option2 = (
-                device["dataPreviewOptions"][2 * i],
-                device["dataPreviewOptions"][2 * i + 1],
-            )
-
-            data_product_format_id = option1[0]
-            # Assumption check
-            assert (
-                option2[0] == data_product_format_id
-            ), "two options should have the same format id"
-            assert (
-                option1[1] + 1 == option2[1]
-            ), "two options should have correct plot number"
-
-            cols = st.columns(2)
-            with st.container():
-                for plot_number in (option1[1], option2[1]):
-                    with cols[(plot_number - 1) % 2]:
-                        client.widget.data_preview(
-                            device, data_product_format_id, plot_number=plot_number
-                        )
+        data_preview_section(device, client)
 
         # Archive file table
         st.subheader("Archive file table")
@@ -255,33 +307,7 @@ def Neptune(
         client.ui.location(device)
         client.ui.device(device)
         if data_preview_widget:
-            # Data Preview png
-            st.subheader("Data Preview plot")
-
-            # Data preview plots in two columns
-            for i in range(len(device["dataPreviewOptions"]) // 2):
-                # The format of options is (data_product_format_id, plot_number)
-                option1, option2 = (
-                    device["dataPreviewOptions"][2 * i],
-                    device["dataPreviewOptions"][2 * i + 1],
-                )
-
-                data_product_format_id = option1[0]
-                # Assumption check
-                assert (
-                    option2[0] == data_product_format_id
-                ), "two options should have the same format id"
-                assert (
-                    option1[1] + 1 == option2[1]
-                ), "two options should have correct plot number"
-
-                cols = st.columns(2)
-                with st.container():
-                    for plot_number in (option1[1], option2[1]):
-                        with cols[(plot_number - 1) % 2]:
-                            client.widget.data_preview(
-                                device, data_product_format_id, plot_number=plot_number
-                            )
+            data_preview_section(device, client)
 
         # Archive file table
         st.subheader("Archive file table")
