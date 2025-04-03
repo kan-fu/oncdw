@@ -1,0 +1,83 @@
+[
+  {
+    "deviceId": "23580",
+    "deviceName": "Sea-Bird SeaCAT SBE19plus V2 7033",
+    "sensors": [
+      [
+        "15678",
+        "Pressure"
+      ],
+      [
+        "15676",
+        "Sound Speed"
+      ],
+      [
+        "15677",
+        "Temperature"
+      ],
+      [
+        "15674",
+        "Conductivity"
+      ],
+      [
+        "15675",
+        "Density"
+      ],
+      [
+        "15685",
+        "Practical Salinity"
+      ],
+      [
+        "15686",
+        "Sigma-t"
+      ],
+      [
+        "15890",
+        "Sigma-theta (0 dbar)"
+      ]
+    ],
+    "locationCode": "NC89",
+    "locationName": "Bullseye",
+    "deviceCode": "SBECTD19p7033"
+  },
+  {
+    "deviceId": "23052",
+    "deviceName": "Sea-Bird SBE 63 Dissolved Oxygen Sensor 630282",
+    "sensors": [
+      [
+        "9232",
+        "Oxygen Concentration Corrected"
+      ],
+      [
+        "9672",
+        "Oxygen Concentration Uncorrected"
+      ],
+      [
+        "589",
+        "Temperature"
+      ]
+    ],
+    "locationCode": "NC89",
+    "locationName": "Bullseye",
+    "deviceCode": "SBE63630282"
+  },
+  {
+    "deviceId": "23580 & 23052",
+    "deviceName": "Sea-Bird SeaCAT SBE19plus V2 7033 & Sea-Bird SBE 63 Dissolved Oxygen Sensor 630282",
+    "sensors": [
+      [
+        [
+          "15677",
+          "Temperatures"
+        ],
+        [
+          "589",
+          "Temperatures"
+        ]
+      ]
+    ],
+    "locationCode": "NC89",
+    "locationName": "Bullseye",
+    "deviceCode": "SBECTD19p7033 & SBE63630282"
+  }
+]
