@@ -137,8 +137,10 @@ class UI:
     def location(device: dict):
         left = device["locationCode"]
         right = device["locationName"]
+        href = f"https://data.oceannetworks.ca/DataSearch?location={left}"
         anchor = f"location-code-{left}"
-        return UI.title_badge(left, right, anchor=anchor, color="lightblue")
+
+        return UI.title_badge(left, right, href=href, anchor=anchor, color="lightblue")
 
     @staticmethod
     def location_sidebar(device: dict):

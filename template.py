@@ -1,7 +1,9 @@
 import json
+import os
 import re
 
 import streamlit as st
+from onc import ONC
 
 from oncdw import ONCDW
 
@@ -180,6 +182,12 @@ def Barkley(
 
     # All the devices belong to the same location
     client.ui.location(devices1[0])
+
+    onc = ONC(os.environ.get("ONC_TOKEN"))
+    location_info = onc.getLocations({"locationCode": location_code})
+    with st.expander("Location Info", expanded=False):
+        st.json(location_info)
+
     st.header("Links")
 
     st.subheader(

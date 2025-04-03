@@ -82,9 +82,7 @@ def template_gen(location_code, location_name, html_filename, json_filename):
             {
                 "deviceId": device_id,
                 "deviceName": device_name,
-                "sensors": [
-                    ((sensor_id1, sensor_name), (sensorid2, sensor_name))
-                ],
+                "sensors": [((sensor_id1, sensor_name), (sensorid2, sensor_name))],
                 "locationCode": location_code,
                 "locationName": location_name,
                 "deviceCode": f"{device_code[device_id1]} & {device_code[device_id2]}",
