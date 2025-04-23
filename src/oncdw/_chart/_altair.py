@@ -58,12 +58,10 @@ class Altair:
         df1,
         ylabel1,
         sensor_type1,
-        sensor_id1,
         color1,
         df2,
         ylabel2,
         sensor_type2,
-        sensor_id2,
         color2,
         st_wrapper,
     ):
@@ -73,11 +71,6 @@ class Altair:
             )
 
         if sensor_type1 == sensor_type2:
-            # If two sensors have the same sensor type, ylabel(i.e. name + uofm)
-            # might not be enough to uniquely identify one sensor
-            if ylabel1 == ylabel2:
-                ylabel1 = f"{ylabel1} - {sensor_id1}"
-                ylabel2 = f"{ylabel2} - {sensor_id2}"
             df1["label"] = ylabel1
             df2["label"] = ylabel2
             df = pd.concat([df1, df2])

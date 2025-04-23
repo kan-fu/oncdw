@@ -109,12 +109,17 @@ def template_gen(location_code, location_name, html_filename, json_filename):
         )
 
         # Get device code and filter extension (if present) for archive file query
-        archive_file_section = section_div.xpath(".//section[@devicecode]")[0]
-        device_code = archive_file_section.attrib["devicecode"]
+        try:
+            archive_file_section = section_div.xpath(".//section[@devicecode]")[0]
+            device_code = archive_file_section.attrib["devicecode"]
 
-        file_extensions = archive_file_section.get("extension")
-        if file_extensions:
-            file_extensions = file_extensions.split(", ")
+            file_extensions = archive_file_section.get("extension")
+            if file_extensions:
+                file_extensions = file_extensions.split(", ")
+        except IndexError:
+            print("No archive file section found")
+            device_code = None
+            file_extensions = None
 
         res2.append(
             {

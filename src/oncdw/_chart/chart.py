@@ -62,18 +62,21 @@ class Chart:
         st_wrapper,
         engine: str | None,
     ):
+        # If two sensors have the same sensor type, ylabel(i.e. name + uofm)
+        # might not be enough to uniquely identify one sensor
+        if ylabel1 == ylabel2:
+            ylabel1 = f"{ylabel1} - {sensor_id1}"
+            ylabel2 = f"{ylabel2} - {sensor_id2}"
         _show_latest_timestamp(df1, ylabel1, self._client.now)
         _show_latest_timestamp(df2, ylabel2, self._client.now)
         return self._get_engine_class(engine).time_series_two_sensors(
             df1,
             ylabel1,
             sensor_type1,
-            sensor_id1,
             color1,
             df2,
             ylabel2,
             sensor_type2,
-            sensor_id2,
             color2,
             st_wrapper,
         )

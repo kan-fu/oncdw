@@ -1,0 +1,46 @@
+[
+  {
+    "deviceId": "74100",
+    "deviceName": "Ocean Sonics icListen HF Hydrophone 6405",
+    "locationCode": "CCIP",
+    "locationName": "China Creek Underwater Network",
+    "dataPreviewOptions": [
+      [
+        176,
+        1
+      ],
+      [
+        176,
+        2
+      ],
+      [
+        176,
+        3
+      ],
+      [
+        176,
+        4
+      ],
+      [
+        53,
+        1
+      ],
+      [
+        53,
+        2
+      ],
+      [
+        53,
+        3
+      ],
+      [
+        53,
+        4
+      ]
+    ],
+    "searchTreeNodeId": 2666,
+    "deviceCategoryId": 19,
+    "deviceCode": "ICLISTENHF6405",
+    "fileExtensions": null
+  }
+]

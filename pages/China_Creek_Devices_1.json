@@ -1,0 +1,165 @@
+[
+  {
+    "deviceId": "29159",
+    "deviceName": "Sea-Bird SeaCAT SBE19plus V2 7287",
+    "sensors": [
+      [
+        "34282",
+        "Pressure"
+      ],
+      [
+        "34281",
+        "Sound Speed"
+      ],
+      [
+        "34299",
+        "Temperature"
+      ],
+      [
+        "34279",
+        "Conductivity"
+      ],
+      [
+        "34280",
+        "Density"
+      ],
+      [
+        "34320",
+        "Practical Salinity"
+      ],
+      [
+        "34359",
+        "Sigma-t"
+      ],
+      [
+        "34340",
+        "Sigma-theta (0 dbar)"
+      ]
+    ],
+    "locationCode": "CCIP",
+    "locationName": "China Creek Underwater Network",
+    "deviceCode": "SBECTD19p7287"
+  },
+  {
+    "deviceId": "24141",
+    "deviceName": "Sea-Bird SBE 63 Dissolved Oxygen Sensor 631479",
+    "sensors": [
+      [
+        "22289",
+        "Oxygen Concentration Corrected"
+      ],
+      [
+        "22287",
+        "Oxygen Concentration Uncorrected"
+      ],
+      [
+        "22288",
+        "Temperature"
+      ]
+    ],
+    "locationCode": "CCIP",
+    "locationName": "China Creek Underwater Network",
+    "deviceCode": "SBE63631479"
+  },
+  {
+    "deviceId": "23505",
+    "deviceName": "WET Labs ECO FLRT 3901",
+    "sensors": [
+      [
+        "15415",
+        "Chlorophyll"
+      ]
+    ],
+    "locationCode": "CCIP",
+    "locationName": "China Creek Underwater Network",
+    "deviceCode": "WETLABSECOFLRT3901"
+  },
+  {
+    "deviceId": "45620",
+    "deviceName": "Lufft WS501 (S/N 419.1019.1009.230) Weather Station",
+    "sensors": [
+      [
+        "56162",
+        "Dew Point"
+      ],
+      [
+        "56180",
+        "Absolute Humidity"
+      ],
+      [
+        "56161",
+        "Specific Enthalpy"
+      ],
+      [
+        "56108",
+        "Wet Bulb Temperature"
+      ],
+      [
+        "56181",
+        "Wind Speed"
+      ],
+      [
+        "56200",
+        "Wind Chill Temperature"
+      ],
+      [
+        "56105",
+        "Air Density"
+      ],
+      [
+        "56160",
+        "Air Temperature"
+      ],
+      [
+        "56163",
+        "Wind Direction"
+      ],
+      [
+        "56109",
+        "Magnetic Compass Heading"
+      ],
+      [
+        "56106",
+        "Relative Humidity"
+      ],
+      [
+        "56104",
+        "Mixing Ratio"
+      ],
+      [
+        "56164",
+        "Absolute Air Pressure"
+      ],
+      [
+        "56107",
+        "Relative Air Pressure"
+      ],
+      [
+        "56103",
+        "Global Radiation"
+      ]
+    ],
+    "locationCode": "CCIP",
+    "locationName": "China Creek Underwater Network",
+    "deviceCode": "LUFFTWS501-41910191009230"
+  },
+  {
+    "deviceId": "29159 & 24141",
+    "deviceName": "Sea-Bird SeaCAT SBE19plus V2 7287 & Sea-Bird SBE 63 Dissolved Oxygen Sensor 631479",
+    "sensors": [
+      [
+        [
+          "34299",
+          "Temperatures"
+        ],
+        [
+          "22288",
+          "Temperatures"
+        ]
+      ]
+    ],
+    "locationCode": "CCIP",
+    "locationName": "China Creek Underwater Network",
+    "deviceCode": "SBECTD19p7287 & SBE63631479"
+  }
+]
