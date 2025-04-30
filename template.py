@@ -16,28 +16,33 @@ def data_preview_section(device: dict, client: ONCDW):
     st.subheader("Data Preview plot")
 
     # Data preview plots in two columns
-    for i in range(len(device["dataPreviewOptions"]) // 2):
-        # The format of options is (data_product_format_id, plot_number)
-        option1, option2 = (
-            device["dataPreviewOptions"][2 * i],
-            device["dataPreviewOptions"][2 * i + 1],
-        )
-
-        data_product_format_id = option1[0]
-        # Assumption check
-        assert (
-            option2[0] == data_product_format_id
-        ), "two options should have the same format id"
-        assert (
-            option1[1] + 1 == option2[1]
-        ), "two options should have correct plot number"
+    for i in range(0, len(device["dataPreviewOptions"]), 2):
+        # The format of options is (data_product_format_id, plot_number, sensor_code_id)
+        options = device["dataPreviewOptions"][i : i + 2]
+        if len(options) == 2:
+            option1, option2 = options
+        else:
+            # Deal with odd length of data preview options
+            option1 = options[0]
+            option2 = []
 
         cols = st.columns(2)
         with st.container():
-            for plot_number in (option1[1], option2[1]):
-                with cols[(plot_number - 1) % 2]:
+            with cols[0]:
+                client.widget.data_preview(
+                    device,
+                    data_product_format_id=option1[0],
+                    plot_number=option1[1],
+                    sensor_code_id=option1[2],
+                )
+
+            with cols[1]:
+                if option2:
                     client.widget.data_preview(
-                        device, data_product_format_id, plot_number=plot_number
+                        device,
+                        data_product_format_id=option2[0],
+                        plot_number=option2[1],
+                        sensor_code_id=option2[2],
                     )
 
 
@@ -77,7 +82,7 @@ def Barkley(
             "deviceId": "23840 & 23283",
             "deviceName": "Sea-Bird SeaCAT SBE19plus V2 6002 & Sea-Bird SBE 63 Dissolved Oxygen Sensor 630637",
             # [[[sensor id 1, sensor name 1], [sensor id 2, sensor name 2]]]
-            "sensors": [[[16672, "Temperatures"], [13327, "Temperatures"]]],
+            "sensors": [[["16672", "Temperatures"], ["13327", "Temperatures"]]],
             "locationCode": "BACAX",
             "locationName": "Barkley Canyon Axis",
             "deviceCode": "SBECTD19p6002 & SBE63630637",
@@ -335,3 +340,120 @@ def Neptune(
                 client.ui.sensor(sensor2)
 
             client.widget.time_series_two_sensors(sensor1, sensor2, last_days=2)
+
+
+def Ferry(
+    json_filename: str,
+    page_title: str,
+    device_name_id: str,
+    device_console_url: str,
+    annotation_url: str,
+    marine_traffic_url: str,
+    plotting_utility_url: str,
+    sticky_device: bool = True,
+    sticky_location: bool = True,
+):
+    """
+    Ferry is a template for the dashboard of multiple locations that consists of two sections:
+
+    1. Links to the Oceans 3.0 Device Console, Oceans 3.0 Annotation, Marine Traffic and Plotting Utility.
+    2. List of devices, each having a list of sensors with a time series plot, and optionally some data preview plots,
+    which requires non-empty dataPreviewOptions, deviceCategoryId and searchTreeNodeId.
+
+    A sample format for the expected xxx json file is listed below. All are required,
+    but dataPreviewOptions, deviceCategoryId and searchTreeNodeId can be empty.
+    It is used in the section 2.
+    [
+          {
+            "deviceId": "26099",
+            "deviceName": "Sea-Bird SBE 38 (S/N 1048)",
+            "sensors": [["29059", "Temperature"]],
+            "locationCode": "TWDP",
+            "locationName": "Tsawwassen - Duke Point Ferry Route",
+            "deviceCode": "SBE381048 in TWDP",
+            "searchTreeNodeId": 171,
+            "deviceCategoryId": 35,
+            "dataPreviewOptions": [[149, 1]]
+        },
+    ]
+
+
+    Parameters
+    ----------
+    json_filename : str
+        The name of the JSON file that contains the data. It should have suffix _1.json and _2.json.
+    page_title : str
+        The title of the page.
+    device_name_id : str
+        The name and ID of the device shown in the Oceans 3.0 device console link.
+    device_console_url : str
+        The URL of the device for the Oceans 3.0 device console.
+    annotation_url : str
+        The URL of the device for the Oceans 3.0 annotation.
+    marine_traffic_url : str
+        The URL of the device for the Marine Traffic.
+    plotting_utility_url : str
+        The URL of the device for the Plotting Utility.
+    sticky_device : bool, default True
+        Whether to show the device as sticky in the main part.
+    sticky_location : bool, default True
+        Whether to show the location as sticky in the sidebar.
+    """
+    st.set_page_config(layout="wide", page_title=page_title)
+
+    with open(f"pages/{json_filename}.json") as f:
+        devices = json.load(f)
+
+    client = ONCDW(file=page_title)
+
+    client.ui.import_custom_badge_css(
+        sticky_device=sticky_device, sticky_location=sticky_location
+    )
+
+    st.title(f"{page_title} Monitoring Dashboard")
+
+    client.ui.show_time_difference(client.now)
+
+    with st.sidebar:
+        # client.ui.location_sidebar(devices[0])
+        client.ui.header_badge("", "Links", "#links")
+        st.divider()
+
+        for device in devices:
+            client.ui.location_sidebar(device)
+            client.ui.device_sidebar(device)
+            for sensor in device["sensors"]:
+                client.ui.sensor_sidebar(sensor)
+            st.divider()
+
+    # All the devices belong to the same location
+
+    onc = ONC(os.environ.get("ONC_TOKEN"))
+
+    st.header("Links")
+
+    st.subheader(
+        f"[Oceans 3.0 Device Console for {device_name_id}]({device_console_url})"
+    )
+
+    st.subheader(f"[Oceans 3.0 Annotation for {device_name_id}]({annotation_url})")
+
+    st.subheader(f"[Marine Traffic - {device_name_id}]({marine_traffic_url})")
+
+    st.subheader(f"[Plotting Utility - {device_name_id}]({plotting_utility_url})")
+
+    for device in devices:
+        client.ui.location(device)
+        location_info = onc.getLocations({"locationCode": device["locationCode"]})
+        with st.expander("Location Info", expanded=False):
+            st.json(location_info)
+
+        client.ui.device(device)
+
+        # data preview
+        data_preview_section(device, client)
+
+        # time series
+        for sensor in device["sensors"]:
+            client.ui.sensor(sensor)
+            client.widget.time_series(sensor)

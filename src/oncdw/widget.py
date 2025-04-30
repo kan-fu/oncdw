@@ -133,15 +133,15 @@ class Widget:
         device: dict,
         data_product_format_id: int,
         plot_number: int = 1,
-        sensor: dict | None = None,
+        sensor_code_id: int | None = None,
         st_wrapper=True,
     ):
         device_category_id = device["deviceCategoryId"]
         search_tree_node_id = device["searchTreeNodeId"]
-        sensor_id = sensor["sensorCodeId"] if sensor else None
+        sensor_code_id = sensor_code_id if sensor_code_id else None
 
         image_url = self._query.get_data_preview(
-            sensor_id=sensor_id,
+            sensor_code_id=sensor_code_id,
             device_category_id=device_category_id,
             search_tree_node_id=search_tree_node_id,
             data_product_format_id=data_product_format_id,

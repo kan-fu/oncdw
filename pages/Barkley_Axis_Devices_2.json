@@ -7,19 +7,23 @@
     "dataPreviewOptions": [
       [
         3,
-        1
+        1,
+        0
       ],
       [
         3,
-        2
+        2,
+        0
       ],
       [
         57,
-        1
+        1,
+        0
       ],
       [
         57,
-        2
+        2,
+        0
       ]
     ],
     "searchTreeNodeId": 15,
@@ -35,19 +39,23 @@
     "dataPreviewOptions": [
       [
         3,
-        1
+        1,
+        0
       ],
       [
         3,
-        2
+        2,
+        0
       ],
       [
         57,
-        1
+        1,
+        0
       ],
       [
         57,
-        2
+        2,
+        0
       ]
     ],
     "searchTreeNodeId": 15,
@@ -66,19 +74,23 @@
     "dataPreviewOptions": [
       [
         3,
-        1
+        1,
+        0
       ],
       [
         3,
-        2
+        2,
+        0
       ],
       [
         210,
-        1
+        1,
+        0
       ],
       [
         210,
-        2
+        2,
+        0
       ]
     ],
     "searchTreeNodeId": 15,

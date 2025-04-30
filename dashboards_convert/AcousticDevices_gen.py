@@ -45,5 +45,5 @@ for section in tree.xpath("//section[@class='oncWidgetGroup' and @id]"):
             "dataPreviewOptions": data_preview_options,
         }
     )
-with open("./pages/AcousticDevices.json", "w") as f:
+with open("./pages/Acoustic_Devices.json", "w") as f:
     json.dump(res, f, indent=2)

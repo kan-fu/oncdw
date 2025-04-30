@@ -7,11 +7,13 @@
     "dataPreviewOptions": [
       [
         210,
-        1
+        1,
+        0
       ],
       [
         210,
-        2
+        2,
+        0
       ]
     ],
     "searchTreeNodeId": 123,
@@ -30,11 +32,13 @@
     "dataPreviewOptions": [
       [
         210,
-        1
+        1,
+        0
       ],
       [
         210,
-        2
+        2,
+        0
       ]
     ],
     "searchTreeNodeId": 122,

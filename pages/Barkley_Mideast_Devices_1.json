@@ -67,11 +67,11 @@
     "sensors": [
       [
         [
-          16712,
+          "16712",
           "Temperatures"
         ],
         [
-          9374,
+          "9374",
           "Temperatures"
         ]
       ]

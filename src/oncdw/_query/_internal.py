@@ -66,7 +66,7 @@ class Internal:
     @st.cache_data(ttl="12h")
     def get_data_preview(
         self,
-        sensor_id: int | None,
+        sensor_code_id: int | None,
         device_category_id: int,
         search_tree_node_id: int,
         data_product_format_id: int,
@@ -76,7 +76,7 @@ class Internal:
         params = {
             "searchTreeNodeId": search_tree_node_id,
             "deviceCategoryId": device_category_id,
-            "sensorCodeId": sensor_id,
+            "sensorCodeId": sensor_code_id,
             "timeConfigId": 2,  # Week
             "dataProductFormatId": data_product_format_id,
             "plotNumber": plot_number,

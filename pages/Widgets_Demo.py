@@ -11,8 +11,7 @@ st.title("ONC Data Web Widgets Demo")
 st.header("Data Preview png data product")
 with st.echo():
     device = {"deviceCategoryId": 20, "searchTreeNodeId": 172}
-    sensor = {"sensorCodeId": 611}
-    client.widget.data_preview(device, data_product_format_id=149, sensor=sensor)
+    client.widget.data_preview(device, data_product_format_id=149, sensor_code_id=611)
 
 ############################################
 st.header("Data Preview gif data product")

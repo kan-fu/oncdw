@@ -1,7 +1,7 @@
 [
   {
     "deviceName": "RDI Workhorse Long Ranger ADCP 75 kHz (24604)",
-    "deviceId": 62760,
+    "deviceId": "62760",
     "locationCode": "RCSE5.A2",
     "locationName": "ADCP Downward",
     "searchTreeNodeId": 450,
@@ -10,33 +10,39 @@
     "dataPreviewOptions": [
       [
         3,
-        1
+        1,
+        0
       ],
       [
         3,
-        2
+        2,
+        0
       ],
       [
         10,
-        1
+        1,
+        0
       ],
       [
         10,
-        2
+        2,
+        0
       ],
       [
         11,
-        1
+        1,
+        0
       ],
       [
         11,
-        2
+        2,
+        0
       ]
     ]
   },
   {
     "deviceName": "RDI Workhorse Long Ranger ADCP 75 kHz (24605)",
-    "deviceId": 62780,
+    "deviceId": "62780",
     "locationCode": "RCSE5.A1",
     "locationName": "ADCP Upward",
     "searchTreeNodeId": 449,
@@ -45,33 +51,39 @@
     "dataPreviewOptions": [
       [
         3,
-        1
+        1,
+        0
       ],
       [
         3,
-        2
+        2,
+        0
       ],
       [
         10,
-        1
+        1,
+        0
       ],
       [
         10,
-        2
+        2,
+        0
       ],
       [
         11,
-        1
+        1,
+        0
       ],
       [
         11,
-        2
+        2,
+        0
       ]
     ]
   },
   {
     "deviceName": "RDI Workhorse Monitor ADCP 600 kHz (17574)",
-    "deviceId": 23063,
+    "deviceId": "23063",
     "locationCode": "KEMF",
     "locationName": "Main Endeavour Field",
     "searchTreeNodeId": 30,
@@ -80,33 +92,39 @@
     "dataPreviewOptions": [
       [
         11,
-        1
+        1,
+        0
       ],
       [
         11,
-        2
+        2,
+        0
       ],
       [
         10,
-        1
+        1,
+        0
       ],
       [
         10,
-        2
+        2,
+        0
       ],
       [
         3,
-        1
+        1,
+        0
       ],
       [
         3,
-        2
+        2,
+        0
       ]
     ]
   },
   {
     "deviceName": "RDI Workhorse Long Ranger ADCP 75 kHz (3867)",
-    "deviceId": 14001,
+    "deviceId": "14001",
     "locationCode": "RCNW5",
     "locationName": "NW-250 mab",
     "searchTreeNodeId": 69,
@@ -115,33 +133,39 @@
     "dataPreviewOptions": [
       [
         11,
-        1
+        1,
+        0
       ],
       [
         11,
-        2
+        2,
+        0
       ],
       [
         10,
-        1
+        1,
+        0
       ],
       [
         10,
-        2
+        2,
+        0
       ],
       [
         3,
-        1
+        1,
+        0
       ],
       [
         3,
-        2
+        2,
+        0
       ]
     ]
   },
   {
     "deviceName": "RDI Workhorse Long Ranger ADCP 75 kHz (13429)",
-    "deviceId": 13001,
+    "deviceId": "13001",
     "locationCode": "RCNE5",
     "locationName": "NE-250 mab",
     "searchTreeNodeId": 64,
@@ -150,33 +174,39 @@
     "dataPreviewOptions": [
       [
         11,
-        1
+        1,
+        0
       ],
       [
         11,
-        2
+        2,
+        0
       ],
       [
         10,
-        1
+        1,
+        0
       ],
       [
         10,
-        2
+        2,
+        0
       ],
       [
         3,
-        1
+        1,
+        0
       ],
       [
         3,
-        2
+        2,
+        0
       ]
     ]
   },
   {
     "deviceName": "RDI Workhorse Long Ranger ADCP 75 kHz (16511)",
-    "deviceId": 23006,
+    "deviceId": "23006",
     "locationCode": "NC27",
     "locationName": "ODP 1026",
     "searchTreeNodeId": 37,
@@ -185,33 +215,39 @@
     "dataPreviewOptions": [
       [
         11,
-        1
+        1,
+        0
       ],
       [
         11,
-        2
+        2,
+        0
       ],
       [
         10,
-        1
+        1,
+        0
       ],
       [
         10,
-        2
+        2,
+        0
       ],
       [
         3,
-        1
+        1,
+        0
       ],
       [
         3,
-        2
+        2,
+        0
       ]
     ]
   },
   {
     "deviceName": "RDI Workhorse Long Ranger ADCP 75 kHz (9202)",
-    "deviceId": 12108,
+    "deviceId": "12108",
     "locationCode": "NC89",
     "locationName": "Bullseye",
     "searchTreeNodeId": 23,
@@ -220,33 +256,39 @@
     "dataPreviewOptions": [
       [
         11,
-        1
+        1,
+        0
       ],
       [
         11,
-        2
+        2,
+        0
       ],
       [
         10,
-        1
+        1,
+        0
       ],
       [
         10,
-        2
+        2,
+        0
       ],
       [
         3,
-        1
+        1,
+        0
       ],
       [
         3,
-        2
+        2,
+        0
       ]
     ]
   },
   {
     "deviceName": "RDI Workhorse Monitor ADCP 600 kHz (SN 25472)",
-    "deviceId": 31399,
+    "deviceId": "31399",
     "locationCode": "BACUS",
     "locationName": "Upper Slope South",
     "searchTreeNodeId": 21,
@@ -255,33 +297,39 @@
     "dataPreviewOptions": [
       [
         3,
-        1
+        1,
+        0
       ],
       [
         3,
-        2
+        2,
+        0
       ],
       [
         10,
-        1
+        1,
+        0
       ],
       [
         10,
-        2
+        2,
+        0
       ],
       [
         11,
-        1
+        1,
+        0
       ],
       [
         11,
-        2
+        2,
+        0
       ]
     ]
   },
   {
     "deviceName": "Nortek Aquadopp HR-Profiler 2 MHz ASP2699 AQD2973",
-    "deviceId": 11203,
+    "deviceId": "11203",
     "locationCode": "BACUS",
     "locationName": "Upper Slope South",
     "searchTreeNodeId": 21,
@@ -290,25 +338,29 @@
     "dataPreviewOptions": [
       [
         57,
-        1
+        1,
+        0
       ],
       [
         57,
-        2
+        2,
+        0
       ],
       [
         3,
-        1
+        1,
+        0
       ],
       [
         3,
-        2
+        2,
+        0
       ]
     ]
   },
   {
     "deviceName": "RDI Workhorse Long Ranger ADCP 75 kHz (17431)",
-    "deviceId": 23065,
+    "deviceId": "23065",
     "locationCode": "NCBC",
     "locationName": "Barkley Upper Slope",
     "searchTreeNodeId": 20,
@@ -317,33 +369,39 @@
     "dataPreviewOptions": [
       [
         11,
-        1
+        1,
+        0
       ],
       [
         11,
-        2
+        2,
+        0
       ],
       [
         10,
-        1
+        1,
+        0
       ],
       [
         10,
-        2
+        2,
+        0
       ],
       [
         3,
-        1
+        1,
+        0
       ],
       [
         3,
-        2
+        2,
+        0
       ]
     ]
   },
   {
     "deviceName": "RDI Workhorse Quartermaster ADCP 150 kHz (9455)",
-    "deviceId": 11206,
+    "deviceId": "11206",
     "locationCode": "BACME",
     "locationName": "Barkley Canyon Mid-East",
     "searchTreeNodeId": 18,
@@ -352,33 +410,39 @@
     "dataPreviewOptions": [
       [
         10,
-        1
+        1,
+        0
       ],
       [
         10,
-        2
+        2,
+        0
       ],
       [
         11,
-        1
+        1,
+        0
       ],
       [
         11,
-        2
+        2,
+        0
       ],
       [
         3,
-        1
+        1,
+        0
       ],
       [
         3,
-        2
+        2,
+        0
       ]
     ]
   },
   {
     "deviceName": "Nortek Aquadopp HR-Profiler 2 MHz 2978",
-    "deviceId": 12003,
+    "deviceId": "12003",
     "locationCode": "BACME",
     "locationName": "Barkley Canyon Mid-East",
     "searchTreeNodeId": 18,
@@ -387,25 +451,29 @@
     "dataPreviewOptions": [
       [
         57,
-        1
+        1,
+        0
       ],
       [
         57,
-        2
+        2,
+        0
       ],
       [
         3,
-        1
+        1,
+        0
       ],
       [
         3,
-        2
+        2,
+        0
       ]
     ]
   },
   {
     "deviceName": "Nortek Signature55 Current Profiler 200066",
-    "deviceId": 24420,
+    "deviceId": "24420",
     "locationCode": "BACAX",
     "locationName": "Barkley Canyon Axis",
     "searchTreeNodeId": 15,
@@ -414,25 +482,29 @@
     "dataPreviewOptions": [
       [
         3,
-        1
+        1,
+        0
       ],
       [
         3,
-        2
+        2,
+        0
       ],
       [
         57,
-        1
+        1,
+        0
       ],
       [
         57,
-        2
+        2,
+        0
       ]
     ]
   },
   {
     "deviceName": "Nortek Aquadopp HR-Profiler 2 MHz 2700",
-    "deviceId": 11302,
+    "deviceId": "11302",
     "locationCode": "BACAX",
     "locationName": "Barkley Canyon Axis",
     "searchTreeNodeId": 15,
@@ -441,25 +513,29 @@
     "dataPreviewOptions": [
       [
         57,
-        1
+        1,
+        0
       ],
       [
         57,
-        2
+        2,
+        0
       ],
       [
         3,
-        1
+        1,
+        0
       ],
       [
         3,
-        2
+        2,
+        0
       ]
     ]
   },
   {
     "deviceName": "RDI Workhorse Monitor ADCP 600 kHz (17434)",
-    "deviceId": 23093,
+    "deviceId": "23093",
     "locationCode": "FGPPN",
     "locationName": "Folger Pinnacle",
     "searchTreeNodeId": 29,
@@ -468,33 +544,39 @@
     "dataPreviewOptions": [
       [
         11,
-        1
+        1,
+        0
       ],
       [
         11,
-        2
+        2,
+        0
       ],
       [
         10,
-        1
+        1,
+        0
       ],
       [
         10,
-        2
+        2,
+        0
       ],
       [
         3,
-        1
+        1,
+        0
       ],
       [
         3,
-        2
+        2,
+        0
       ]
     ]
   },
   {
     "deviceName": "Nortek Aquadopp Profiler AQD 2958",
-    "deviceId": 20002,
+    "deviceId": "20002",
     "locationCode": "FGPPN",
     "locationName": "Folger Pinnacle",
     "searchTreeNodeId": 29,
@@ -503,25 +585,29 @@
     "dataPreviewOptions": [
       [
         57,
-        1
+        1,
+        0
       ],
       [
         57,
-        2
+        2,
+        0
       ],
       [
         3,
-        1
+        1,
+        0
       ],
       [
         3,
-        2
+        2,
+        0
       ]
     ]
   },
   {
     "deviceName": "RDI Workhorse Monitor ADCP 300 kHz (9273)",
-    "deviceId": 20003,
+    "deviceId": "20003",
     "locationCode": "FGPD",
     "locationName": "Folger Deep",
     "searchTreeNodeId": 27,
@@ -530,33 +616,39 @@
     "dataPreviewOptions": [
       [
         10,
-        1
+        1,
+        0
       ],
       [
         10,
-        2
+        2,
+        0
       ],
       [
         11,
-        1
+        1,
+        0
       ],
       [
         11,
-        2
+        2,
+        0
       ],
       [
         3,
-        1
+        1,
+        0
       ],
       [
         3,
-        2
+        2,
+        0
       ]
     ]
   },
   {
     "deviceName": "BioSonics DT-Xu Scientific Echosounder",
-    "deviceId": 20020,
+    "deviceId": "20020",
     "locationCode": "FGPD",
     "locationName": "Folger Deep",
     "searchTreeNodeId": 27,
@@ -565,17 +657,19 @@
     "dataPreviewOptions": [
       [
         313,
-        1
+        1,
+        0
       ],
       [
         313,
-        2
+        2,
+        0
       ]
     ]
   },
   {
     "deviceName": "RDI Workhorse Sentinel ADCP 600 kHz (SN 24287)",
-    "deviceId": 73020,
+    "deviceId": "73020",
     "locationCode": "BSM.J5",
     "locationName": "2mbss",
     "searchTreeNodeId": 2651,
@@ -584,33 +678,39 @@
     "dataPreviewOptions": [
       [
         3,
-        1
+        1,
+        0
       ],
       [
         3,
-        2
+        2,
+        0
       ],
       [
         10,
-        1
+        1,
+        0
       ],
       [
         10,
-        2
+        2,
+        0
       ],
       [
         11,
-        1
+        1,
+        0
       ],
       [
         11,
-        2
+        2,
+        0
       ]
     ]
   },
   {
     "deviceName": "ASL AZFP Echosounder 55121",
-    "deviceId": 23912,
+    "deviceId": "23912",
     "locationCode": "PVIP",
     "locationName": "Saanich Inlet VENUS Instrument Platform",
     "searchTreeNodeId": 207,
@@ -619,25 +719,29 @@
     "dataPreviewOptions": [
       [
         132,
-        1
+        1,
+        0
       ],
       [
         132,
-        2
+        2,
+        0
       ],
       [
         3,
-        1
+        1,
+        0
       ],
       [
         3,
-        2
+        2,
+        0
       ]
     ]
   },
   {
     "deviceName": "RDI Workhorse Quartermaster ADCP 150 kHz (SN 17457)",
-    "deviceId": 23097,
+    "deviceId": "23097",
     "locationCode": "SCVIP",
     "locationName": "Strait of Georgia VENUS Instrument Platform",
     "searchTreeNodeId": 233,
@@ -646,33 +750,39 @@
     "dataPreviewOptions": [
       [
         10,
-        1
+        1,
+        0
       ],
       [
         10,
-        2
+        2,
+        0
       ],
       [
         11,
-        1
+        1,
+        0
       ],
       [
         11,
-        2
+        2,
+        0
       ],
       [
         3,
-        1
+        1,
+        0
       ],
       [
         3,
-        2
+        2,
+        0
       ]
     ]
   },
   {
     "deviceName": "RDI Workhorse Quartermaster ADCP 150 kHz (SN 8580)",
-    "deviceId": 65,
+    "deviceId": "65",
     "locationCode": "SEVIP",
     "locationName": "Strait of Georgia East VENUS Instrument Platform",
     "searchTreeNodeId": 284,
@@ -681,33 +791,39 @@
     "dataPreviewOptions": [
       [
         10,
-        1
+        1,
+        0
       ],
       [
         10,
-        2
+        2,
+        0
       ],
       [
         11,
-        1
+        1,
+        0
       ],
       [
         11,
-        2
+        2,
+        0
       ],
       [
         3,
-        1
+        1,
+        0
       ],
       [
         3,
-        2
+        2,
+        0
       ]
     ]
   },
   {
     "deviceName": "ASL AZFP Echosounder 55196",
-    "deviceId": 79872,
+    "deviceId": "79872",
     "locationCode": "SEVIP.E3",
     "locationName": "Bioacoustic Echosounder AZFP",
     "searchTreeNodeId": 1761,
@@ -716,25 +832,29 @@
     "dataPreviewOptions": [
       [
         3,
-        1
+        1,
+        0
       ],
       [
         3,
-        2
+        2,
+        0
       ],
       [
         132,
-        1
+        1,
+        0
       ],
       [
         132,
-        2
+        2,
+        0
       ]
     ]
   },
   {
     "deviceName": "RDI Workhorse Monitor ADCP 600 kHz (SN 25471)",
-    "deviceId": 30699,
+    "deviceId": "30699",
     "locationCode": "BIIP",
     "locationName": "Burrard Inlet Underwater Network",
     "searchTreeNodeId": 1943,
@@ -743,33 +863,39 @@
     "dataPreviewOptions": [
       [
         3,
-        1
+        1,
+        0
       ],
       [
         3,
-        2
+        2,
+        0
       ],
       [
         10,
-        1
+        1,
+        0
       ],
       [
         10,
-        2
+        2,
+        0
       ],
       [
         11,
-        1
+        1,
+        0
       ],
       [
         11,
-        2
+        2,
+        0
       ]
     ]
   },
   {
     "deviceName": "Nortek AWAC AST 400 kHz 2226",
-    "deviceId": 22956,
+    "deviceId": "22956",
     "locationCode": "BFBR",
     "locationName": "FORCE Underwater Network - Black Rock",
     "searchTreeNodeId": 407,
@@ -778,25 +904,29 @@
     "dataPreviewOptions": [
       [
         57,
-        1
+        1,
+        0
       ],
       [
         57,
-        2
+        2,
+        0
       ],
       [
         3,
-        1
+        1,
+        0
       ],
       [
         3,
-        2
+        2,
+        0
       ]
     ]
   },
   {
     "deviceName": "Nortek AWAC AST 400 kHz WAV 7749",
-    "deviceId": 47140,
+    "deviceId": "47140",
     "locationCode": "HRBIP",
     "locationName": "Holyrood Bay Underwater Network",
     "searchTreeNodeId": 2373,
@@ -805,19 +935,23 @@
     "dataPreviewOptions": [
       [
         3,
-        1
+        1,
+        0
       ],
       [
         3,
-        2
+        2,
+        0
       ],
       [
         57,
-        1
+        1,
+        0
       ],
       [
         57,
-        2
+        2,
+        0
       ]
     ]
   }

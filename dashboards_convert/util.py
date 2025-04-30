@@ -4,16 +4,32 @@ import re
 import lxml.html
 
 
-def extract_dp_format_id_plot_number(url: str) -> tuple[int, int]:
-    return tuple(
-        map(
-            int,
-            re.search(r"dataProductFormatId=(\d+)&plotNumber=(\d+)", url).groups(),
-        )
-    )
+def extract_dp_format_id_plot_number(url: str) -> tuple[int, int, int]:
+    """
+    Extract data product format id and plot number (and optionally sensor code id if exists) from the url.
+
+    Return the tuple of (data_product_format_id, plot_number, sensor_code_id).
+    """
+
+    dp_format_id, plot_number = re.search(
+        r"dataProductFormatId=(\d+)&plotNumber=(\d+)", url
+    ).groups()
+
+    query = re.search(r"sensorCodeId=(\d+)", url)
+    if query:
+        # Extract sensor code id if present
+        sensor_code_id = query.group(1)
+    else:
+        sensor_code_id = 0
+
+    return (int(dp_format_id), int(plot_number), int(sensor_code_id))
 
 
 def extract_node_id_category_id(url: str) -> tuple[int, int]:
+    """
+    SearchTreeNodeId and DeviceCategoryId belong to device, so most of time they should be called once
+    even when there are multiple data preview plots for the same device.
+    """
     return tuple(
         map(
             int,
@@ -140,3 +156,64 @@ def template_gen(location_code, location_name, html_filename, json_filename):
 
     with open(f"./pages/{json_filename}_2.json", "w") as f:
         json.dump(res2, f, indent=2)
+
+
+def template_ferry_gen(html_filename, json_filename):
+    with open(f"./dashboards_convert/html/{html_filename}.html") as f:
+        tree = lxml.html.fromstring(f.read())
+
+    # Get device id - device code pair from sidebar
+    tmp = []
+    for ele in tree.xpath("//span[@class='device']"):
+        device_id_code = ele.text_content()
+        pair = re.match(r"(\d+)(.*) ", device_id_code)
+        if pair:
+            tmp.append(pair.groups())
+    device_code = dict(tmp)
+
+    # device -> time_series and data preview for each sensor
+    res = []
+    for h3 in tree.xpath("//h3"):
+        # Example h3 text content is "Tsawwassen - Duke Point Ferry Route (TWDP) - Pump and Valve Control System 02 - 24419  Device Details"
+        location_name, location_code, device_name, device_id = re.match(
+            r"(.*) \((.*)\) - (.*) - (\d+).*", h3.text_content()
+        ).groups()
+
+        # Get data preview if exists
+        figures = h3.xpath("./following-sibling::figure")
+        if figures:
+            data_preview_options = [
+                extract_dp_format_id_plot_number(ele.attrib["url"]) for ele in figures
+            ]
+
+            # Get node id and device category id
+            node_id, device_category_id = extract_node_id_category_id(
+                figures[0].attrib["url"]
+            )
+        else:
+            data_preview_options = []
+            node_id = None
+            device_category_id = None
+
+        # Get sensors, format is [(sensor_id, sensor_name), ...]
+        sensors = [
+            re.match(r"(\d+)(.*)", ele.text_content()).groups()
+            for ele in h3.xpath("./following-sibling::div/div[@class='sensor']")
+        ]
+
+        res.append(
+            {
+                "deviceId": device_id,
+                "deviceName": device_name,
+                "sensors": sensors,
+                "locationCode": location_code,
+                "locationName": location_name,
+                "deviceCode": device_code[device_id],
+                "searchTreeNodeId": node_id,
+                "deviceCategoryId": device_category_id,
+                "dataPreviewOptions": data_preview_options,
+            }
+        )
+
+    with open(f"./pages/{json_filename}.json", "w") as f:
+        json.dump(res, f, indent=2)
