@@ -414,17 +414,20 @@ def Ferry(
 
     client.ui.show_time_difference(client.now)
 
+    
     with st.sidebar:
-        # client.ui.location_sidebar(devices[0])
         client.ui.header_badge("", "Links", "#links")
         st.divider()
 
+        prev_location = None
         for device in devices:
-            client.ui.location_sidebar(device)
+            if prev_location != device["locationCode"]:
+                client.ui.location_sidebar(device)
             client.ui.device_sidebar(device)
             for sensor in device["sensors"]:
                 client.ui.sensor_sidebar(sensor)
             st.divider()
+            prev_location = device["locationCode"]
 
     # All the devices belong to the same location
 
@@ -442,11 +445,14 @@ def Ferry(
 
     st.subheader(f"[Plotting Utility - {device_name_id}]({plotting_utility_url})")
 
+    prev_location = None
     for device in devices:
-        client.ui.location(device)
-        location_info = onc.getLocations({"locationCode": device["locationCode"]})
-        with st.expander("Location Info", expanded=False):
-            st.json(location_info)
+        # Only display location if prev_location is different
+        if prev_location != device["locationCode"]:
+            client.ui.location(device)
+            location_info = onc.getLocations({"locationCode": device["locationCode"]})
+            with st.expander("Location Info", expanded=False):
+                st.json(location_info)
 
         client.ui.device(device)
 
@@ -457,3 +463,4 @@ def Ferry(
         for sensor in device["sensors"]:
             client.ui.sensor(sensor)
             client.widget.time_series(sensor)
+        prev_location = device["locationCode"]

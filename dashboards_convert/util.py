@@ -166,7 +166,7 @@ def template_ferry_gen(html_filename, json_filename):
     tmp = []
     for ele in tree.xpath("//span[@class='device']"):
         device_id_code = ele.text_content()
-        pair = re.match(r"(\d+)(.*) ", device_id_code)
+        pair = re.match(r"(\d+)(.*) in.*", device_id_code)
         if pair:
             tmp.append(pair.groups())
     device_code = dict(tmp)
