@@ -16,11 +16,9 @@ def extract_dp_format_id_plot_number(url: str) -> tuple[int, int, int]:
     ).groups()
 
     query = re.search(r"sensorCodeId=(\d+)", url)
-    if query:
-        # Extract sensor code id if present
-        sensor_code_id = query.group(1)
-    else:
-        sensor_code_id = 0
+
+    # Extract sensor code id if present
+    sensor_code_id = query.group(1) if query else 0
 
     return (int(dp_format_id), int(plot_number), int(sensor_code_id))
 

@@ -414,7 +414,6 @@ def Ferry(
 
     client.ui.show_time_difference(client.now)
 
-    
     with st.sidebar:
         client.ui.header_badge("", "Links", "#links")
         st.divider()
@@ -460,6 +459,7 @@ def Ferry(
         data_preview_section(device, client)
 
         # time series
+        st.subheader("Time Series plot")
         for sensor in device["sensors"]:
             client.ui.sensor(sensor)
             client.widget.time_series(sensor)
