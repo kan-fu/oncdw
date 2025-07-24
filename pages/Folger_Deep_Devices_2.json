@@ -1,0 +1,219 @@
+[
+  {
+    "deviceId": "20003",
+    "deviceName": "RDI Workhorse Monitor ADCP 300 kHz (9273)",
+    "locationCode": "FGPD",
+    "locationName": "Folger Deep",
+    "dataPreviewOptions": [
+      [
+        3,
+        1,
+        0
+      ],
+      [
+        3,
+        2,
+        0
+      ],
+      [
+        3,
+        3,
+        0
+      ],
+      [
+        3,
+        4,
+        0
+      ],
+      [
+        10,
+        1,
+        0
+      ],
+      [
+        10,
+        2,
+        0
+      ],
+      [
+        10,
+        3,
+        0
+      ],
+      [
+        10,
+        4,
+        0
+      ],
+      [
+        11,
+        1,
+        0
+      ],
+      [
+        11,
+        2,
+        0
+      ],
+      [
+        11,
+        3,
+        0
+      ],
+      [
+        11,
+        4,
+        0
+      ]
+    ],
+    "searchTreeNodeId": 27,
+    "deviceCategoryId": 70,
+    "deviceCode": "ADCP20003",
+    "fileExtensions": null
+  },
+  {
+    "deviceId": "20020",
+    "deviceName": "BioSonics DT-Xu Scientific Echosounder",
+    "locationCode": "FGPD",
+    "locationName": "Folger Deep",
+    "dataPreviewOptions": [
+      [
+        313,
+        1,
+        0
+      ],
+      [
+        313,
+        2,
+        0
+      ],
+      [
+        313,
+        3,
+        0
+      ],
+      [
+        313,
+        4,
+        0
+      ]
+    ],
+    "searchTreeNodeId": 27,
+    "deviceCategoryId": 16,
+    "deviceCode": "BIOSONICSDTXU08003",
+    "fileExtensions": [
+      "txt",
+      "dt4"
+    ]
+  },
+  {
+    "deviceId": "23235",
+    "deviceName": "Ocean Sonics icListen HF Hydrophone 1266",
+    "locationCode": "FGPD",
+    "locationName": "Folger Deep",
+    "dataPreviewOptions": [
+      [
+        176,
+        1,
+        0
+      ],
+      [
+        176,
+        2,
+        0
+      ],
+      [
+        176,
+        3,
+        0
+      ],
+      [
+        176,
+        4,
+        0
+      ],
+      [
+        53,
+        1,
+        0
+      ],
+      [
+        53,
+        2,
+        0
+      ],
+      [
+        53,
+        3,
+        0
+      ],
+      [
+        53,
+        4,
+        0
+      ]
+    ],
+    "searchTreeNodeId": 27,
+    "deviceCategoryId": 19,
+    "deviceCode": "ICLISTENHF1266",
+    "fileExtensions": [
+      "txt",
+      "dt4"
+    ]
+  },
+  {
+    "deviceId": "22790",
+    "deviceName": "NRCan Bottom Pressure Recorder 5",
+    "locationCode": "FGPD",
+    "locationName": "Folger Deep",
+    "dataPreviewOptions": [
+      [
+        3,
+        1,
+        0
+      ],
+      [
+        3,
+        2,
+        0
+      ],
+      [
+        3,
+        3,
+        0
+      ],
+      [
+        3,
+        4,
+        0
+      ],
+      [
+        220,
+        1,
+        0
+      ],
+      [
+        220,
+        2,
+        0
+      ],
+      [
+        220,
+        3,
+        0
+      ],
+      [
+        220,
+        4,
+        0
+      ]
+    ],
+    "searchTreeNodeId": 27,
+    "deviceCategoryId": 3,
+    "deviceCode": "NRCANBPR05",
+    "fileExtensions": [
+      "txt",
+      "dt4"
+    ]
+  }
+]

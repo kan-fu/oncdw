@@ -11,7 +11,10 @@ from oncdw import ONCDW
 def data_preview_section(device: dict, client: ONCDW):
     """
     Assume data preview plots are placed in two columns,
-    and the options are like [[x,1],[x,2],[x,3],[x,4],[y,1],[y,2]].
+    and the options are like 
+    1. [[x,1],[x,2],[x,3],[x,4],[y,1],[y,2]], or
+    2. [[x,1,y],[x,2,y],[x,3,y],[x,4,y],[y,1,y],[y,2,y]] if it has sensor code id.
+     
     """
     st.subheader("Data Preview plot")
 
@@ -25,6 +28,12 @@ def data_preview_section(device: dict, client: ONCDW):
             # Deal with odd length of data preview options
             option1 = options[0]
             option2 = []
+        
+        # Manually add a dummy sensor code id if not present
+        if len(option1) == 2:
+            option1.append(0)
+        if len(option2) == 2:
+            option2.append(0)
 
         cols = st.columns(2)
         with st.container():
@@ -151,7 +160,7 @@ def Barkley(
         ),
     ]
 
-    client = ONCDW(file=page_title)
+    client = ONCDW(file=page_title, showInfo=True)
 
     client.ui.import_custom_badge_css(
         sticky_device=sticky_device, sticky_location=sticky_location
@@ -222,9 +231,10 @@ def Barkley(
         # Data preview plots in two columns
         data_preview_section(device, client)
 
-        # Archive file table
-        st.subheader("Archive file table")
-        client.widget.table_archive_files(device)
+        # Archive file table, only display if deviceCode is not empty
+        if device["deviceCode"]:
+            st.subheader("Archive file table")
+            client.widget.table_archive_files(device)
 
 
 def Neptune(

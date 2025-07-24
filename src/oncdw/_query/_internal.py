@@ -84,9 +84,9 @@ class Internal:
         }
 
         r = requests.get(base_url, params)
-        payload = r.json()["payload"]
+        response_json = r.json()
 
-        if payload:
-            return r.json()["payload"]["filePath"]
+        if response_json:
+            return response_json["payload"].get("filePath", "")
         else:
             return ""

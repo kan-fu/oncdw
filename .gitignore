@@ -165,4 +165,5 @@ cython_debug/
 .streamlit/secrets.toml
 .ruff_cache
 dashboards_convert/html
+test.py
 *.ipynb
