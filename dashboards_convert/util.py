@@ -174,7 +174,7 @@ def template_ferry_gen(html_filename, json_filename):
     for h3 in tree.xpath("//h3"):
         # Example h3 text content is "Tsawwassen - Duke Point Ferry Route (TWDP) - Pump and Valve Control System 02 - 24419  Device Details"
         location_name, location_code, device_name, device_id = re.match(
-            r"(.*) \((.*)\) - (.*) - (\d+).*", h3.text_content()
+            r"(.*) \((.*)\).* - (.*) - (\d+).*", h3.text_content()
         ).groups()
 
         # Get data preview if exists

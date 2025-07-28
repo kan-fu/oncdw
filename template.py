@@ -11,10 +11,10 @@ from oncdw import ONCDW
 def data_preview_section(device: dict, client: ONCDW):
     """
     Assume data preview plots are placed in two columns,
-    and the options are like 
+    and the options are like
     1. [[x,1],[x,2],[x,3],[x,4],[y,1],[y,2]], or
     2. [[x,1,y],[x,2,y],[x,3,y],[x,4,y],[y,1,y],[y,2,y]] if it has sensor code id.
-     
+
     """
     st.subheader("Data Preview plot")
 
@@ -28,7 +28,7 @@ def data_preview_section(device: dict, client: ONCDW):
             # Deal with odd length of data preview options
             option1 = options[0]
             option2 = []
-        
+
         # Manually add a dummy sensor code id if not present
         if len(option1) == 2:
             option1.append(0)
@@ -53,6 +53,53 @@ def data_preview_section(device: dict, client: ONCDW):
                         plot_number=option2[1],
                         sensor_code_id=option2[2],
                     )
+
+
+def links_section(links: dict):
+    """
+    Display a section with links.
+
+    Parameters
+    ----------
+    links : dict
+        A dictionary of links to be displayed at the top of the page.
+        The keys are the link titles, and the values are the URLs.
+    """
+    st.header("Links")
+    for title, url in links.items():
+        st.subheader(f"[{title}]({url})")
+
+
+def state_of_ocean_images(location_code: str):
+    """
+    Display the State of Ocean images for a given location code.
+
+    Parameters
+    ----------
+    location_code : str
+        The location code to construct the image URLs.
+    """
+    images = [
+        (
+            "State of Ocean Climate plot",
+            f"https://ftp.oceannetworks.ca/pub/DataProducts/SOO/{location_code}/{location_code}-StateOfOceanEnv-Climate.png",
+            ("SOOC", "Climate"),
+        ),
+        (
+            "State of Ocean Anomaly plot",
+            f"https://ftp.oceannetworks.ca/pub/DataProducts/SOO/{location_code}/{location_code}-StateOfOceanEnv-Anomaly.png",
+            ("SOOA", "Anomaly"),
+        ),
+        (
+            "State of Ocean Min/Max plot",
+            f"https://ftp.oceannetworks.ca/pub/DataProducts/SOO/{location_code}/{location_code}-StateOfOceanEnv_MinMaxAvg1day.png",
+            ("SOOM", "MinMax"),
+        ),
+    ]
+
+    for title, url, _ in images:
+        st.header(title)
+        st.image(url)
 
 
 def Barkley(
@@ -172,11 +219,11 @@ def Barkley(
 
     with st.sidebar:
         client.ui.location_sidebar(devices1[0])
-        client.ui.header_badge("", "Links", "#links")
+        client.ui.h2_badge("", "Links", "#links")
         for title, _, (key, val) in images:
             # Format "State of Ocean Climate plot" to "state-of-ocean-climate-plot"
             href = "#" + re.sub(r"\W+", "-", title).lower()
-            client.ui.header_badge(key, val, href)
+            client.ui.h2_badge(key, val, href)
 
         st.divider()
 
@@ -355,18 +402,14 @@ def Neptune(
 def Ferry(
     json_filename: str,
     page_title: str,
-    device_name_id: str,
-    device_console_url: str,
-    annotation_url: str,
-    marine_traffic_url: str,
-    plotting_utility_url: str,
+    links: dict,
     sticky_device: bool = True,
     sticky_location: bool = True,
 ):
     """
     Ferry is a template for the dashboard of multiple locations that consists of two sections:
 
-    1. Links to the Oceans 3.0 Device Console, Oceans 3.0 Annotation, Marine Traffic and Plotting Utility.
+    1. Useful links like the Oceans 3.0 Device Console, Oceans 3.0 Annotation, Marine Traffic and Plotting Utility.
     2. List of devices, each having a list of sensors with a time series plot, and optionally some data preview plots,
     which requires non-empty dataPreviewOptions, deviceCategoryId and searchTreeNodeId.
 
@@ -394,16 +437,9 @@ def Ferry(
         The name of the JSON file that contains the data. It should have suffix _1.json and _2.json.
     page_title : str
         The title of the page.
-    device_name_id : str
-        The name and ID of the device shown in the Oceans 3.0 device console link.
-    device_console_url : str
-        The URL of the device for the Oceans 3.0 device console.
-    annotation_url : str
-        The URL of the device for the Oceans 3.0 annotation.
-    marine_traffic_url : str
-        The URL of the device for the Marine Traffic.
-    plotting_utility_url : str
-        The URL of the device for the Plotting Utility.
+    links : dict
+        A dictionary of links to be displayed at the top of the page.
+        The keys are the link titles, and the values are the URLs.
     sticky_device : bool, default True
         Whether to show the device as sticky in the main part.
     sticky_location : bool, default True
@@ -425,7 +461,7 @@ def Ferry(
     client.ui.show_time_difference(client.now)
 
     with st.sidebar:
-        client.ui.header_badge("", "Links", "#links")
+        client.ui.h2_badge("", "Links", "#links")
         st.divider()
 
         prev_location = None
@@ -438,21 +474,9 @@ def Ferry(
             st.divider()
             prev_location = device["locationCode"]
 
-    # All the devices belong to the same location
-
     onc = ONC(os.environ.get("ONC_TOKEN"))
 
-    st.header("Links")
-
-    st.subheader(
-        f"[Oceans 3.0 Device Console for {device_name_id}]({device_console_url})"
-    )
-
-    st.subheader(f"[Oceans 3.0 Annotation for {device_name_id}]({annotation_url})")
-
-    st.subheader(f"[Marine Traffic - {device_name_id}]({marine_traffic_url})")
-
-    st.subheader(f"[Plotting Utility - {device_name_id}]({plotting_utility_url})")
+    links_section(links)
 
     prev_location = None
     for device in devices:

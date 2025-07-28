@@ -1,6 +1,7 @@
 from typing import TYPE_CHECKING
-import streamlit as st
+
 import pandas as pd
+import streamlit as st
 
 if TYPE_CHECKING:
     from ._client import ONCDW
@@ -21,13 +22,16 @@ def _get_code_from_device(device: str | dict) -> str:
         )
     return device_code
 
+
 def _error_handler(func):
-        def inner_function(*args, **kwargs):
-            try:
-                func(*args, **kwargs)
-            except Exception as e:
-                st.error(f"An error occurred: {e}")
-        return inner_function
+    def inner_function(*args, **kwargs):
+        try:
+            func(*args, **kwargs)
+        except Exception as e:
+            st.error(f"An error occurred: {e}")
+
+    return inner_function
+
 
 class Widget:
 
@@ -97,7 +101,6 @@ class Widget:
             st_wrapper,
             engine,
         )
-    
 
     @_error_handler
     def table_archive_files(
@@ -211,5 +214,3 @@ class Widget:
             zoom=zoom,
             st_wrapper=st_wrapper,
         )
-
-    
