@@ -6,6 +6,7 @@ from datetime import timezone
 import pandas as pd
 import streamlit as st
 
+from .section import Section
 from .ui import UI
 from .widget import Widget
 
@@ -28,6 +29,7 @@ class ONCDW:
 
         self.widget = Widget(self)
         self.now = self._now()
+        self.section = Section(self)
         self.ui = UI()
 
     @property

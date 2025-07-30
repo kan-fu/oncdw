@@ -1,6 +1,5 @@
 import json
 import os
-import re
 
 import streamlit as st
 from onc import ONC
@@ -68,220 +67,6 @@ def links_section(links: dict):
     st.header("Links")
     for title, url in links.items():
         st.subheader(f"[{title}]({url})")
-
-
-def state_of_ocean_images(location_code: str):
-    """
-    Display the State of Ocean images for a given location code.
-
-    Parameters
-    ----------
-    location_code : str
-        The location code to construct the image URLs.
-    """
-    images = [
-        (
-            "State of Ocean Climate plot",
-            f"https://ftp.oceannetworks.ca/pub/DataProducts/SOO/{location_code}/{location_code}-StateOfOceanEnv-Climate.png",
-            ("SOOC", "Climate"),
-        ),
-        (
-            "State of Ocean Anomaly plot",
-            f"https://ftp.oceannetworks.ca/pub/DataProducts/SOO/{location_code}/{location_code}-StateOfOceanEnv-Anomaly.png",
-            ("SOOA", "Anomaly"),
-        ),
-        (
-            "State of Ocean Min/Max plot",
-            f"https://ftp.oceannetworks.ca/pub/DataProducts/SOO/{location_code}/{location_code}-StateOfOceanEnv_MinMaxAvg1day.png",
-            ("SOOM", "MinMax"),
-        ),
-    ]
-
-    for title, url, _ in images:
-        st.header(title)
-        st.image(url)
-
-
-def Barkley(
-    json_filename: str,
-    location_code: str,
-    page_title: str,
-    device_name_id: str,
-    device_console_url: str,
-    annotation_url: str,
-    sticky_device: bool = True,
-    sticky_location: bool = True,
-):
-    """
-    Barkely is a template for the dashboard of only one location that consists of five sections:
-
-    1. Links to the Oceans 3.0 Device Console and Oceans 3.0 Annotation.
-    2. Three images: State of Ocean Climate plot, State of Ocean Anomaly plot, and State of Ocean Min/Max plot.
-    3. List of devices, each having a list of sensors with a time series plot.
-    4. List of double devices, each having a two-sensors time series plot.
-    5. List of devices, each having a list of data preview plots and an archive file table.
-
-    A sample format for the expected xxx_1 json file is listed below. All are required.
-    It is used in the section 3 and section 4.
-    [
-        # One-sensor times series plot
-        {
-            "deviceId": "23580",
-            "deviceName": "Sea-Bird SeaCAT SBE19plus V2 7033",
-            "sensors": [["15678", "Pressure"]],  # [[sensor id, sensor name]]
-            "locationCode": "NC89",
-            "locationName": "Bullseye",
-            "deviceCode": "SBECTD19p7033",
-        },
-        # Two-sensors times series plot
-        {
-            "deviceId": "23840 & 23283",
-            "deviceName": "Sea-Bird SeaCAT SBE19plus V2 6002 & Sea-Bird SBE 63 Dissolved Oxygen Sensor 630637",
-            # [[[sensor id 1, sensor name 1], [sensor id 2, sensor name 2]]]
-            "sensors": [[["16672", "Temperatures"], ["13327", "Temperatures"]]],
-            "locationCode": "BACAX",
-            "locationName": "Barkley Canyon Axis",
-            "deviceCode": "SBECTD19p6002 & SBE63630637",
-        }
-    ]
-
-    A sample format for the expected xxx_2 json file is listed below.
-    All are required except `fileExtensions`. It is used in the section 5.
-    [
-        {
-            "deviceId": "24150",
-            "deviceName": "RBRconcerto Tilt Meter ACC.BPR 63055",
-            "locationCode": "NC89",
-            "locationName": "Bullseye",
-            "dataPreviewOptions": [[3, 1], [3, 2]], # [(data_product_format_id, plot_number)]
-            "searchTreeNodeId": 1776,
-            "deviceCategoryId": 46,
-            "deviceCode": "RBRTILTMETERACCBPR63055",
-            "fileExtensions": ["txt", "dt4"], # optional
-        }
-    ]
-
-
-    Parameters
-    ----------
-    json_filename : str
-        The name of the JSON file that contains the data. It should have suffix _1.json and _2.json.
-    location_code : str
-        The location code of the devices.
-    page_title : str
-        The title of the page.
-    device_name_id : str
-        The name and ID of the device shown in the Oceans 3.0 device console link.
-    device_console_url : str
-        The URL of the device for the Oceans 3.0 device console.
-    annotation_url : str
-        The URL of the device for the Oceans 3.0 annotation.
-    sticky_device : bool, default True
-        Whether to show the device as sticky in the main part.
-    sticky_location : bool, default True
-        Whether to show the location as sticky in the sidebar.
-    """
-    st.set_page_config(layout="wide", page_title=page_title)
-
-    with open(f"pages/{json_filename}_1.json") as f:
-        devices1 = json.load(f)
-
-    with open(f"pages/{json_filename}_2.json") as f:
-        devices2 = json.load(f)
-
-    images = [
-        (
-            "State of Ocean Climate plot",
-            f"https://ftp.oceannetworks.ca/pub/DataProducts/SOO/{location_code}/{location_code}-StateOfOceanEnv-Climate.png",
-            ("SOOC", "Climate"),
-        ),
-        (
-            "State of Ocean Anomaly plot",
-            f"https://ftp.oceannetworks.ca/pub/DataProducts/SOO/{location_code}/{location_code}-StateOfOceanEnv-Anomaly.png",
-            ("SOOA", "Anomaly"),
-        ),
-        (
-            "State of Ocean Min/Max plot",
-            f"https://ftp.oceannetworks.ca/pub/DataProducts/SOO/{location_code}/{location_code}-StateOfOceanEnv_MinMaxAvg1day.png",
-            ("SOOM", "MinMax"),
-        ),
-    ]
-
-    client = ONCDW(file=page_title, showInfo=True)
-
-    client.ui.import_custom_badge_css(
-        sticky_device=sticky_device, sticky_location=sticky_location
-    )
-
-    st.title(f"{page_title} Monitoring Dashboard")
-
-    client.ui.show_time_difference(client.now)
-
-    with st.sidebar:
-        client.ui.location_sidebar(devices1[0])
-        client.ui.h2_badge("", "Links", "#links")
-        for title, _, (key, val) in images:
-            # Format "State of Ocean Climate plot" to "state-of-ocean-climate-plot"
-            href = "#" + re.sub(r"\W+", "-", title).lower()
-            client.ui.h2_badge(key, val, href)
-
-        st.divider()
-
-        for device in devices1:
-            client.ui.device_sidebar(device)
-            if "&" not in device["deviceId"]:
-                for sensor in device["sensors"]:
-                    client.ui.sensor_sidebar(sensor)
-            else:
-                for sensor1, sensor2 in device["sensors"]:
-                    client.ui.sensors_two_sidebar(sensor1, sensor2)
-            st.divider()
-
-        for device in devices2:
-            client.ui.device_sidebar(device)
-            st.divider()
-
-    # All the devices belong to the same location
-    client.ui.location(devices1[0])
-
-    onc = ONC(os.environ.get("ONC_TOKEN"))
-    location_info = onc.getLocations({"locationCode": location_code})
-    with st.expander("Location Info", expanded=False):
-        st.json(location_info)
-
-    st.header("Links")
-
-    st.subheader(
-        f"[Oceans 3.0 Device Console for {device_name_id}]({device_console_url})"
-    )
-
-    st.subheader(f"[Oceans 3.0 Annotation for {device_name_id}]({annotation_url})")
-
-    for title, url, _ in images:
-        st.header(title)
-        st.image(url)
-
-    for device in devices1:
-        client.ui.device(device)
-        if "&" not in device["deviceId"]:
-            for sensor in device["sensors"]:
-                client.ui.sensor(sensor)
-                client.widget.time_series(sensor)
-        else:
-            for sensor1, sensor2 in device["sensors"]:
-                client.ui.sensors_two(sensor1, sensor2)
-                client.widget.time_series_two_sensors(sensor1, sensor2)
-
-    for device in devices2:
-        client.ui.device(device)
-
-        # Data preview plots in two columns
-        data_preview_section(device, client)
-
-        # Archive file table, only display if deviceCode is not empty
-        if device["deviceCode"]:
-            st.subheader("Archive file table")
-            client.widget.table_archive_files(device)
 
 
 def Neptune(
@@ -498,3 +283,144 @@ def Ferry(
             client.ui.sensor(sensor)
             client.widget.time_series(sensor)
         prev_location = device["locationCode"]
+
+
+def template1(
+    json_filename: str,
+    location_code: str,
+    page_title: str,
+    links: dict,
+    env: str = "PROD",
+    sticky_device: bool = False,
+    sticky_location: bool = False,
+):
+    """
+    template1 is a template for the dashboard of only one location that consists of five sections:
+
+    1. Links to the Oceans 3.0 Device Console and Oceans 3.0 Annotation.
+    2. Three images: State of Ocean Climate plot, State of Ocean Anomaly plot, and State of Ocean Min/Max plot.
+    3. List of devices, each having a list of sensors with a time series plot.
+    4. List of double devices, each having a two-sensors time series plot.
+    5. List of devices, each having a list of data preview plots and an archive file table.
+
+    A sample format for the expected xxx_1 json file is listed below. All are required.
+    It is used in the section 3 and section 4.
+    [
+        # One-sensor times series plot
+        {
+            "deviceId": "23580",
+            "deviceName": "Sea-Bird SeaCAT SBE19plus V2 7033",
+            "sensors": [["15678", "Pressure"]],  # [[sensor id, sensor name]]
+            "locationCode": "NC89",
+            "locationName": "Bullseye",
+            "deviceCode": "SBECTD19p7033",
+        },
+        # Two-sensors times series plot
+        {
+            "deviceId": "23840 & 23283",
+            "deviceName": "Sea-Bird SeaCAT SBE19plus V2 6002 & Sea-Bird SBE 63 Dissolved Oxygen Sensor 630637",
+            # [[[sensor id 1, sensor name 1], [sensor id 2, sensor name 2]]]
+            "sensors": [[["16672", "Temperatures"], ["13327", "Temperatures"]]],
+            "locationCode": "BACAX",
+            "locationName": "Barkley Canyon Axis",
+            "deviceCode": "SBECTD19p6002 & SBE63630637",
+        }
+    ]
+
+    A sample format for the expected xxx_2 json file is listed below.
+    All are required except `fileExtensions`. It is used in the section 5.
+    [
+        {
+            "deviceId": "24150",
+            "deviceName": "RBRconcerto Tilt Meter ACC.BPR 63055",
+            "locationCode": "NC89",
+            "locationName": "Bullseye",
+            "dataPreviewOptions": [[3, 1], [3, 2]], # [(data_product_format_id, plot_number)]
+            "searchTreeNodeId": 1776,
+            "deviceCategoryId": 46,
+            "deviceCode": "RBRTILTMETERACCBPR63055",
+            "fileExtensions": ["txt", "dt4"], # optional
+        }
+    ]
+
+
+    Parameters
+    ----------
+    json_filename : str
+        The name of the JSON file that contains the data. It should have suffix _1.json and _2.json.
+    location_code : str
+        The location code of the devices.
+    page_title : str
+        The title of the page.
+    links : dict
+        A dictionary of links to be displayed at the top of the page.
+        The keys are the link titles, and the values are the URLs.
+    env : str, default "PROD"
+        The environment of running the web service. "PROD" or "QA".
+    sticky_device : bool, default True
+        Whether to show the device as sticky in the main part.
+    sticky_location : bool, default True
+        Whether to show the location as sticky in the sidebar.
+    """
+    st.set_page_config(layout="wide", page_title=page_title)
+
+    with open(f"pages/{json_filename}_1.json") as f:
+        devices1 = json.load(f)
+
+    with open(f"pages/{json_filename}_2.json") as f:
+        devices2 = json.load(f)
+
+    client = ONCDW(file=page_title, env=env)
+
+    st.title(f"{page_title} Monitoring Dashboard")
+
+    client.ui.import_custom_badge_css(
+        sticky_device=sticky_device, sticky_location=sticky_location
+    )
+    client.ui.show_time_difference(client.now)
+
+    client.section.links(links)
+
+    state_of_ocean_images_badges = client.section.state_of_ocean_images(location_code)
+
+    with st.sidebar:
+        client.ui.h2_badge("", "Links", "#links")
+
+        for key, val, href in state_of_ocean_images_badges:
+            client.ui.h2_badge(key, val, href)
+
+        st.divider()
+
+        for device in devices1:
+            client.section.location_sidebar(device)
+            client.ui.device_sidebar(device)
+
+            for sensor in device["sensors"]:
+                client.section.sensor_sidebar(sensor)
+
+            st.divider()
+
+        for device in devices2:
+            client.section.location_sidebar(device)
+
+            client.ui.device_sidebar(device)
+
+            st.divider()
+
+    for device in devices1:
+        client.section.location_expander(device)
+        client.ui.device(device)
+
+        client.section.time_series(device)
+
+    for device in devices2:
+        client.section.location_expander(device)
+        client.ui.device(device)
+
+        # Data preview plots in two columns
+        client.section.data_preview(device)
+
+        # Archive file table, only display if deviceCode is present
+        if device["deviceCode"]:
+            st.subheader("Archive file table")
+            client.widget.table_archive_files(device)

@@ -7,7 +7,6 @@ from ._util import _get_id_from_sensor, _get_name_from_sensor
 
 
 def _badge_shields(left: str | int, right: str, color) -> str:
-
     def _sanitize(input):
         return str(input).replace(" ", "%20").replace("-", "--").replace("_", "__")
 
@@ -386,5 +385,5 @@ class UI:
         )
         st.info(
             f"The latest datetime for the cached data is {latest_datetime.strftime('%Y-%m-%d %H:%M:%S')}, "
-            f"which is {time_delta.total_seconds()/3600:.2f} hours ago."
+            f"which is {time_delta.total_seconds() / 3600:.2f} hours ago."
         )
