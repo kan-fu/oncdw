@@ -1,6 +1,6 @@
-from template import Neptune
+from template import template3
 
 json_filename = "Acoustic_Devices"
 page_title = "Acoustic Devices"
 
-Neptune(json_filename, page_title, map_widget=False, time_series_widget=False)
+template3(json_filename, page_title)

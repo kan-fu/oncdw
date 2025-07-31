@@ -1,4 +1,4 @@
-from template import Ferry
+from template import template2
 
 json_filename = "Ferry_QoA"
 page_title = "QoA Tsawwassen - Duke Point"
@@ -20,4 +20,4 @@ links = {
 }
 
 
-Ferry(json_filename, page_title, links)
+template2(json_filename, page_title, links)

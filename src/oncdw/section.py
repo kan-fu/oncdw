@@ -69,15 +69,29 @@ class Section:
 
         return badges
 
-    def time_series(self, device: dict):
-        if "&" not in device["deviceId"]:
-            for sensor in device["sensors"]:
-                self._client.ui.sensor(sensor)
-                self._client.widget.time_series(sensor)
+    def time_series(self, sensor: list, last_days: int | None = None):
+        """
+        Display time series plots for a given sensor or two sensors.
+
+        Parameters
+        ----------
+        sensor : list
+            A list representing a sensor or a pair of sensors.
+            The format can be either:
+            1. A single sensor, [sensor_id, sensor_name]
+            2. A pair of sensors, [[sensor1_id, sensor1_name], [sensor2_id, sensor2_name]]
+        """
+        if isinstance(sensor[0], list | tuple):
+            # If the sensor is a pair of sensors
+            sensor1, sensor2 = sensor
+            self._client.ui.sensors_two(sensor1, sensor2)
+            self._client.widget.time_series_two_sensors(
+                sensor1, sensor2, last_days=last_days
+            )
         else:
-            for sensor1, sensor2 in device["sensors"]:
-                self._client.ui.sensors_two(sensor1, sensor2)
-                self._client.widget.time_series_two_sensors(sensor1, sensor2)
+            # If the sensor is a single sensor
+            self._client.ui.sensor(sensor)
+            self._client.widget.time_series(sensor, last_days=last_days)
 
     def data_preview(self, device: dict):
         """
@@ -87,6 +101,9 @@ class Section:
         2. [[x,1,y],[x,2,y],[x,3,y],[x,4,y],[y,1,y],[y,2,y]] if it has sensor code id.
 
         """
+        if "dataPreviewOptions" not in device:
+            return
+
         st.subheader("Data Preview plot")
 
         # Data preview plots in two columns

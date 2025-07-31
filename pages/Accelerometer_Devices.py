@@ -1,6 +1,6 @@
-from template import Neptune
+from template import template3
 
 json_filename = "Accelerometer_Devices"
 page_title = "Accelerometer and Tiltmeter"
 
-Neptune(json_filename, page_title, data_preview_widget=False)
+template3(json_filename, page_title)

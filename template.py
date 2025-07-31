@@ -1,83 +1,16 @@
 import json
-import os
 
 import streamlit as st
-from onc import ONC
 
 from oncdw import ONCDW
 
 
-def data_preview_section(device: dict, client: ONCDW):
-    """
-    Assume data preview plots are placed in two columns,
-    and the options are like
-    1. [[x,1],[x,2],[x,3],[x,4],[y,1],[y,2]], or
-    2. [[x,1,y],[x,2,y],[x,3,y],[x,4,y],[y,1,y],[y,2,y]] if it has sensor code id.
-
-    """
-    st.subheader("Data Preview plot")
-
-    # Data preview plots in two columns
-    for i in range(0, len(device["dataPreviewOptions"]), 2):
-        # The format of options is (data_product_format_id, plot_number, sensor_code_id)
-        options = device["dataPreviewOptions"][i : i + 2]
-        if len(options) == 2:
-            option1, option2 = options
-        else:
-            # Deal with odd length of data preview options
-            option1 = options[0]
-            option2 = []
-
-        # Manually add a dummy sensor code id if not present
-        if len(option1) == 2:
-            option1.append(0)
-        if len(option2) == 2:
-            option2.append(0)
-
-        cols = st.columns(2)
-        with st.container():
-            with cols[0]:
-                client.widget.data_preview(
-                    device,
-                    data_product_format_id=option1[0],
-                    plot_number=option1[1],
-                    sensor_code_id=option1[2],
-                )
-
-            with cols[1]:
-                if option2:
-                    client.widget.data_preview(
-                        device,
-                        data_product_format_id=option2[0],
-                        plot_number=option2[1],
-                        sensor_code_id=option2[2],
-                    )
-
-
-def links_section(links: dict):
-    """
-    Display a section with links.
-
-    Parameters
-    ----------
-    links : dict
-        A dictionary of links to be displayed at the top of the page.
-        The keys are the link titles, and the values are the URLs.
-    """
-    st.header("Links")
-    for title, url in links.items():
-        st.subheader(f"[{title}]({url})")
-
-
-def Neptune(
+def template3(
     json_filename: str,
     page_title: str,
     center_lat: float = 49.3,
     center_lon: float = -126.3,
     zoom: float = 6,
-    data_preview_widget: bool = True,
-    time_series_widget: bool = True,
-    map_widget: bool = True,
     sticky_device: bool = True,
 ):
     """
@@ -131,7 +64,7 @@ def Neptune(
     st.set_page_config(layout="wide", page_title=page_title)
 
     with open(f"pages/{json_filename}.json") as f:
-        devices = json.load(f)
+        devices: dict = json.load(f)
 
     client = ONCDW(file=page_title)
 
@@ -141,7 +74,7 @@ def Neptune(
     st.title(f"{page_title} Monitoring Dashboard")
     client.ui.show_time_difference(client.now)
 
-    if map_widget:
+    if "lat" in devices[0] and "lon" in devices[0]:
         client.widget.map(
             devices, center_lat=center_lat, center_lon=center_lon, zoom=zoom
         )
@@ -152,47 +85,37 @@ def Neptune(
         for device in devices:
             client.ui.location_sidebar(device)
             client.ui.device_sidebar(device)
-            if time_series_widget:
-                # Only list sensors if times series widget is present
-                for sensor in device["sensors"]:
-                    client.ui.sensor_sidebar(sensor)
+
+            for sensor in device.get("sensors", []):
+                client.ui.sensor_sidebar(sensor)
             st.divider()
 
     for device in devices:
         client.ui.location(device)
         client.ui.device(device)
-        if data_preview_widget:
-            data_preview_section(device, client)
+
+        # Data preview plots
+        client.section.data_preview(device)
 
         # Archive file table
         st.subheader("Archive file table")
         client.widget.table_archive_files(device)
 
-        if time_series_widget:
+        if "sensors" in device and len(device["sensors"]) == 2:
             # Time series two sensors
             st.subheader("Time series")
-            sensor1, sensor2 = (
-                device["sensors"][0],
-                device["sensors"][1],
-            )
-            col1, col2 = st.columns(2, gap="large")
-            with col1:
-                client.ui.sensor(sensor1)
-            with col2:
-                client.ui.sensor(sensor2)
-
-            client.widget.time_series_two_sensors(sensor1, sensor2, last_days=2)
+            client.section.time_series(device["sensors"], last_days=2)
 
 
-def Ferry(
+def template2(
     json_filename: str,
     page_title: str,
     links: dict,
-    sticky_device: bool = True,
-    sticky_location: bool = True,
+    sticky_device: bool = False,
+    sticky_location: bool = False,
 ):
     """
-    Ferry is a template for the dashboard of multiple locations that consists of two sections:
+    template2 is a template for the dashboard of multiple locations that consists of two sections:
 
     1. Useful links like the Oceans 3.0 Device Console, Oceans 3.0 Annotation, Marine Traffic and Plotting Utility.
     2. List of devices, each having a list of sensors with a time series plot, and optionally some data preview plots,
@@ -249,40 +172,27 @@ def Ferry(
         client.ui.h2_badge("", "Links", "#links")
         st.divider()
 
-        prev_location = None
         for device in devices:
-            if prev_location != device["locationCode"]:
-                client.ui.location_sidebar(device)
+            client.section.location_sidebar(device)
             client.ui.device_sidebar(device)
             for sensor in device["sensors"]:
                 client.ui.sensor_sidebar(sensor)
             st.divider()
-            prev_location = device["locationCode"]
 
-    onc = ONC(os.environ.get("ONC_TOKEN"))
+    client.section.links(links)
 
-    links_section(links)
-
-    prev_location = None
     for device in devices:
-        # Only display location if prev_location is different
-        if prev_location != device["locationCode"]:
-            client.ui.location(device)
-            location_info = onc.getLocations({"locationCode": device["locationCode"]})
-            with st.expander("Location Info", expanded=False):
-                st.json(location_info)
+        client.section.location_expander(device)
 
         client.ui.device(device)
 
         # data preview
-        data_preview_section(device, client)
+        client.section.data_preview(device)
 
         # time series
         st.subheader("Time Series plot")
         for sensor in device["sensors"]:
-            client.ui.sensor(sensor)
-            client.widget.time_series(sensor)
-        prev_location = device["locationCode"]
+            client.section.time_series(sensor)
 
 
 def template1(
@@ -377,6 +287,7 @@ def template1(
     client.ui.import_custom_badge_css(
         sticky_device=sticky_device, sticky_location=sticky_location
     )
+
     client.ui.show_time_difference(client.now)
 
     client.section.links(links)
@@ -411,7 +322,9 @@ def template1(
         client.section.location_expander(device)
         client.ui.device(device)
 
-        client.section.time_series(device)
+        st.subheader("Time Series plot")
+        for sensor in device["sensors"]:
+            client.section.time_series(sensor)
 
     for device in devices2:
         client.section.location_expander(device)

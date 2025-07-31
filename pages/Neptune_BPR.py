@@ -1,6 +1,6 @@
-from template import Neptune
+from template import template3
 
 json_filename = "Neptune_BPR"
 page_title = "Neptune BPR"
 
-Neptune(json_filename, page_title)
+template3(json_filename, page_title)
