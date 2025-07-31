@@ -1,0 +1,113 @@
+[
+  {
+    "deviceId": "24140",
+    "deviceName": "Sea-Bird SeaCAT SBE19plus V2 4996",
+    "sensors": [
+      [
+        "22274",
+        "Pressure"
+      ],
+      [
+        "22286",
+        "Sound Speed"
+      ],
+      [
+        "22273",
+        "Temperature"
+      ],
+      [
+        "22283",
+        "Conductivity"
+      ],
+      [
+        "22285",
+        "Density"
+      ],
+      [
+        "22281",
+        "Practical Salinity"
+      ],
+      [
+        "22282",
+        "Sigma-t"
+      ],
+      [
+        "22284",
+        "Sigma-theta (0 dbar)"
+      ]
+    ],
+    "locationCode": "FGPPN",
+    "locationName": "Folger Pinnacle",
+    "deviceCode": "SBECTD19p4996"
+  },
+  {
+    "deviceId": "26819",
+    "deviceName": "Sea-Bird SBE 63 Dissolved Oxygen Sensor 631868",
+    "sensors": [
+      [
+        "30000",
+        "Oxygen Concentration Corrected"
+      ],
+      [
+        "29979",
+        "Oxygen Concentration Uncorrected"
+      ],
+      [
+        "29999",
+        "Temperature"
+      ]
+    ],
+    "locationCode": "FGPPN",
+    "locationName": "Folger Pinnacle",
+    "deviceCode": "SBE63631868"
+  },
+  {
+    "deviceId": "20221",
+    "deviceName": "WET Labs ECO FLNTUS 895",
+    "sensors": [
+      [
+        "4210",
+        "Chlorophyll"
+      ],
+      [
+        "4209",
+        "Turbidity"
+      ]
+    ],
+    "locationCode": "FGPPN",
+    "locationName": "Folger Pinnacle",
+    "deviceCode": "WETLABSFLNTU895"
+  },
+  {
+    "deviceId": "23059",
+    "deviceName": "Biospherical PAR Irradiance QSP-2350L 70434",
+    "sensors": [
+      [
+        "9241",
+        "PAR"
+      ]
+    ],
+    "locationCode": "FGPPN",
+    "locationName": "Folger Pinnacle",
+    "deviceCode": "BIOLIGHTSENSOR70434"
+  },
+  {
+    "deviceId": "24140 & 26819",
+    "deviceName": "Sea-Bird SeaCAT SBE19plus V2 4996 & Sea-Bird SBE 63 Dissolved Oxygen Sensor 631868",
+    "sensors": [
+      [
+        [
+          "22273",
+          "Temperatures"
+        ],
+        [
+          "29999",
+          "Temperatures"
+        ]
+      ]
+    ],
+    "locationCode": "FGPPN",
+    "locationName": "Folger Pinnacle",
+    "deviceCode": "SBECTD19p4996 & SBE63631868"
+  }
+]

@@ -1,0 +1,79 @@
+[
+  {
+    "deviceId": "20002",
+    "deviceName": "Nortek Aquadopp Profiler AQD 2958",
+    "locationCode": "FGPPN",
+    "locationName": "Folger Pinnacle",
+    "dataPreviewOptions": [
+      [
+        3,
+        1,
+        0
+      ],
+      [
+        3,
+        2,
+        0
+      ],
+      [
+        57,
+        1,
+        0
+      ],
+      [
+        57,
+        2,
+        0
+      ]
+    ],
+    "searchTreeNodeId": 29,
+    "deviceCategoryId": 73,
+    "deviceCode": "NORTEKAQDPRO2958",
+    "fileExtensions": null
+  },
+  {
+    "deviceId": "23093",
+    "deviceName": "RDI Workhorse Monitor ADCP 600 kHz (17434)",
+    "locationCode": "FGPPN",
+    "locationName": "Folger Pinnacle",
+    "dataPreviewOptions": [
+      [
+        3,
+        1,
+        0
+      ],
+      [
+        3,
+        2,
+        0
+      ],
+      [
+        10,
+        1,
+        0
+      ],
+      [
+        10,
+        2,
+        0
+      ],
+      [
+        11,
+        1,
+        0
+      ],
+      [
+        11,
+        2,
+        0
+      ]
+    ],
+    "searchTreeNodeId": 29,
+    "deviceCategoryId": 71,
+    "deviceCode": "RDIADCP600WH17434",
+    "fileExtensions": [
+      "txt",
+      "dt4"
+    ]
+  }
+]
