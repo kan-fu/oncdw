@@ -3,7 +3,6 @@ from pathlib import Path
 from typing import TYPE_CHECKING
 
 import pandas as pd
-import streamlit as st
 from onc import ONC
 
 import oncdw._util as util
@@ -25,9 +24,8 @@ class OpenAPI:
     def get_scalar_data(self, sensor_id: int | str, last_days: int):
         raise NotImplementedError
 
-    @st.cache_data(ttl="12h")
     def get_archive_files(
-        self, device_code: str, file_extensions: list[str], last_days: int
+        self, device_code: str, last_days: int, file_extensions: list[str] | None = None
     ) -> pd.DataFrame:
         archive_files = self._get_onc().getArchivefile(
             {
@@ -72,7 +70,6 @@ class OpenAPI:
 
         return df
 
-    @st.cache_data(ttl="12h")
     def get_scalar_data_two_sensors(
         self,
         location_code: str,

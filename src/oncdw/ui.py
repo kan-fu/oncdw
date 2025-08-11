@@ -1,6 +1,3 @@
-from datetime import datetime, timezone
-
-import pandas as pd
 import streamlit as st
 
 from ._util import _get_id_from_sensor, _get_name_from_sensor
@@ -377,13 +374,3 @@ class UI:
         )
         UI.sensor_sidebar(sensor1, href=href)
         UI.sensor_sidebar(sensor2, href=href)
-
-    @staticmethod
-    def show_time_difference(latest_datetime: pd.Timestamp):
-        time_delta = (
-            datetime.now(tz=timezone.utc).replace(tzinfo=None) - latest_datetime
-        )
-        st.info(
-            f"The latest datetime for the cached data is {latest_datetime.strftime('%Y-%m-%d %H:%M:%S')}, "
-            f"which is {time_delta.total_seconds() / 3600:.2f} hours ago."
-        )

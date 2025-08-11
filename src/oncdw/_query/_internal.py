@@ -4,7 +4,6 @@ from typing import TYPE_CHECKING
 
 import pandas as pd
 import requests
-import streamlit as st
 
 import oncdw._util as util
 
@@ -16,7 +15,6 @@ if TYPE_CHECKING:
 class Internal:
     _client: "ONCDW"
 
-    @st.cache_data(ttl="12h")
     def get_scalar_data(
         self, sensor_id: int | str, last_days: int
     ) -> tuple[pd.DataFrame, str, int]:
@@ -59,11 +57,9 @@ class Internal:
 
         return df, ylabel, sensor_type_id
 
-    @st.cache_data(ttl="12h")
     def get_archive_files(self, device_code: int | str, last_days: int):
         raise NotImplementedError
 
-    @st.cache_data(ttl="12h")
     def get_data_preview(
         self,
         sensor_code_id: int | None,

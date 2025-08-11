@@ -168,14 +168,14 @@ class Altair:
         return _chart_st_wrapper(chart, st_wrapper)
 
     @staticmethod
-    def heatmap_archive_files(df, st_wrapper):
+    def heatmap_archive_files(df, st_wrapper, marker_width=3, height_per_row=120):
         chart = (
             alt.Chart(df)
-            .mark_rect()
+            .mark_rect(width=marker_width)
             .encode(
-                x=alt.X("hoursminutes(dateFrom):O").title(None),
+                x=alt.X("hoursminutes(dateFrom):T").title(None),
                 y=alt.Y("monthdate(dateFrom):O").title(None),
-                row=alt.Row("dataProductCode:N").title(None),
+                yOffset=alt.Row("dataProductCode:N").title(None),
                 color="dataProductCode:N",
                 href="filename:N",
                 tooltip=[
@@ -185,6 +185,8 @@ class Altair:
                     "dataProductCode",
                 ],
             )
+            .properties(height=height_per_row * df["dataProductCode"].nunique())
             .resolve_scale(x="independent")
+            .interactive()
         )
         return _chart_st_wrapper(chart, st_wrapper)

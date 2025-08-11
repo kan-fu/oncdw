@@ -66,13 +66,12 @@ def template3(
     with open(f"pages/{json_filename}.json") as f:
         devices: dict = json.load(f)
 
-    client = ONCDW(file=page_title)
+    client = ONCDW()
 
     # custom css
     client.ui.import_custom_badge_css(sticky_device=sticky_device)
 
     st.title(f"{page_title} Monitoring Dashboard")
-    client.ui.show_time_difference(client.now)
 
     if "lat" in devices[0] and "lon" in devices[0]:
         client.widget.map(
@@ -158,15 +157,13 @@ def template2(
     with open(f"pages/{json_filename}.json") as f:
         devices = json.load(f)
 
-    client = ONCDW(file=page_title)
+    client = ONCDW()
 
     client.ui.import_custom_badge_css(
         sticky_device=sticky_device, sticky_location=sticky_location
     )
 
     st.title(f"{page_title} Monitoring Dashboard")
-
-    client.ui.show_time_difference(client.now)
 
     with st.sidebar:
         client.ui.h2_badge("", "Links", "#links")
@@ -280,15 +277,13 @@ def template1(
     with open(f"pages/{json_filename}_2.json") as f:
         devices2 = json.load(f)
 
-    client = ONCDW(file=page_title, env=env)
+    client = ONCDW(env=env)
 
     st.title(f"{page_title} Monitoring Dashboard")
 
     client.ui.import_custom_badge_css(
         sticky_device=sticky_device, sticky_location=sticky_location
     )
-
-    client.ui.show_time_difference(client.now)
 
     client.section.links(links)
 

@@ -4,7 +4,6 @@ from dataclasses import dataclass
 from datetime import timezone
 
 import pandas as pd
-import streamlit as st
 
 from .section import Section
 from .ui import UI
@@ -17,7 +16,6 @@ class ONCDW:
     engine: str = "Altair"  # "Altair" | "Plotly"
     env: str = "PROD"  # "PROD" | "QA"
     showInfo: bool = False
-    file: str = "foo"
 
     def __post_init__(self):
         if self.token is None:
@@ -42,6 +40,5 @@ class ONCDW:
             )
         return "data.oceannetworks.ca"
 
-    @st.cache_data(ttl="12h")
     def _now(self):
         return pd.Timestamp.now(timezone.utc).tz_localize(None)
