@@ -1,25 +1,23 @@
 [
   {
-    "deviceId": "24155",
-    "deviceName": "RBRconcerto Tilt Meter ACC.BPR 63057",
-    "locationCode": "NC27",
-    "locationName": "ODP 1026",
-    "dataPreviewOptions": [
-      [
-        3,
-        1,
-        0
-      ],
-      [
-        3,
-        2,
-        0
-      ]
+    "device_id": "24155",
+    "device_name": "RBRconcerto Tilt Meter ACC.BPR 63057",
+    "location_code": "NC27",
+    "location_name": "ODP 1026",
+    "data_preview_options": [
+      {
+        "data_product_format_id": 3,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 3,
+        "plot_number": 2
+      }
     ],
-    "searchTreeNodeId": 1784,
-    "deviceCategoryId": 46,
-    "deviceCode": "RBRTILTMETERACCBPR63057",
-    "fileExtensions": [
+    "search_tree_node_id": 1784,
+    "device_category_id": 46,
+    "device_code": "RBRTILTMETERACCBPR63057",
+    "file_extensions": [
       "txt",
       "dt4"
     ]

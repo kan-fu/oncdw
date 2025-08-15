@@ -1,54 +1,46 @@
 [
   {
-    "deviceId": "74100",
-    "deviceName": "Ocean Sonics icListen HF Hydrophone 6405",
-    "locationCode": "CCIP",
-    "locationName": "China Creek Underwater Network",
-    "dataPreviewOptions": [
-      [
-        176,
-        1,
-        0
-      ],
-      [
-        176,
-        2,
-        0
-      ],
-      [
-        176,
-        3,
-        0
-      ],
-      [
-        176,
-        4,
-        0
-      ],
-      [
-        53,
-        1,
-        0
-      ],
-      [
-        53,
-        2,
-        0
-      ],
-      [
-        53,
-        3,
-        0
-      ],
-      [
-        53,
-        4,
-        0
-      ]
+    "device_id": "74100",
+    "device_name": "Ocean Sonics icListen HF Hydrophone 6405",
+    "location_code": "CCIP",
+    "location_name": "China Creek Underwater Network",
+    "data_preview_options": [
+      {
+        "data_product_format_id": 176,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 176,
+        "plot_number": 2
+      },
+      {
+        "data_product_format_id": 176,
+        "plot_number": 3
+      },
+      {
+        "data_product_format_id": 176,
+        "plot_number": 4
+      },
+      {
+        "data_product_format_id": 53,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 53,
+        "plot_number": 2
+      },
+      {
+        "data_product_format_id": 53,
+        "plot_number": 3
+      },
+      {
+        "data_product_format_id": 53,
+        "plot_number": 4
+      }
     ],
-    "searchTreeNodeId": 2666,
-    "deviceCategoryId": 19,
-    "deviceCode": "ICLISTENHF6405",
-    "fileExtensions": null
+    "search_tree_node_id": 2666,
+    "device_category_id": 19,
+    "device_code": "ICLISTENHF6405",
+    "file_extensions": null
   }
 ]

@@ -1,77 +1,67 @@
 [
   {
-    "deviceId": "20002",
-    "deviceName": "Nortek Aquadopp Profiler AQD 2958",
-    "locationCode": "FGPPN",
-    "locationName": "Folger Pinnacle",
-    "dataPreviewOptions": [
-      [
-        3,
-        1,
-        0
-      ],
-      [
-        3,
-        2,
-        0
-      ],
-      [
-        57,
-        1,
-        0
-      ],
-      [
-        57,
-        2,
-        0
-      ]
+    "device_id": "20002",
+    "device_name": "Nortek Aquadopp Profiler AQD 2958",
+    "location_code": "FGPPN",
+    "location_name": "Folger Pinnacle",
+    "data_preview_options": [
+      {
+        "data_product_format_id": 3,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 3,
+        "plot_number": 2
+      },
+      {
+        "data_product_format_id": 57,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 57,
+        "plot_number": 2
+      }
     ],
-    "searchTreeNodeId": 29,
-    "deviceCategoryId": 73,
-    "deviceCode": "NORTEKAQDPRO2958",
-    "fileExtensions": null
+    "search_tree_node_id": 29,
+    "device_category_id": 73,
+    "device_code": "NORTEKAQDPRO2958",
+    "file_extensions": null
   },
   {
-    "deviceId": "23093",
-    "deviceName": "RDI Workhorse Monitor ADCP 600 kHz (17434)",
-    "locationCode": "FGPPN",
-    "locationName": "Folger Pinnacle",
-    "dataPreviewOptions": [
-      [
-        3,
-        1,
-        0
-      ],
-      [
-        3,
-        2,
-        0
-      ],
-      [
-        10,
-        1,
-        0
-      ],
-      [
-        10,
-        2,
-        0
-      ],
-      [
-        11,
-        1,
-        0
-      ],
-      [
-        11,
-        2,
-        0
-      ]
+    "device_id": "23093",
+    "device_name": "RDI Workhorse Monitor ADCP 600 kHz (17434)",
+    "location_code": "FGPPN",
+    "location_name": "Folger Pinnacle",
+    "data_preview_options": [
+      {
+        "data_product_format_id": 3,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 3,
+        "plot_number": 2
+      },
+      {
+        "data_product_format_id": 10,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 10,
+        "plot_number": 2
+      },
+      {
+        "data_product_format_id": 11,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 11,
+        "plot_number": 2
+      }
     ],
-    "searchTreeNodeId": 29,
-    "deviceCategoryId": 71,
-    "deviceCode": "RDIADCP600WH17434",
-    "fileExtensions": [
+    "search_tree_node_id": 29,
+    "device_category_id": 71,
+    "device_code": "RDIADCP600WH17434",
+    "file_extensions": [
       "txt",
       "dt4"
     ]

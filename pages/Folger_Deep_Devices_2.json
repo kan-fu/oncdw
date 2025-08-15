@@ -1,217 +1,182 @@
 [
   {
-    "deviceId": "20003",
-    "deviceName": "RDI Workhorse Monitor ADCP 300 kHz (9273)",
-    "locationCode": "FGPD",
-    "locationName": "Folger Deep",
-    "dataPreviewOptions": [
-      [
-        3,
-        1,
-        0
-      ],
-      [
-        3,
-        2,
-        0
-      ],
-      [
-        3,
-        3,
-        0
-      ],
-      [
-        3,
-        4,
-        0
-      ],
-      [
-        10,
-        1,
-        0
-      ],
-      [
-        10,
-        2,
-        0
-      ],
-      [
-        10,
-        3,
-        0
-      ],
-      [
-        10,
-        4,
-        0
-      ],
-      [
-        11,
-        1,
-        0
-      ],
-      [
-        11,
-        2,
-        0
-      ],
-      [
-        11,
-        3,
-        0
-      ],
-      [
-        11,
-        4,
-        0
-      ]
+    "device_id": "20003",
+    "device_name": "RDI Workhorse Monitor ADCP 300 kHz (9273)",
+    "location_code": "FGPD",
+    "location_name": "Folger Deep",
+    "data_preview_options": [
+      {
+        "data_product_format_id": 3,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 3,
+        "plot_number": 2
+      },
+      {
+        "data_product_format_id": 3,
+        "plot_number": 3
+      },
+      {
+        "data_product_format_id": 3,
+        "plot_number": 4
+      },
+      {
+        "data_product_format_id": 10,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 10,
+        "plot_number": 2
+      },
+      {
+        "data_product_format_id": 10,
+        "plot_number": 3
+      },
+      {
+        "data_product_format_id": 10,
+        "plot_number": 4
+      },
+      {
+        "data_product_format_id": 11,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 11,
+        "plot_number": 2
+      },
+      {
+        "data_product_format_id": 11,
+        "plot_number": 3
+      },
+      {
+        "data_product_format_id": 11,
+        "plot_number": 4
+      }
     ],
-    "searchTreeNodeId": 27,
-    "deviceCategoryId": 70,
-    "deviceCode": "ADCP20003",
-    "fileExtensions": null
+    "search_tree_node_id": 27,
+    "device_category_id": 70,
+    "device_code": "ADCP20003",
+    "file_extensions": null
   },
   {
-    "deviceId": "20020",
-    "deviceName": "BioSonics DT-Xu Scientific Echosounder",
-    "locationCode": "FGPD",
-    "locationName": "Folger Deep",
-    "dataPreviewOptions": [
-      [
-        313,
-        1,
-        0
-      ],
-      [
-        313,
-        2,
-        0
-      ],
-      [
-        313,
-        3,
-        0
-      ],
-      [
-        313,
-        4,
-        0
-      ]
+    "device_id": "20020",
+    "device_name": "BioSonics DT-Xu Scientific Echosounder",
+    "location_code": "FGPD",
+    "location_name": "Folger Deep",
+    "data_preview_options": [
+      {
+        "data_product_format_id": 313,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 313,
+        "plot_number": 2
+      },
+      {
+        "data_product_format_id": 313,
+        "plot_number": 3
+      },
+      {
+        "data_product_format_id": 313,
+        "plot_number": 4
+      }
     ],
-    "searchTreeNodeId": 27,
-    "deviceCategoryId": 16,
-    "deviceCode": "BIOSONICSDTXU08003",
-    "fileExtensions": [
+    "search_tree_node_id": 27,
+    "device_category_id": 16,
+    "device_code": "BIOSONICSDTXU08003",
+    "file_extensions": [
       "txt",
       "dt4"
     ]
   },
   {
-    "deviceId": "23235",
-    "deviceName": "Ocean Sonics icListen HF Hydrophone 1266",
-    "locationCode": "FGPD",
-    "locationName": "Folger Deep",
-    "dataPreviewOptions": [
-      [
-        176,
-        1,
-        0
-      ],
-      [
-        176,
-        2,
-        0
-      ],
-      [
-        176,
-        3,
-        0
-      ],
-      [
-        176,
-        4,
-        0
-      ],
-      [
-        53,
-        1,
-        0
-      ],
-      [
-        53,
-        2,
-        0
-      ],
-      [
-        53,
-        3,
-        0
-      ],
-      [
-        53,
-        4,
-        0
-      ]
+    "device_id": "23235",
+    "device_name": "Ocean Sonics icListen HF Hydrophone 1266",
+    "location_code": "FGPD",
+    "location_name": "Folger Deep",
+    "data_preview_options": [
+      {
+        "data_product_format_id": 176,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 176,
+        "plot_number": 2
+      },
+      {
+        "data_product_format_id": 176,
+        "plot_number": 3
+      },
+      {
+        "data_product_format_id": 176,
+        "plot_number": 4
+      },
+      {
+        "data_product_format_id": 53,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 53,
+        "plot_number": 2
+      },
+      {
+        "data_product_format_id": 53,
+        "plot_number": 3
+      },
+      {
+        "data_product_format_id": 53,
+        "plot_number": 4
+      }
     ],
-    "searchTreeNodeId": 27,
-    "deviceCategoryId": 19,
-    "deviceCode": "ICLISTENHF1266",
-    "fileExtensions": [
-      "txt",
-      "dt4"
-    ]
+    "search_tree_node_id": 27,
+    "device_category_id": 19,
+    "device_code": "ICLISTENHF1266",
+    "file_extensions": ["txt", "dt4"]
   },
   {
-    "deviceId": "22790",
-    "deviceName": "NRCan Bottom Pressure Recorder 5",
-    "locationCode": "FGPD",
-    "locationName": "Folger Deep",
-    "dataPreviewOptions": [
-      [
-        3,
-        1,
-        0
-      ],
-      [
-        3,
-        2,
-        0
-      ],
-      [
-        3,
-        3,
-        0
-      ],
-      [
-        3,
-        4,
-        0
-      ],
-      [
-        220,
-        1,
-        0
-      ],
-      [
-        220,
-        2,
-        0
-      ],
-      [
-        220,
-        3,
-        0
-      ],
-      [
-        220,
-        4,
-        0
-      ]
+    "device_id": "22790",
+    "device_name": "NRCan Bottom Pressure Recorder 5",
+    "location_code": "FGPD",
+    "location_name": "Folger Deep",
+    "data_preview_options": [
+      {
+        "data_product_format_id": 3,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 3,
+        "plot_number": 2
+      },
+      {
+        "data_product_format_id": 3,
+        "plot_number": 3
+      },
+      {
+        "data_product_format_id": 3,
+        "plot_number": 4
+      },
+      {
+        "data_product_format_id": 220,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 220,
+        "plot_number": 2
+      },
+      {
+        "data_product_format_id": 220,
+        "plot_number": 3
+      },
+      {
+        "data_product_format_id": 220,
+        "plot_number": 4
+      }
     ],
-    "searchTreeNodeId": 27,
-    "deviceCategoryId": 3,
-    "deviceCode": "NRCANBPR05",
-    "fileExtensions": [
+    "search_tree_node_id": 27,
+    "device_category_id": 3,
+    "device_code": "NRCANBPR05",
+    "file_extensions": [
       "txt",
       "dt4"
     ]

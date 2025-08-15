@@ -4,11 +4,11 @@ import re
 import lxml.html
 
 
-def extract_dp_format_id_plot_number(url: str) -> tuple[int, int, int]:
+def extract_data_preview_option(url: str) -> dict:
     """
     Extract data product format id and plot number (and optionally sensor code id if exists) from the url.
 
-    Return the tuple of (data_product_format_id, plot_number, sensor_code_id).
+    Return the dict that contains (data_product_format_id, plot_number, sensor_code_id).
     """
 
     dp_format_id, plot_number = re.search(
@@ -18,14 +18,23 @@ def extract_dp_format_id_plot_number(url: str) -> tuple[int, int, int]:
     query = re.search(r"sensorCodeId=(\d+)", url)
 
     # Extract sensor code id if present
-    sensor_code_id = query.group(1) if query else 0
+    if query:
+        sensor_code_id = query.group(1)
+        return {
+            "data_product_format_id": int(dp_format_id),
+            "plot_number": int(plot_number),
+            "sensor_code_id": int(sensor_code_id),
+        }
+    else:
+        return {
+            "data_product_format_id": int(dp_format_id),
+            "plot_number": int(plot_number),
+        }
 
-    return (int(dp_format_id), int(plot_number), int(sensor_code_id))
 
-
-def extract_node_id_category_id(url: str) -> tuple[int, int]:
+def extract_node_id_category_id(url: str) -> tuple[int, ...]:
     """
-    SearchTreeNodeId and DeviceCategoryId belong to device, so most of time they should be called once
+    SearchTreeNodeId and DeviceCategoryId belong to device, so most time they should be called once
     even when there are multiple data preview plots for the same device.
     """
     return tuple(
@@ -59,18 +68,24 @@ def template_gen(location_code, location_name, html_filename, json_filename):
 
         # Get sensors, format is [(sensor_id, sensor_name), ...]
         sensors = [
-            re.match(r"(\d+)(.*)", ele.text_content()).groups()
+            dict(
+                zip(
+                    ("sensor_id", "sensor_name"),
+                    re.match(r"(\d+)(.*)", ele.text_content()).groups(),
+                    strict=False,
+                )
+            )
             for ele in h3.getnext().xpath(".//div[@class='sensor']")
         ]
 
         res1.append(
             {
-                "deviceId": device_id,
-                "deviceName": device_name,
+                "device_id": device_id,
+                "device_name": device_name,
                 "sensors": sensors,
-                "locationCode": location_code,
-                "locationName": location_name,
-                "deviceCode": device_code[device_id],
+                "location_code": location_code,
+                "location_name": location_name,
+                "device_code": device_code[device_id],
             }
         )
 
@@ -89,17 +104,22 @@ def template_gen(location_code, location_name, html_filename, json_filename):
     for device, sensor in zip(devices, sensors, strict=False):
         device_id, device_name = re.match(r"(\d+ & \d+)(.*)", device).groups()
         device_id1, device_id2 = device_id.split(" & ")
-        sensor_id1, sensorid2, sensor_name = re.match(
+        sensor_id1, sensor_id2, sensor_name = re.match(
             r"(\d+),(\d+)(.*)", sensor
         ).groups()
         res1.append(
             {
-                "deviceId": device_id,
-                "deviceName": device_name,
-                "sensors": [((sensor_id1, sensor_name), (sensorid2, sensor_name))],
-                "locationCode": location_code,
-                "locationName": location_name,
-                "deviceCode": f"{device_code[device_id1]} & {device_code[device_id2]}",
+                "device_id": device_id,
+                "device_name": device_name,
+                "sensors": [
+                    [
+                        {"sensor_id": sensor_id1, "sensor_name": sensor_name},
+                        {"sensor_id": sensor_id2, "sensor_name": sensor_name},
+                    ]
+                ],
+                "location_code": location_code,
+                "location_name": location_name,
+                "device_code": f"{device_code[device_id1]} & {device_code[device_id2]}",
             }
         )
 
@@ -113,7 +133,7 @@ def template_gen(location_code, location_name, html_filename, json_filename):
 
         # Get data preview options, format is [(data_product_format_id, plot_number), ...]
         data_preview_options = [
-            extract_dp_format_id_plot_number(ele.attrib["url"])
+            extract_data_preview_option(ele.attrib["url"])
             for ele in section_div.xpath(".//figure")
         ]
 
@@ -137,15 +157,15 @@ def template_gen(location_code, location_name, html_filename, json_filename):
 
         res2.append(
             {
-                "deviceId": device_id,
-                "deviceName": device_name,
-                "locationCode": location_code,
-                "locationName": location_name,
-                "dataPreviewOptions": data_preview_options,
-                "searchTreeNodeId": node_id,
-                "deviceCategoryId": device_category_id,
-                "deviceCode": device_code,
-                "fileExtensions": file_extensions,
+                "device_id": device_id,
+                "device_name": device_name,
+                "location_code": location_code,
+                "location_name": location_name,
+                "data_preview_options": data_preview_options,
+                "search_tree_node_id": node_id,
+                "device_category_id": device_category_id,
+                "device_code": device_code,
+                "file_extensions": file_extensions,
             }
         )
 
@@ -181,7 +201,7 @@ def template_ferry_gen(html_filename, json_filename):
         figures = h3.xpath("./following-sibling::figure")
         if figures:
             data_preview_options = [
-                extract_dp_format_id_plot_number(ele.attrib["url"]) for ele in figures
+                extract_data_preview_option(ele.attrib["url"]) for ele in figures
             ]
 
             # Get node id and device category id
@@ -195,21 +215,27 @@ def template_ferry_gen(html_filename, json_filename):
 
         # Get sensors, format is [(sensor_id, sensor_name), ...]
         sensors = [
-            re.match(r"(\d+)(.*)", ele.text_content()).groups()
+            dict(
+                zip(
+                    ("sensor_id", "sensor_name"),
+                    re.match(r"(\d+)(.*)", ele.text_content()).groups(),
+                    strict=False,
+                )
+            )
             for ele in h3.xpath("./following-sibling::div/div[@class='sensor']")
         ]
 
         res.append(
             {
-                "deviceId": device_id,
-                "deviceName": device_name,
+                "device_id": device_id,
+                "device_name": device_name,
                 "sensors": sensors,
-                "locationCode": location_code,
-                "locationName": location_name,
-                "deviceCode": device_code[device_id],
-                "searchTreeNodeId": node_id,
-                "deviceCategoryId": device_category_id,
-                "dataPreviewOptions": data_preview_options,
+                "location_code": location_code,
+                "location_name": location_name,
+                "device_code": device_code[device_id],
+                "search_tree_node_id": node_id,
+                "device_category_id": device_category_id,
+                "data_preview_options": data_preview_options,
             }
         )
 

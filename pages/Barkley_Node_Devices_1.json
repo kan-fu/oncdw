@@ -1,83 +1,83 @@
 [
   {
-    "deviceId": "23842",
-    "deviceName": "Sea-Bird SeaCAT SBE19plus V2 6813",
+    "device_id": "23842",
+    "device_name": "Sea-Bird SeaCAT SBE19plus V2 6813",
     "sensors": [
-      [
-        "16695",
-        "Pressure"
-      ],
-      [
-        "16707",
-        "Sound Speed"
-      ],
-      [
-        "16694",
-        "Temperature"
-      ],
-      [
-        "16704",
-        "Conductivity"
-      ],
-      [
-        "16706",
-        "Density"
-      ],
-      [
-        "16702",
-        "Practical Salinity"
-      ],
-      [
-        "16703",
-        "Sigma-t"
-      ],
-      [
-        "16705",
-        "Sigma-theta (0 dbar)"
-      ]
+      {
+        "sensor_id": "16695",
+        "sensor_name": "Pressure"
+      },
+      {
+        "sensor_id": "16707",
+        "sensor_name": "Sound Speed"
+      },
+      {
+        "sensor_id": "16694",
+        "sensor_name": "Temperature"
+      },
+      {
+        "sensor_id": "16704",
+        "sensor_name": "Conductivity"
+      },
+      {
+        "sensor_id": "16706",
+        "sensor_name": "Density"
+      },
+      {
+        "sensor_id": "16702",
+        "sensor_name": "Practical Salinity"
+      },
+      {
+        "sensor_id": "16703",
+        "sensor_name": "Sigma-t"
+      },
+      {
+        "sensor_id": "16705",
+        "sensor_name": "Sigma-theta (0 dbar)"
+      }
     ],
-    "locationCode": "BACND",
-    "locationName": "Barkley Node",
-    "deviceCode": "SBECTD19p6813"
+    "location_code": "BACND",
+    "location_name": "Barkley Node",
+    "device_code": "SBECTD19p6813"
   },
   {
-    "deviceId": "23285",
-    "deviceName": "Sea-Bird SBE 63 Dissolved Oxygen Sensor 630639",
+    "device_id": "23285",
+    "device_name": "Sea-Bird SBE 63 Dissolved Oxygen Sensor 630639",
     "sensors": [
-      [
-        "13333",
-        "Oxygen Concentration Corrected"
-      ],
-      [
-        "13334",
-        "Oxygen Concentration Uncorrected"
-      ],
-      [
-        "13332",
-        "Temperature"
-      ]
+      {
+        "sensor_id": "13333",
+        "sensor_name": "Oxygen Concentration Corrected"
+      },
+      {
+        "sensor_id": "13334",
+        "sensor_name": "Oxygen Concentration Uncorrected"
+      },
+      {
+        "sensor_id": "13332",
+        "sensor_name": "Temperature"
+      }
     ],
-    "locationCode": "BACND",
-    "locationName": "Barkley Node",
-    "deviceCode": "SBE63630639"
+    "location_code": "BACND",
+    "location_name": "Barkley Node",
+    "device_code": "SBE63630639"
   },
   {
-    "deviceId": "23842 & 23285",
-    "deviceName": "Sea-Bird SeaCAT SBE19plus V2 6813 & Sea-Bird SBE 63 Dissolved Oxygen Sensor 630639",
+    "device_id": "23842 & 23285",
+    "device_name": "Sea-Bird SeaCAT SBE19plus V2 6813 & Sea-Bird SBE 63 Dissolved Oxygen Sensor 630639",
     "sensors": [
       [
-        [
-          "16694",
-          "Temperatures"
-        ],
-        [
-          "13332",
-          "Temperatures"
-        ]
+        {
+          "sensor_id": "16694",
+          "sensor_name": "Temperatures"
+        },
+        {
+          "sensor_id": "13332",
+          "sensor_name": "Temperatures"
+        }
       ]
     ],
-    "locationCode": "BACND",
-    "locationName": "Barkley Node",
-    "deviceCode": "SBECTD19p6813 & SBE63630639"
+    "location_code": "BACND",
+    "location_name": "Barkley Node",
+    "device_code": "SBECTD19p6813 & SBE63630639"
   }
 ]

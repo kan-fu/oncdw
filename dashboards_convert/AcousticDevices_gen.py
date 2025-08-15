@@ -1,7 +1,7 @@
 import json
 
 import lxml.html
-from util import extract_dp_format_id_plot_number, extract_node_id_category_id
+from util import extract_data_preview_option, extract_node_id_category_id
 
 with open("./dashboards_convert/html/AcousticDevices.html") as f:
     tree = lxml.html.fromstring(f.read())
@@ -11,7 +11,7 @@ res = []
 for section in tree.xpath("//section[@class='oncWidgetGroup' and @id]"):
     # Get data preview options, format is [(data_product_format_id, plot_number), ...]
     data_preview_options = [
-        extract_dp_format_id_plot_number(ele.attrib["url"])
+        extract_data_preview_option(ele.attrib["url"])
         for ele in section.xpath("./figure")
     ]
 
@@ -35,14 +35,14 @@ for section in tree.xpath("//section[@class='oncWidgetGroup' and @id]"):
 
     res.append(
         {
-            "deviceName": device_name,
-            "deviceId": device_id,
-            "locationCode": location_code,
-            "locationName": location_name,
-            "searchTreeNodeId": node_id,
-            "deviceCategoryId": device_category_id,
-            "deviceCode": device_code,
-            "dataPreviewOptions": data_preview_options,
+            "device_name": device_name,
+            "device_id": device_id,
+            "location_code": location_code,
+            "location_name": location_name,
+            "search_tree_node_id": node_id,
+            "device_category_id": device_category_id,
+            "device_code": device_code,
+            "data_preview_options": data_preview_options,
         }
     )
 with open("./pages/Acoustic_Devices.json", "w") as f:

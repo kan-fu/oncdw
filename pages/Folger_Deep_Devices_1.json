@@ -1,83 +1,83 @@
 [
   {
-    "deviceId": "23841",
-    "deviceName": "Sea-Bird SeaCAT SBE19plus V2 6812",
+    "device_id": "23841",
+    "device_name": "Sea-Bird SeaCAT SBE19plus V2 6812",
     "sensors": [
-      [
-        "16681",
-        "Pressure"
-      ],
-      [
-        "16693",
-        "Sound Speed"
-      ],
-      [
-        "16680",
-        "Temperature"
-      ],
-      [
-        "16690",
-        "Conductivity"
-      ],
-      [
-        "16692",
-        "Density"
-      ],
-      [
-        "16688",
-        "Practical Salinity"
-      ],
-      [
-        "16689",
-        "Sigma-t"
-      ],
-      [
-        "16691",
-        "Sigma-theta (0 dbar)"
-      ]
+      {
+        "sensor_id": "16681",
+        "sensor_name": "Pressure"
+      },
+      {
+        "sensor_id": "16693",
+        "sensor_name": "Sound Speed"
+      },
+      {
+        "sensor_id": "16680",
+        "sensor_name": "Temperature"
+      },
+      {
+        "sensor_id": "16690",
+        "sensor_name": "Conductivity"
+      },
+      {
+        "sensor_id": "16692",
+        "sensor_name": "Density"
+      },
+      {
+        "sensor_id": "16688",
+        "sensor_name": "Practical Salinity"
+      },
+      {
+        "sensor_id": "16689",
+        "sensor_name": "Sigma-t"
+      },
+      {
+        "sensor_id": "16691",
+        "sensor_name": "Sigma-theta (0 dbar)"
+      }
     ],
-    "locationCode": "FGPD",
-    "locationName": "Folger Deep",
-    "deviceCode": "SBECTD19p6812"
+    "location_code": "FGPD",
+    "location_name": "Folger Deep",
+    "device_code": "SBECTD19p6812"
   },
   {
-    "deviceId": "23284",
-    "deviceName": "Sea-Bird SBE 63 Dissolved Oxygen Sensor 630638",
+    "device_id": "23284",
+    "device_name": "Sea-Bird SBE 63 Dissolved Oxygen Sensor 630638",
     "sensors": [
-      [
-        "13330",
-        "Oxygen Concentration Corrected"
-      ],
-      [
-        "13331",
-        "Oxygen Concentration Uncorrected"
-      ],
-      [
-        "13329",
-        "Temperature"
-      ]
+      {
+        "sensor_id": "13330",
+        "sensor_name": "Oxygen Concentration Corrected"
+      },
+      {
+        "sensor_id": "13331",
+        "sensor_name": "Oxygen Concentration Uncorrected"
+      },
+      {
+        "sensor_id": "13329",
+        "sensor_name": "Temperature"
+      }
     ],
-    "locationCode": "FGPD",
-    "locationName": "Folger Deep",
-    "deviceCode": "SBE63630638"
+    "location_code": "FGPD",
+    "location_name": "Folger Deep",
+    "device_code": "SBE63630638"
   },
   {
-    "deviceId": "23841 & 23284",
-    "deviceName": "Sea-Bird SeaCAT SBE19plus V2 6812 & Sea-Bird SBE 63 Dissolved Oxygen Sensor 630638",
+    "device_id": "23841 & 23284",
+    "device_name": "Sea-Bird SeaCAT SBE19plus V2 6812 & Sea-Bird SBE 63 Dissolved Oxygen Sensor 630638",
     "sensors": [
       [
-        [
-          "16680",
-          "Temperatures"
-        ],
-        [
-          "13329",
-          "Temperatures"
-        ]
+        {
+          "sensor_id": "16680",
+          "sensor_name": "Temperatures"
+        },
+        {
+          "sensor_id": "13329",
+          "sensor_name": "Temperatures"
+        }
       ]
     ],
-    "locationCode": "FGPD",
-    "locationName": "Folger Deep",
-    "deviceCode": "SBECTD19p6812 & SBE63630638"
+    "location_code": "FGPD",
+    "location_name": "Folger Deep",
+    "device_code": "SBECTD19p6812 & SBE63630638"
   }
 ]

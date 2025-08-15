@@ -1,83 +1,83 @@
 [
   {
-    "deviceId": "23582",
-    "deviceName": "Sea-Bird SeaCAT SBE19plus V2 7029",
+    "device_id": "23582",
+    "device_name": "Sea-Bird SeaCAT SBE19plus V2 7029",
     "sensors": [
-      [
-        "15704",
-        "Pressure"
-      ],
-      [
-        "15702",
-        "Sound Speed"
-      ],
-      [
-        "15703",
-        "Temperature"
-      ],
-      [
-        "15700",
-        "Conductivity"
-      ],
-      [
-        "15701",
-        "Density"
-      ],
-      [
-        "15711",
-        "Practical Salinity"
-      ],
-      [
-        "15712",
-        "Sigma-t"
-      ],
-      [
-        "15892",
-        "Sigma-theta (0 dbar)"
-      ]
+      {
+        "sensor_id": "15704",
+        "sensor_name": "Pressure"
+      },
+      {
+        "sensor_id": "15702",
+        "sensor_name": "Sound Speed"
+      },
+      {
+        "sensor_id": "15703",
+        "sensor_name": "Temperature"
+      },
+      {
+        "sensor_id": "15700",
+        "sensor_name": "Conductivity"
+      },
+      {
+        "sensor_id": "15701",
+        "sensor_name": "Density"
+      },
+      {
+        "sensor_id": "15711",
+        "sensor_name": "Practical Salinity"
+      },
+      {
+        "sensor_id": "15712",
+        "sensor_name": "Sigma-t"
+      },
+      {
+        "sensor_id": "15892",
+        "sensor_name": "Sigma-theta (0 dbar)"
+      }
     ],
-    "locationCode": "BACHY",
-    "locationName": "Barkley Canyon Hydrates",
-    "deviceCode": "SBECTD19p7029"
+    "location_code": "BACHY",
+    "location_name": "Barkley Canyon Hydrates",
+    "device_code": "SBECTD19p7029"
   },
   {
-    "deviceId": "85432",
-    "deviceName": "Sea-Bird SBE 63 Dissolved Oxygen Sensor (S/N 3706)",
+    "device_id": "85432",
+    "device_name": "Sea-Bird SBE 63 Dissolved Oxygen Sensor (S/N 3706)",
     "sensors": [
-      [
-        "110417",
-        "Oxygen Concentration Corrected"
-      ],
-      [
-        "452",
-        "Oxygen Concentration Uncorrected"
-      ],
-      [
-        "453",
-        "Temperature"
-      ]
+      {
+        "sensor_id": "110417",
+        "sensor_name": "Oxygen Concentration Corrected"
+      },
+      {
+        "sensor_id": "452",
+        "sensor_name": "Oxygen Concentration Uncorrected"
+      },
+      {
+        "sensor_id": "453",
+        "sensor_name": "Temperature"
+      }
     ],
-    "locationCode": "BACHY",
-    "locationName": "Barkley Canyon Hydrates",
-    "deviceCode": "SBE63633706"
+    "location_code": "BACHY",
+    "location_name": "Barkley Canyon Hydrates",
+    "device_code": "SBE63633706"
   },
   {
-    "deviceId": "23582 & 85432",
-    "deviceName": "Sea-Bird SeaCAT SBE19plus V2 7029 & Sea-Bird SBE 63 Dissolved Oxygen Sensor (S/N 3706)",
+    "device_id": "23582 & 85432",
+    "device_name": "Sea-Bird SeaCAT SBE19plus V2 7029 & Sea-Bird SBE 63 Dissolved Oxygen Sensor (S/N 3706)",
     "sensors": [
       [
-        [
-          "15703",
-          "Temperatures"
-        ],
-        [
-          "453",
-          "Temperatures"
-        ]
+        {
+          "sensor_id": "15703",
+          "sensor_name": "Temperatures"
+        },
+        {
+          "sensor_id": "453",
+          "sensor_name": "Temperatures"
+        }
       ]
     ],
-    "locationCode": "BACHY",
-    "locationName": "Barkley Canyon Hydrates",
-    "deviceCode": "SBECTD19p7029 & SBE63633706"
+    "location_code": "BACHY",
+    "location_name": "Barkley Canyon Hydrates",
+    "device_code": "SBECTD19p7029 & SBE63633706"
   }
 ]

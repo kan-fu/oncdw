@@ -1,3 +1,8 @@
+from .data_preview_options import DataPreviewOption
+from .device import Device
+from .sensor import Sensor
+
+__all__ = ["Device", "DataPreviewOption", "Sensor"]
 from datetime import datetime, timedelta
 
 
@@ -31,24 +36,3 @@ def get_date_from_last_days(last_days: int, date_to: datetime) -> tuple[str, str
 
 def get_archive_file_download_link(filename: str, token: str):
     return f"https://data.oceannetworks.ca/api/archivefile/download?filename={filename}&token={token}"  # noqa: E501
-
-
-def _get_id_from_sensor(sensor: int | dict | tuple | list | str) -> int:
-    if isinstance(sensor, dict):
-        sensor_id = _get_id_from_sensor(sensor["sensorId"])
-    elif isinstance(sensor, tuple | list):
-        sensor_id = _get_id_from_sensor(sensor[0])
-    else:
-        sensor_id = sensor
-    return int(sensor_id)
-
-
-def _get_name_from_sensor(sensor: dict | tuple | list | str) -> str:
-    if isinstance(sensor, dict):
-        sensor_name = _get_name_from_sensor(sensor["sensorName"])
-    elif isinstance(sensor, tuple | list):
-        sensor_name = _get_name_from_sensor(sensor[1])
-    else:
-        sensor_name = sensor
-
-    return sensor_name

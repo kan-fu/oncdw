@@ -20,14 +20,14 @@
     "sitedeviceid": 1213669,
     "searchTreeNodeId": 2868,
     "dataPreviewOptions": [
-      [
-        3,
-        1
-      ],
-      [
-        3,
-        2
-      ]
+      {
+        "data_product_format_id": 3,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 3,
+        "plot_number": 2
+      }
     ]
   },
   {
@@ -51,14 +51,14 @@
     "sitedeviceid": 1194503,
     "searchTreeNodeId": 446,
     "dataPreviewOptions": [
-      [
-        3,
-        1
-      ],
-      [
-        3,
-        2
-      ]
+      {
+        "data_product_format_id": 3,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 3,
+        "plot_number": 2
+      }
     ]
   },
   {
@@ -82,14 +82,14 @@
     "sitedeviceid": 1208044,
     "searchTreeNodeId": 47,
     "dataPreviewOptions": [
-      [
-        3,
-        1
-      ],
-      [
-        3,
-        2
-      ]
+      {
+        "data_product_format_id": 3,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 3,
+        "plot_number": 2
+      }
     ]
   },
   {
@@ -113,14 +113,14 @@
     "sitedeviceid": 1194260,
     "searchTreeNodeId": 51,
     "dataPreviewOptions": [
-      [
-        3,
-        1
-      ],
-      [
-        3,
-        2
-      ]
+      {
+        "data_product_format_id": 3,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 3,
+        "plot_number": 2
+      }
     ]
   },
   {
@@ -144,14 +144,14 @@
     "sitedeviceid": 1212206,
     "searchTreeNodeId": 1310,
     "dataPreviewOptions": [
-      [
-        3,
-        1
-      ],
-      [
-        3,
-        2
-      ]
+      {
+        "data_product_format_id": 3,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 3,
+        "plot_number": 2
+      }
     ]
   },
   {
@@ -175,14 +175,14 @@
     "sitedeviceid": 1213765,
     "searchTreeNodeId": 448,
     "dataPreviewOptions": [
-      [
-        3,
-        1
-      ],
-      [
-        3,
-        2
-      ]
+      {
+        "data_product_format_id": 3,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 3,
+        "plot_number": 2
+      }
     ]
   },
   {
@@ -206,14 +206,14 @@
     "sitedeviceid": 1196282,
     "searchTreeNodeId": 27,
     "dataPreviewOptions": [
-      [
-        3,
-        1
-      ],
-      [
-        3,
-        2
-      ]
+      {
+        "data_product_format_id": 3,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 3,
+        "plot_number": 2
+      }
     ]
   },
   {
@@ -237,14 +237,14 @@
     "sitedeviceid": 1190615,
     "searchTreeNodeId": 30,
     "dataPreviewOptions": [
-      [
-        3,
-        1
-      ],
-      [
-        3,
-        2
-      ]
+      {
+        "data_product_format_id": 3,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 3,
+        "plot_number": 2
+      }
     ]
   },
   {
@@ -268,14 +268,14 @@
     "sitedeviceid": 1212221,
     "searchTreeNodeId": 33,
     "dataPreviewOptions": [
-      [
-        3,
-        1
-      ],
-      [
-        3,
-        2
-      ]
+      {
+        "data_product_format_id": 3,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 3,
+        "plot_number": 2
+      }
     ]
   },
   {
@@ -299,14 +299,14 @@
     "sitedeviceid": 1214263,
     "searchTreeNodeId": 1423,
     "dataPreviewOptions": [
-      [
-        3,
-        1
-      ],
-      [
-        3,
-        2
-      ]
+      {
+        "data_product_format_id": 3,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 3,
+        "plot_number": 2
+      }
     ]
   },
   {
@@ -330,14 +330,14 @@
     "sitedeviceid": 1190641,
     "searchTreeNodeId": 37,
     "dataPreviewOptions": [
-      [
-        3,
-        1
-      ],
-      [
-        3,
-        2
-      ]
+      {
+        "data_product_format_id": 3,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 3,
+        "plot_number": 2
+      }
     ]
   },
   {
@@ -361,14 +361,14 @@
     "sitedeviceid": 1212227,
     "searchTreeNodeId": 23,
     "dataPreviewOptions": [
-      [
-        3,
-        1
-      ],
-      [
-        3,
-        2
-      ]
+      {
+        "data_product_format_id": 3,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 3,
+        "plot_number": 2
+      }
     ]
   },
   {
@@ -392,14 +392,14 @@
     "sitedeviceid": 1213848,
     "searchTreeNodeId": 20,
     "dataPreviewOptions": [
-      [
-        3,
-        1
-      ],
-      [
-        3,
-        2
-      ]
+      {
+        "data_product_format_id": 3,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 3,
+        "plot_number": 2
+      }
     ]
   },
   {
@@ -423,14 +423,14 @@
     "sitedeviceid": 1211672,
     "searchTreeNodeId": 43,
     "dataPreviewOptions": [
-      [
-        3,
-        1
-      ],
-      [
-        3,
-        2
-      ]
+      {
+        "data_product_format_id": 3,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 3,
+        "plot_number": 2
+      }
     ]
   },
   {
@@ -454,14 +454,14 @@
     "sitedeviceid": 1194454,
     "searchTreeNodeId": 44,
     "dataPreviewOptions": [
-      [
-        3,
-        1
-      ],
-      [
-        3,
-        2
-      ]
+      {
+        "data_product_format_id": 3,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 3,
+        "plot_number": 2
+      }
     ]
   }
 ]

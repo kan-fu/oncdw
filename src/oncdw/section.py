@@ -3,6 +3,8 @@ from typing import TYPE_CHECKING
 import streamlit as st
 from onc import ONC
 
+from ._util import Device
+
 if TYPE_CHECKING:
     from ._client import ONCDW
 
@@ -69,7 +71,7 @@ class Section:
 
         return badges
 
-    def time_series(self, sensor: list, last_days: int | None = None):
+    def time_series(self, sensor: list | dict, last_days: int | None = None):
         """
         Display time series plots for a given sensor or two sensors.
 
@@ -78,89 +80,86 @@ class Section:
         sensor : list
             A list representing a sensor or a pair of sensors.
             The format can be either:
-            1. A single sensor, [sensor_id, sensor_name]
-            2. A pair of sensors, [[sensor1_id, sensor1_name], [sensor2_id, sensor2_name]]
+            1. dict: a single sensor, {"sensor_id": sensor_id, "sensor_name": sensor_name}
+            2. list: a pair of sensors, [{},{}]. The format of each dict is the same as a single sensor
         """
-        if isinstance(sensor[0], list | tuple):
-            # If the sensor is a pair of sensors
+        if isinstance(sensor, list):
+            # The sensor is a pair of sensors
             sensor1, sensor2 = sensor
             self._client.ui.sensors_two(sensor1, sensor2)
             self._client.widget.time_series_two_sensors(
                 sensor1, sensor2, last_days=last_days
             )
-        else:
-            # If the sensor is a single sensor
+        elif isinstance(sensor, dict):
+            # The sensor is a single sensor
             self._client.ui.sensor(sensor)
             self._client.widget.time_series(sensor, last_days=last_days)
+        else:
+            raise ValueError(
+                f"Invalid sensor format: {sensor}. Expected a list or dict."
+            )
 
     def data_preview(self, device: dict):
         """
         Assume data preview plots are placed in two columns,
-        and the options are like
-        1. [[x,1],[x,2],[x,3],[x,4],[y,1],[y,2]], or
-        2. [[x,1,y],[x,2,y],[x,3,y],[x,4,y],[y,1,y],[y,2,y]] if it has sensor code id.
-
+        and the options are a dict that has the following format:
+        {
+            "data_product_format_id": data_product_format_id,
+            "plot_number": plot_number,
+            "sensor_code_id": sensor_code_id # This is optional
+        }
         """
-        if "dataPreviewOptions" not in device:
+        _device = Device(device)
+        data_preview_options = _device.get_data_preview_options()
+        if data_preview_options is None:
             return
 
         st.subheader("Data Preview plot")
 
         # Data preview plots in two columns
-        for i in range(0, len(device["dataPreviewOptions"]), 2):
-            # The format of options is (data_product_format_id, plot_number, sensor_code_id)
-            options = device["dataPreviewOptions"][i : i + 2]
+        for i in range(0, len(data_preview_options), 2):
+            # Get two data preview options for two columns, if available
+            options: list[dict] = data_preview_options[i : i + 2]
             if len(options) == 2:
                 option1, option2 = options
             else:
                 # Deal with odd length of data preview options
                 option1 = options[0]
-                option2 = []
-
-            # Manually add a dummy sensor code id if not present
-            if len(option1) == 2:
-                option1.append(0)
-            if len(option2) == 2:
-                option2.append(0)
+                option2 = None
 
             cols = st.columns(2)
             with st.container():
                 with cols[0]:
-                    self._client.widget.data_preview(
-                        device,
-                        data_product_format_id=option1[0],
-                        plot_number=option1[1],
-                        sensor_code_id=option1[2],
-                    )
+                    self._client.widget.data_preview(device, option1)
 
                 with cols[1]:
                     if option2:
-                        self._client.widget.data_preview(
-                            device,
-                            data_product_format_id=option2[0],
-                            plot_number=option2[1],
-                            sensor_code_id=option2[2],
-                        )
+                        self._client.widget.data_preview(device, option2)
 
     def location_expander(self, location: dict):
-        if self._prev_location_code != location["locationCode"]:
-            self._prev_location_code = location["locationCode"]
+        _location = Device(location)
+        if self._prev_location_code != _location.get_location_code():
+            self._prev_location_code = _location.get_location_code()
             onc = ONC(self._client.token)
 
             self._client.ui.location(location)
-            location_info = onc.getLocations({"locationCode": location["locationCode"]})
+            location_info = onc.getLocations(
+                {"locationCode": _location.get_location_code()}
+            )
             with st.expander("Location Info", expanded=False):
                 st.json(location_info)
 
     def location_sidebar(self, location: dict):
-        if self._prev_location_code_sidebar != location["locationCode"]:
-            self._prev_location_code_sidebar = location["locationCode"]
+        _location = Device(location)
+        if self._prev_location_code_sidebar != _location.get_location_code():
+            self._prev_location_code_sidebar = _location.get_location_code()
             self._client.ui.location_sidebar(location)
 
-    def sensor_sidebar(self, sensor: list):
-        if isinstance(sensor[-1], list):
-            # meaning the sensor list contains two sensors
+    def sensor_sidebar(self, sensor: list | dict):
+        if isinstance(sensor, list):
+            # The sensor list contains two sensors
             sensor0, sensor2 = sensor
             self._client.ui.sensors_two_sidebar(sensor0, sensor2)
         else:
+            # The sensor dict is a single sensor
             self._client.ui.sensor_sidebar(sensor)

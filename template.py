@@ -26,19 +26,22 @@ def template3(
     Some optional keys can be left out if the corresponding widget is not present.
     [
         {
-            "locationCode": "CDFM",  # required
-            "deviceCode": "RBRQUARTZ3BPRZERO207600",  # required
-            "locationName": "Clayoquot Deformation Front Middle",  # requried
-            "deviceId": 67660,  # required
-            "deviceCategoryId": 3,  # optional for data preview widget
+            "location_code": "CDFM",  # required
+            "device_code": "RBRQUARTZ3BPRZERO207600",  # required
+            "location_name": "Clayoquot Deformation Front Middle",  # requried
+            "device_id": 67660,  # required
+            "device_category_id": 3,  # optional for data preview widget
             "lat": 48.598887,  # optional for map widget
             "lon": -127.079527,  # optional for map widget
             "sensors": [
-                {"sensorId": 77540, "sensorName": "AZA Seafloor Pressure"},
-                {"sensorId": 77600, "sensorName": "AZA Raw Pressure"},
+                {"sensor_id": 77540, "sensor_name": "AZA Seafloor Pressure"},
+                {"sensor_id": 77600, "sensor_name": "AZA Raw Pressure"},
             ],  # optional for time series widget
-            "searchTreeNodeId": 2868,  # optional for data preview widget
-            "dataPreviewOptions": [[3, 1], [3, 2]], # optional for data preview widget [(data_product_format_id, plot_number)]
+            "search_tree_node_id": 2868,  # optional for data preview widget
+            "data_preview_options": [
+                {"data_product_format_id": 3, "plot_number": 1},
+                {"data_product_format_id": 3, "plot_number": 2}
+            ], # optional for data preview widget
         }
     ]
 
@@ -121,19 +124,19 @@ def template2(
     which requires non-empty dataPreviewOptions, deviceCategoryId and searchTreeNodeId.
 
     A sample format for the expected xxx json file is listed below. All are required,
-    but dataPreviewOptions, deviceCategoryId and searchTreeNodeId can be empty.
+    but data_preview_options, device_category_id and search_tree_node_id can be None.
     It is used in the section 2.
     [
           {
-            "deviceId": "26099",
-            "deviceName": "Sea-Bird SBE 38 (S/N 1048)",
-            "sensors": [["29059", "Temperature"]],
-            "locationCode": "TWDP",
-            "locationName": "Tsawwassen - Duke Point Ferry Route",
-            "deviceCode": "SBE381048 in TWDP",
-            "searchTreeNodeId": 171,
-            "deviceCategoryId": 35,
-            "dataPreviewOptions": [[149, 1]]
+            "device_id": "26099",
+            "device_name": "Sea-Bird SBE 38 (S/N 1048)",
+            "sensors": [{"sensor_id":"29059", "sensor_name":"Temperature"}],
+            "location_code": "TWDP",
+            "location_name": "Tsawwassen - Duke Point Ferry Route",
+            "device_code": "SBE381048 in TWDP",
+            "search_tree_node_id": 171,
+            "device_category_id": 35,
+            "data_preview_options": [{"data_product_format_id": 149, "plot_number": 1}, ]
         },
     ]
 
@@ -215,22 +218,24 @@ def template1(
     [
         # One-sensor times series plot
         {
-            "deviceId": "23580",
-            "deviceName": "Sea-Bird SeaCAT SBE19plus V2 7033",
-            "sensors": [["15678", "Pressure"]],  # [[sensor id, sensor name]]
-            "locationCode": "NC89",
-            "locationName": "Bullseye",
-            "deviceCode": "SBECTD19p7033",
+            "device_id": "23580",
+            "device_name": "Sea-Bird SeaCAT SBE19plus V2 7033",
+            "sensors": [{"sensor_id": "15678", "sensor_name": "Pressure"}],
+            "location_code": "NC89",
+            "location_name": "Bullseye",
+            "device_code": "SBECTD19p7033",
         },
         # Two-sensors times series plot
         {
-            "deviceId": "23840 & 23283",
-            "deviceName": "Sea-Bird SeaCAT SBE19plus V2 6002 & Sea-Bird SBE 63 Dissolved Oxygen Sensor 630637",
-            # [[[sensor id 1, sensor name 1], [sensor id 2, sensor name 2]]]
-            "sensors": [[["16672", "Temperatures"], ["13327", "Temperatures"]]],
-            "locationCode": "BACAX",
-            "locationName": "Barkley Canyon Axis",
-            "deviceCode": "SBECTD19p6002 & SBE63630637",
+            "device_id": "23840 & 23283",
+            "device_name": "Sea-Bird SeaCAT SBE19plus V2 6002 & Sea-Bird SBE 63 Dissolved Oxygen Sensor 630637",
+            "sensors": [[
+                {"sensor_id":"16672", "sensor_name":"Temperatures"},
+                {"sensor_id":"13327", "sensor_name":"Temperatures"}
+            ]],
+            "location_code": "BACAX",
+            "location_name": "Barkley Canyon Axis",
+            "device_code": "SBECTD19p6002 & SBE63630637",
         }
     ]
 
@@ -238,15 +243,18 @@ def template1(
     All are required except `fileExtensions`. It is used in the section 5.
     [
         {
-            "deviceId": "24150",
-            "deviceName": "RBRconcerto Tilt Meter ACC.BPR 63055",
-            "locationCode": "NC89",
-            "locationName": "Bullseye",
-            "dataPreviewOptions": [[3, 1], [3, 2]], # [(data_product_format_id, plot_number)]
-            "searchTreeNodeId": 1776,
-            "deviceCategoryId": 46,
-            "deviceCode": "RBRTILTMETERACCBPR63055",
-            "fileExtensions": ["txt", "dt4"], # optional
+            "device_id": "24150",
+            "device_name": "RBRconcerto Tilt Meter ACC.BPR 63055",
+            "location_code": "NC89",
+            "location_name": "Bullseye",
+            "data_preview_options": [
+                {"data_product_format_id": 3, "plot_number": 1},
+                {"data_product_format_id": 3, "plot_number": 2},
+            ],
+            "search_tree_node_id": 1776,
+            "device_category_id": 46,
+            "device_code": "RBRTILTMETERACCBPR63055",
+            "file_extensions": ["txt", "dt4"], # optional
         }
     ]
 

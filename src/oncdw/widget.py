@@ -8,19 +8,7 @@ if TYPE_CHECKING:
 
 from ._chart import Chart
 from ._query import Query
-from ._util import _get_id_from_sensor
-
-
-def _get_code_from_device(device: str | dict) -> str:
-    if isinstance(device, dict):
-        device_code = device["deviceCode"]
-    elif isinstance(device, str):
-        device_code = device
-    else:
-        raise ValueError(
-            "Please provide an str or a dict that contains 'deviceCode' as key and an str as value"
-        )
-    return device_code
+from ._util import DataPreviewOption, Device, Sensor
 
 
 def _error_handler(func):
@@ -39,7 +27,7 @@ class Widget:
         self._query = Query(client)
         self._chart = Chart(client)
 
-    @_error_handler
+    # @_error_handler
     def time_series(
         self,
         sensor: int | dict,
@@ -48,7 +36,9 @@ class Widget:
         st_wrapper: bool = True,
         engine: str | None = None,
     ):
-        sensor_id = _get_id_from_sensor(sensor)
+        _sensor = Sensor(sensor)
+        sensor_id = _sensor.get_sensor_id()
+
         last_days = last_days if last_days else 7
 
         df, ylabel, _ = self._query.get_scalar_data(
@@ -70,8 +60,10 @@ class Widget:
         st_wrapper: bool = True,
         engine: str | None = None,
     ):
-        sensor_id1 = _get_id_from_sensor(sensor1)
-        sensor_id2 = _get_id_from_sensor(sensor2)
+        _sensor1 = Sensor(sensor1)
+        _sensor2 = Sensor(sensor2)
+        sensor_id1 = _sensor1.get_sensor_id()
+        sensor_id2 = _sensor2.get_sensor_id()
 
         last_days = last_days if last_days else 7
 
@@ -105,18 +97,17 @@ class Widget:
     @_error_handler
     def table_archive_files(
         self,
-        device: str | dict,
-        file_extensions: list | None = None,
+        device: dict,
         last_days: int = None,
         st_wrapper: bool = True,
         engine: str | None = None,
     ):
-        device_code = _get_code_from_device(device)
+        _device = Device(device)
+
+        device_code = _device.get_device_code()
+        file_extensions = _device.get_file_extensions()
 
         last_days = last_days if last_days else 4
-
-        if isinstance(device, dict) and file_extensions is None:
-            file_extensions = device.get("fileExtensions")
 
         df = self._query.get_archive_files(
             device_code=device_code,
@@ -129,16 +120,16 @@ class Widget:
     @_error_handler
     def heatmap_archive_files(
         self,
-        device: str | dict,
+        device: dict,
         file_extensions: list[str] | None = None,
         last_days: int = 7,
         st_wrapper: bool = True,
         engine: str | None = None,
     ):
-        device_code = _get_code_from_device(device)
+        _device = Device(device)
 
-        if isinstance(device, dict) and file_extensions is None:
-            file_extensions = device.get("fileExtensions")
+        device_code = _device.get_device_code()
+        file_extensions = _device.get_file_extensions()
 
         df = self._query.get_archive_files(
             device_code=device_code,
@@ -152,23 +143,26 @@ class Widget:
     def data_preview(
         self,
         device: dict,
-        data_product_format_id: int,
-        plot_number: int | None = None,
-        sensor_code_id: int | None = None,
+        data_preview_option: dict,
         st_wrapper=True,
     ):
-        device_category_id = device["deviceCategoryId"]
-        search_tree_node_id = device["searchTreeNodeId"]
+        _device = Device(device)
 
-        plot_number = plot_number if plot_number else 1
-        sensor_code_id = sensor_code_id if sensor_code_id else None
+        device_category_id = _device.get_device_category_id()
+        search_tree_node_id = _device.get_search_tree_node_id()
+
+        _data_preview_option = DataPreviewOption(data_preview_option)
+
+        data_product_format_id = _data_preview_option.get_data_product_format_id()
+        plot_number = _data_preview_option.get_plot_number()
+        sensor_code_id = _data_preview_option.get_sensor_code_id()
 
         image_url = self._query.get_data_preview(
-            sensor_code_id=sensor_code_id,
             device_category_id=device_category_id,
             search_tree_node_id=search_tree_node_id,
             data_product_format_id=data_product_format_id,
             plot_number=plot_number,
+            sensor_code_id=sensor_code_id,
         )
 
         return self._chart.image(image_url, st_wrapper)
@@ -183,8 +177,10 @@ class Widget:
         st_wrapper=True,
         engine: str | None = None,
     ):
-        location_code = device["locationCode"]
-        device_category_code = device["deviceCategoryCode"]
+        _device = Device(device)
+        location_code = _device.get_location_code()
+        device_category_code = _device.get_device_category_code()
+
         last_days = last_days if last_days else 1
         resample_period = resample_period if resample_period else 60
 

@@ -2,26 +2,27 @@ import streamlit as st
 
 from oncdw import ONCDW
 
-st.set_page_config(layout="centered")
-client = ONCDW(file=__file__)
+st.set_page_config(layout="wide")
+client = ONCDW()
 
 st.title("ONC Data Web Widgets Demo")
 
 ############################################
 st.header("Data Preview png data product")
 with st.echo():
-    device = {"deviceCategoryId": 20, "searchTreeNodeId": 172}
-    client.widget.data_preview(device, data_product_format_id=149, sensor_code_id=611)
+    device = {"device_category_id": 20, "search_tree_node_id": 172}
+    data_preview_options = {"data_product_format_id": 149, "sensor_code_id": 611}
+    client.widget.data_preview(device, data_preview_options)
 
 ############################################
 st.header("Data Preview gif data product")
 
 
 with st.echo():
-    device = {"deviceCategoryId": 65, "searchTreeNodeId": 429}
+    device = {"device_category_id": 65, "search_tree_node_id": 429}
+    data_preview_options = {"data_product_format_id": 178}
 
-    client.widget.data_preview(device, data_product_format_id=178)
-    client.widget.data_preview(device, data_product_format_id=261)
+    client.widget.data_preview(device, data_preview_options)
 
 
 ############################################
@@ -30,8 +31,10 @@ st.header(
 )
 
 with st.echo():
-    # client.widget.table_archive_files({"deviceCode": "BPR_BC"})
-    client.widget.table_archive_files("BPR_BC")
+    client.widget.table_archive_files({"device_code": "BPR_BC"})
+    client.widget.table_archive_files(
+        {"device_code": "BPR_BC", "file_extensions": ["txt", "csv"]}
+    )
 
 
 ############################################
@@ -39,16 +42,14 @@ st.header(
     "File types existing in the archive for a specific device (file availability)"
 )
 with st.echo():
-    client.widget.heatmap_archive_files({"deviceCode": "CODAR25VATK"}, last_days=14)
-    # client.widget.heatmap_archive_files("CODAR25VATK", last_days=14)
+    client.widget.heatmap_archive_files({"device_code": "CODAR25VATK"}, last_days=14)
 
 
 ############################################
 st.header("Time series scalar data plot from one sensor")
 
 with st.echo():
-    client.widget.time_series(7684, last_days=2)
-    # client.widget.time_series({"sensorId": 7684}, last_days=2)
+    client.widget.time_series({"sensor_id": 4182}, last_days=2)
 
 
 ############################################
@@ -69,6 +70,6 @@ with st.echo():
 st.header("Scalar data plot with two sensors of different type on separate axis")
 with st.echo():
     client.widget.scatter_plot_two_sensors(
-        {"locationCode": "BACAX", "deviceCategoryCode": "CTD"},
+        {"location_code": "BACAX", "device_category_code": "CTD"},
         "salinity,temperature",
     )

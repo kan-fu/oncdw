@@ -1,6 +1,6 @@
 import streamlit as st
 
-from ._util import _get_id_from_sensor, _get_name_from_sensor
+from ._util import Device, Sensor
 
 
 def _badge_shields(left: str | int, right: str, color) -> str:
@@ -151,13 +151,14 @@ class UI:
         Example
         -------
         >>> device = {
-        ...     "locationCode": "CODE",
-        ...     "locationName": "Location Name",
+        ...     "location_code": "CODE",
+        ...     "location_name": "Location Name",
         ... }
         >>> UI.location(device)
         """
-        left = location["locationCode"]
-        right = location["locationName"]
+        _location = Device(location)
+        left = _location.get_location_code()
+        right = _location.get_location_name()
         href = f"https://data.oceannetworks.ca/DataSearch?location={left}"
         anchor = f"location-code-{left}"
 
@@ -179,13 +180,14 @@ class UI:
         Example
         -------
         >>> device = {
-        ...     "locationCode": "CODE",
-        ...     "locationName": "Location Name",
+        ...     "location_code": "CODE",
+        ...     "location_name": "Location Name",
         ... }
         >>> UI.location_sidebar(device)
         """
+        _location = Device(location)
         left = "Site"
-        right = location["locationCode"]
+        right = _location.get_location_code()
         href = f"#location-code-{right}"
         return UI.h1_badge(left, right, href=href, color="lightblue")
 
@@ -206,18 +208,18 @@ class UI:
         Example
         -------
         >>> device = {
-        ...     "deviceId": "12345",
-        ...     "deviceName": "Device Name",
-        ...     "deviceCode": "CODE"
+        ...     "device_id": "12345",
+        ...     "device_name": "Device Name",
+        ...     "device_code": "CODE"
         ... }
         >>> UI.device(device)
         """
+        _device = Device(device)
 
-        left = str(device["deviceId"])
-
+        left = str(_device.get_device_id())
         left_sanitized = left.replace(" & ", "--")
 
-        right = device["deviceName"] if "deviceName" in device else device["deviceCode"]
+        right = _device.get_device_name() or _device.get_device_code()
         anchor = f"device-id-{left_sanitized}"
         if "&" in left:
             # This is a concat two-devices, no href is needed
@@ -241,22 +243,23 @@ class UI:
         Example
         -------
         >>> device = {
-        ...     "deviceId": "12345",
-        ...     "deviceCode": "CODE"
+        ...     "device_id": "12345",
+        ...     "device_code": "CODE"
         ... }
         >>> UI.device_sidebar(device)
         """
-        left = str(device["deviceId"])
+        _device = Device(device)
 
+        left = str(_device.get_device_id())
         left_sanitized = left.replace(" & ", "--")
 
-        right = device["deviceCode"]
+        right = _device.get_device_code()
         href = f"#device-id-{left_sanitized}"
 
         return UI.h2_badge(left, right, href, color="lightgreen")
 
     @staticmethod
-    def sensor(sensor: dict | tuple | list, anchor: str = ""):
+    def sensor(sensor: dict, anchor: str = ""):
         """
         Sensor badge wrapped inside a h3 tag.
 
@@ -265,19 +268,20 @@ class UI:
 
         Parameters
         ----------
-        sensor: dict | tuple | list
-            A dictionary containing the sensor id and sensor name, or a tuple/list with sensor id and name.
+        sensor: dict
+            A dictionary containing the sensor id and sensor name.
 
         Example
         -------
         >>> sensor = {
-        ...     "sensorId": "67900",
-        ...     "sensorName": "Sensor Name"
+        ...     "sensor_id": "67900",
+        ...     "sensor_name": "Sensor Name"
         ... }
         >>> UI.sensor_sidebar(sensor)
         """
-        left = _get_id_from_sensor(sensor)
-        right = _get_name_from_sensor(sensor)
+        _sensor = Sensor(sensor)
+        left = _sensor.get_sensor_id()
+        right = _sensor.get_sensor_name()
         href = f"https://data.oceannetworks.ca/SensorListing?SensorId={left}"
         if not anchor:
             anchor = f"sensor-id-{left}"
@@ -285,7 +289,7 @@ class UI:
         return UI.h3_badge(left, right, href, anchor, color="gold")
 
     @staticmethod
-    def sensor_sidebar(sensor: dict | tuple | list, href: str | None = None):
+    def sensor_sidebar(sensor: dict, href: str | None = None):
         """
         Sensor badge for the side bar wrapped inside a h3 tag.
 
@@ -299,20 +303,21 @@ class UI:
         Example
         -------
         >>> sensor = {
-        ...     "sensorId": "67900",
-        ...     "sensorName": "Sensor Name"
+        ...     "sensor_id": "67900",
+        ...     "sensor_name": "Sensor Name"
         ... }
         >>> UI.sensor_sidebar(sensor)
         """
-        left = _get_id_from_sensor(sensor)
-        right = _get_name_from_sensor(sensor)
+        _sensor = Sensor(sensor)
+        left = _sensor.get_sensor_id()
+        right = _sensor.get_sensor_name()
         if href is None:
             href = f"#sensor-id-{left}"
 
         return UI.h3_badge(left, right, href, color="gold")
 
     @staticmethod
-    def sensors_two(sensor1: dict | tuple | list, sensor2: dict | tuple | list):
+    def sensors_two(sensor1: dict, sensor2: dict):
         """
         Two sensor badges for two sensors wrapped inside a h3 tag.
 
@@ -321,32 +326,32 @@ class UI:
 
         Parameters
         ----------
-        sensor1, sensor2: dict | tuple | list
-            A dictionary containing the sensor id and sensor name, or a tuple/list with sensor id and name.
+        sensor1, sensor2: dict
+            A dictionary containing the sensor id and sensor name.
 
         Example
         -------
         >>> sensor1 = {
-        ...     "sensorId": "167900",
-        ...     "sensorName": "Sensor Name 1"
+        ...     "sensor_id": "167900",
+        ...     "sensor_name": "Sensor Name 1"
         ... }
         >>> sensor2 = {
-        ...     "sensorId": "267900",
-        ...     "sensorName": "Sensor Name 2"
+        ...     "sensor_id": "267900",
+        ...     "sensor_name": "Sensor Name 2"
         ... }
         >>> UI.sensor_sidebar(sensor1, sensor2)
         """
         col1, col2 = st.columns(2, gap="large")
-        anchor = (
-            f"sensor-id-{_get_id_from_sensor(sensor1)},{_get_id_from_sensor(sensor2)}"
-        )
+        _sensor1 = Sensor(sensor1)
+        _sensor2 = Sensor(sensor2)
+        anchor = f"sensor-id-{_sensor1.get_sensor_id()},{_sensor2.get_sensor_id()}"
         with col1:
             UI.sensor(sensor1, anchor=anchor)
         with col2:
             UI.sensor(sensor2, anchor=anchor)
 
     @staticmethod
-    def sensors_two_sidebar(sensor1: dict | tuple | list, sensor2: dict | tuple | list):
+    def sensors_two_sidebar(sensor1: dict, sensor2: dict):
         """
         One sensor badge for two sensors for the sidebar wrapped inside a h3 tag.
 
@@ -354,23 +359,24 @@ class UI:
 
         Parameters
         ----------
-        sensor1, sensor2: dict | tuple | list
-            A dictionary containing the sensor id and sensor name, or a tuple/list with sensor id and name.
+        sensor1, sensor2: dict
+            A dictionary containing the sensor id and sensor name.
 
         Example
         -------
         >>> sensor1 = {
-        ...     "sensorId": "167900",
-        ...     "sensorName": "Sensor Name 1"
+        ...     "sensor_id": "167900",
+        ...     "sensor_name": "Sensor Name 1"
         ... }
         >>> sensor2 = {
-        ...     "sensorId": "267900",
-        ...     "sensorName": "Sensor Name 2"
+        ...     "sensor_id": "267900",
+        ...     "sensor_name": "Sensor Name 2"
         ... }
         >>> UI.sensors_two_sidebar(sensor1, sensor2)
         """
-        href = (
-            f"#sensor-id-{_get_id_from_sensor(sensor1)},{_get_id_from_sensor(sensor2)}"
-        )
+        _sensor1 = Sensor(sensor1)
+        _sensor2 = Sensor(sensor2)
+
+        href = f"#sensor-id-{_sensor1.get_sensor_id()},{_sensor2.get_sensor_id()}"
         UI.sensor_sidebar(sensor1, href=href)
         UI.sensor_sidebar(sensor2, href=href)

@@ -1,165 +1,165 @@
 [
   {
-    "deviceId": "29159",
-    "deviceName": "Sea-Bird SeaCAT SBE19plus V2 7287",
+    "device_id": "29159",
+    "device_name": "Sea-Bird SeaCAT SBE19plus V2 7287",
     "sensors": [
-      [
-        "34282",
-        "Pressure"
-      ],
-      [
-        "34281",
-        "Sound Speed"
-      ],
-      [
-        "34299",
-        "Temperature"
-      ],
-      [
-        "34279",
-        "Conductivity"
-      ],
-      [
-        "34280",
-        "Density"
-      ],
-      [
-        "34320",
-        "Practical Salinity"
-      ],
-      [
-        "34359",
-        "Sigma-t"
-      ],
-      [
-        "34340",
-        "Sigma-theta (0 dbar)"
-      ]
+      {
+        "sensor_id": "34282",
+        "sensor_name": "Pressure"
+      },
+      {
+        "sensor_id": "34281",
+        "sensor_name": "Sound Speed"
+      },
+      {
+        "sensor_id": "34299",
+        "sensor_name": "Temperature"
+      },
+      {
+        "sensor_id": "34279",
+        "sensor_name": "Conductivity"
+      },
+      {
+        "sensor_id": "34280",
+        "sensor_name": "Density"
+      },
+      {
+        "sensor_id": "34320",
+        "sensor_name": "Practical Salinity"
+      },
+      {
+        "sensor_id": "34359",
+        "sensor_name": "Sigma-t"
+      },
+      {
+        "sensor_id": "34340",
+        "sensor_name": "Sigma-theta (0 dbar)"
+      }
     ],
-    "locationCode": "CCIP",
-    "locationName": "China Creek Underwater Network",
-    "deviceCode": "SBECTD19p7287"
+    "location_code": "CCIP",
+    "location_name": "China Creek Underwater Network",
+    "device_code": "SBECTD19p7287"
   },
   {
-    "deviceId": "24141",
-    "deviceName": "Sea-Bird SBE 63 Dissolved Oxygen Sensor 631479",
+    "device_id": "24141",
+    "device_name": "Sea-Bird SBE 63 Dissolved Oxygen Sensor 631479",
     "sensors": [
-      [
-        "22289",
-        "Oxygen Concentration Corrected"
-      ],
-      [
-        "22287",
-        "Oxygen Concentration Uncorrected"
-      ],
-      [
-        "22288",
-        "Temperature"
-      ]
+      {
+        "sensor_id": "22289",
+        "sensor_name": "Oxygen Concentration Corrected"
+      },
+      {
+        "sensor_id": "22287",
+        "sensor_name": "Oxygen Concentration Uncorrected"
+      },
+      {
+        "sensor_id": "22288",
+        "sensor_name": "Temperature"
+      }
     ],
-    "locationCode": "CCIP",
-    "locationName": "China Creek Underwater Network",
-    "deviceCode": "SBE63631479"
+    "location_code": "CCIP",
+    "location_name": "China Creek Underwater Network",
+    "device_code": "SBE63631479"
   },
   {
-    "deviceId": "23505",
-    "deviceName": "WET Labs ECO FLRT 3901",
+    "device_id": "23505",
+    "device_name": "WET Labs ECO FLRT 3901",
     "sensors": [
-      [
-        "15415",
-        "Chlorophyll"
-      ]
+      {
+        "sensor_id": "15415",
+        "sensor_name": "Chlorophyll"
+      }
     ],
-    "locationCode": "CCIP",
-    "locationName": "China Creek Underwater Network",
-    "deviceCode": "WETLABSECOFLRT3901"
+    "location_code": "CCIP",
+    "location_name": "China Creek Underwater Network",
+    "device_code": "WETLABSECOFLRT3901"
   },
   {
-    "deviceId": "45620",
-    "deviceName": "Lufft WS501 (S/N 419.1019.1009.230) Weather Station",
+    "device_id": "45620",
+    "device_name": "Lufft WS501 (S/N 419.1019.1009.230) Weather Station",
     "sensors": [
-      [
-        "56162",
-        "Dew Point"
-      ],
-      [
-        "56180",
-        "Absolute Humidity"
-      ],
-      [
-        "56161",
-        "Specific Enthalpy"
-      ],
-      [
-        "56108",
-        "Wet Bulb Temperature"
-      ],
-      [
-        "56181",
-        "Wind Speed"
-      ],
-      [
-        "56200",
-        "Wind Chill Temperature"
-      ],
-      [
-        "56105",
-        "Air Density"
-      ],
-      [
-        "56160",
-        "Air Temperature"
-      ],
-      [
-        "56163",
-        "Wind Direction"
-      ],
-      [
-        "56109",
-        "Magnetic Compass Heading"
-      ],
-      [
-        "56106",
-        "Relative Humidity"
-      ],
-      [
-        "56104",
-        "Mixing Ratio"
-      ],
-      [
-        "56164",
-        "Absolute Air Pressure"
-      ],
-      [
-        "56107",
-        "Relative Air Pressure"
-      ],
-      [
-        "56103",
-        "Global Radiation"
-      ]
+      {
+        "sensor_id": "56162",
+        "sensor_name": "Dew Point"
+      },
+      {
+        "sensor_id": "56180",
+        "sensor_name": "Absolute Humidity"
+      },
+      {
+        "sensor_id": "56161",
+        "sensor_name": "Specific Enthalpy"
+      },
+      {
+        "sensor_id": "56108",
+        "sensor_name": "Wet Bulb Temperature"
+      },
+      {
+        "sensor_id": "56181",
+        "sensor_name": "Wind Speed"
+      },
+      {
+        "sensor_id": "56200",
+        "sensor_name": "Wind Chill Temperature"
+      },
+      {
+        "sensor_id": "56105",
+        "sensor_name": "Air Density"
+      },
+      {
+        "sensor_id": "56160",
+        "sensor_name": "Air Temperature"
+      },
+      {
+        "sensor_id": "56163",
+        "sensor_name": "Wind Direction"
+      },
+      {
+        "sensor_id": "56109",
+        "sensor_name": "Magnetic Compass Heading"
+      },
+      {
+        "sensor_id": "56106",
+        "sensor_name": "Relative Humidity"
+      },
+      {
+        "sensor_id": "56104",
+        "sensor_name": "Mixing Ratio"
+      },
+      {
+        "sensor_id": "56164",
+        "sensor_name": "Absolute Air Pressure"
+      },
+      {
+        "sensor_id": "56107",
+        "sensor_name": "Relative Air Pressure"
+      },
+      {
+        "sensor_id": "56103",
+        "sensor_name": "Global Radiation"
+      }
     ],
-    "locationCode": "CCIP",
-    "locationName": "China Creek Underwater Network",
-    "deviceCode": "LUFFTWS501-41910191009230"
+    "location_code": "CCIP",
+    "location_name": "China Creek Underwater Network",
+    "device_code": "LUFFTWS501-41910191009230"
   },
   {
-    "deviceId": "29159 & 24141",
-    "deviceName": "Sea-Bird SeaCAT SBE19plus V2 7287 & Sea-Bird SBE 63 Dissolved Oxygen Sensor 631479",
+    "device_id": "29159 & 24141",
+    "device_name": "Sea-Bird SeaCAT SBE19plus V2 7287 & Sea-Bird SBE 63 Dissolved Oxygen Sensor 631479",
     "sensors": [
       [
-        [
-          "34299",
-          "Temperatures"
-        ],
-        [
-          "22288",
-          "Temperatures"
-        ]
+        {
+          "sensor_id": "34299",
+          "sensor_name": "Temperatures"
+        },
+        {
+          "sensor_id": "22288",
+          "sensor_name": "Temperatures"
+        }
       ]
     ],
-    "locationCode": "CCIP",
-    "locationName": "China Creek Underwater Network",
-    "deviceCode": "SBECTD19p7287 & SBE63631479"
+    "location_code": "CCIP",
+    "location_name": "China Creek Underwater Network",
+    "device_code": "SBECTD19p7287 & SBE63631479"
   }
 ]

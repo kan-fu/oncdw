@@ -1,280 +1,280 @@
 [
   {
-    "deviceId": "23985",
-    "deviceName": "Hemisphere GNSS V104S GPS Compass (SN C1436-00182-02-663)",
+    "device_id": "23985",
+    "device_name": "Hemisphere GNSS V104S GPS Compass (SN C1436-00182-02-663)",
     "sensors": [
-      [
-        "7683",
-        "True Heading"
-      ],
-      [
-        "21240",
-        "Latitude"
-      ],
-      [
-        "7692",
-        "Heave"
-      ],
-      [
-        "21241",
-        "Longitude"
-      ],
-      [
-        "7686",
-        "Pitch"
-      ],
-      [
-        "7689",
-        "Roll"
-      ],
-      [
-        "21239",
-        "Ship Course"
-      ],
-      [
-        "21242",
-        "Speed over Ground"
-      ]
+      {
+        "sensor_id": "7683",
+        "sensor_name": "True Heading"
+      },
+      {
+        "sensor_id": "21240",
+        "sensor_name": "Latitude"
+      },
+      {
+        "sensor_id": "7692",
+        "sensor_name": "Heave"
+      },
+      {
+        "sensor_id": "21241",
+        "sensor_name": "Longitude"
+      },
+      {
+        "sensor_id": "7686",
+        "sensor_name": "Pitch"
+      },
+      {
+        "sensor_id": "7689",
+        "sensor_name": "Roll"
+      },
+      {
+        "sensor_id": "21239",
+        "sensor_name": "Ship Course"
+      },
+      {
+        "sensor_id": "21242",
+        "sensor_name": "Speed over Ground"
+      }
     ],
-    "locationCode": "TWSB.N1",
-    "locationName": "GNSS V104S GPS",
-    "deviceCode": "HEMISPHEREGNSSGPS-C14360018202663",
-    "searchTreeNodeId": null,
-    "deviceCategoryId": null,
-    "dataPreviewOptions": []
+    "location_code": "TWSB.N1",
+    "location_name": "GNSS V104S GPS",
+    "device_code": "HEMISPHEREGNSSGPS-C14360018202663",
+    "search_tree_node_id": null,
+    "device_category_id": null,
+    "data_preview_options": []
   },
   {
-    "deviceId": "14080",
-    "deviceName": "Pump and Valve Control System 01",
+    "device_id": "14080",
+    "device_name": "Pump and Valve Control System 01",
     "sensors": [
-      [
-        "12571",
-        "Tank Level"
-      ],
-      [
-        "12474",
-        "System State"
-      ],
-      [
-        "12473",
-        "Pump Current"
-      ],
-      [
-        "12472",
-        "Outlet Flow"
-      ],
-      [
-        "12477",
-        "Leak Indicator"
-      ],
-      [
-        "9242",
-        "Valve Position"
-      ]
+      {
+        "sensor_id": "12571",
+        "sensor_name": "Tank Level"
+      },
+      {
+        "sensor_id": "12474",
+        "sensor_name": "System State"
+      },
+      {
+        "sensor_id": "12473",
+        "sensor_name": "Pump Current"
+      },
+      {
+        "sensor_id": "12472",
+        "sensor_name": "Outlet Flow"
+      },
+      {
+        "sensor_id": "12477",
+        "sensor_name": "Leak Indicator"
+      },
+      {
+        "sensor_id": "9242",
+        "sensor_name": "Valve Position"
+      }
     ],
-    "locationCode": "TWSB",
-    "locationName": "Tsawwassen - Swartz Bay Ferry Route",
-    "deviceCode": "PVCS01",
-    "searchTreeNodeId": null,
-    "deviceCategoryId": null,
-    "dataPreviewOptions": []
+    "location_code": "TWSB",
+    "location_name": "Tsawwassen - Swartz Bay Ferry Route",
+    "device_code": "PVCS01",
+    "search_tree_node_id": null,
+    "device_category_id": null,
+    "data_preview_options": []
   },
   {
-    "deviceId": "505",
-    "deviceName": "Sea-Bird Thermosalinograph SeaKeeper (SN 19)",
+    "device_id": "505",
+    "device_name": "Sea-Bird Thermosalinograph SeaKeeper (SN 19)",
     "sensors": [
-      [
-        "425",
-        "Conductivity"
-      ],
-      [
-        "424",
-        "Temperature"
-      ],
-      [
-        "426",
-        "Practical Salinity"
-      ]
+      {
+        "sensor_id": "425",
+        "sensor_name": "Conductivity"
+      },
+      {
+        "sensor_id": "424",
+        "sensor_name": "Temperature"
+      },
+      {
+        "sensor_id": "426",
+        "sensor_name": "Practical Salinity"
+      }
     ],
-    "locationCode": "TWSB",
-    "locationName": "Tsawwassen - Swartz Bay Ferry Route",
-    "deviceCode": "SBETSGSK-19",
-    "searchTreeNodeId": 172,
-    "deviceCategoryId": 99,
-    "dataPreviewOptions": [
-      [
-        149,
-        1,
-        54
-      ],
-      [
-        149,
-        1,
-        492
-      ],
-      [
-        149,
-        1,
-        796
-      ]
+    "location_code": "TWSB",
+    "location_name": "Tsawwassen - Swartz Bay Ferry Route",
+    "device_code": "SBETSGSK-19",
+    "search_tree_node_id": 172,
+    "device_category_id": 99,
+    "data_preview_options": [
+      {
+        "data_product_format_id": 149,
+        "plot_number": 1,
+        "sensor_code_id": 54
+      },
+      {
+        "data_product_format_id": 149,
+        "plot_number": 1,
+        "sensor_code_id": 492
+      },
+      {
+        "data_product_format_id": 149,
+        "plot_number": 1,
+        "sensor_code_id": 796
+      }
     ]
   },
   {
-    "deviceId": "23203",
-    "deviceName": "Aanderaa Optode 3835 (S/N 1797)",
+    "device_id": "23203",
+    "device_name": "Aanderaa Optode 3835 (S/N 1797)",
     "sensors": [
-      [
-        "13130",
-        "Temperature"
-      ],
-      [
-        "13131",
-        "Oxygen Concentration Uncorrected"
-      ],
-      [
-        "13126",
-        "Oxygen Concentration Corrected"
-      ],
-      [
-        "10152",
-        "Oxygen Saturation"
-      ]
+      {
+        "sensor_id": "13130",
+        "sensor_name": "Temperature"
+      },
+      {
+        "sensor_id": "13131",
+        "sensor_name": "Oxygen Concentration Uncorrected"
+      },
+      {
+        "sensor_id": "13126",
+        "sensor_name": "Oxygen Concentration Corrected"
+      },
+      {
+        "sensor_id": "10152",
+        "sensor_name": "Oxygen Saturation"
+      }
     ],
-    "locationCode": "TWSB",
-    "locationName": "Tsawwassen - Swartz Bay Ferry Route",
-    "deviceCode": "AandOpt1797",
-    "searchTreeNodeId": 172,
-    "deviceCategoryId": 25,
-    "dataPreviewOptions": [
-      [
-        149,
-        1,
-        492
-      ],
-      [
-        149,
-        1,
-        731
-      ],
-      [
-        149,
-        1,
-        732
-      ],
-      [
-        149,
-        1,
-        733
-      ]
+    "location_code": "TWSB",
+    "location_name": "Tsawwassen - Swartz Bay Ferry Route",
+    "device_code": "AandOpt1797",
+    "search_tree_node_id": 172,
+    "device_category_id": 25,
+    "data_preview_options": [
+      {
+        "data_product_format_id": 149,
+        "plot_number": 1,
+        "sensor_code_id": 492
+      },
+      {
+        "data_product_format_id": 149,
+        "plot_number": 1,
+        "sensor_code_id": 731
+      },
+      {
+        "data_product_format_id": 149,
+        "plot_number": 1,
+        "sensor_code_id": 732
+      },
+      {
+        "data_product_format_id": 149,
+        "plot_number": 1,
+        "sensor_code_id": 733
+      }
     ]
   },
   {
-    "deviceId": "23139",
-    "deviceName": "WET Labs ECO Triplet BBFL2 1053",
+    "device_id": "23139",
+    "device_name": "WET Labs ECO Triplet BBFL2 1053",
     "sensors": [
-      [
-        "4024",
-        "CDOM Fluorescence"
-      ],
-      [
-        "9791",
-        "Chlorophyll"
-      ],
-      [
-        "4023",
-        "Turbidity"
-      ]
+      {
+        "sensor_id": "4024",
+        "sensor_name": "CDOM Fluorescence"
+      },
+      {
+        "sensor_id": "9791",
+        "sensor_name": "Chlorophyll"
+      },
+      {
+        "sensor_id": "4023",
+        "sensor_name": "Turbidity"
+      }
     ],
-    "locationCode": "TWSB",
-    "locationName": "Tsawwassen - Swartz Bay Ferry Route",
-    "deviceCode": "WLTRIPLETBBFL1053",
-    "searchTreeNodeId": 172,
-    "deviceCategoryId": 11,
-    "dataPreviewOptions": [
-      [
-        149,
-        1,
-        39
-      ],
-      [
-        149,
-        1,
-        637
-      ],
-      [
-        149,
-        1,
-        856
-      ]
+    "location_code": "TWSB",
+    "location_name": "Tsawwassen - Swartz Bay Ferry Route",
+    "device_code": "WLTRIPLETBBFL1053",
+    "search_tree_node_id": 172,
+    "device_category_id": 11,
+    "data_preview_options": [
+      {
+        "data_product_format_id": 149,
+        "plot_number": 1,
+        "sensor_code_id": 39
+      },
+      {
+        "data_product_format_id": 149,
+        "plot_number": 1,
+        "sensor_code_id": 637
+      },
+      {
+        "data_product_format_id": 149,
+        "plot_number": 1,
+        "sensor_code_id": 856
+      }
     ]
   },
   {
-    "deviceId": "16102",
-    "deviceName": "RM Young Electronic Compass 32500-56 CI 2299",
+    "device_id": "16102",
+    "device_name": "RM Young Electronic Compass 32500-56 CI 2299",
     "sensors": [
-      [
-        "1110",
-        "Magnetic Heading"
-      ]
+      {
+        "sensor_id": "1110",
+        "sensor_name": "Magnetic Heading"
+      }
     ],
-    "locationCode": "TWSB",
-    "locationName": "Tsawwassen - Swartz Bay Ferry Route",
-    "deviceCode": "RMYOUNGCOMPASS3250056-2299",
-    "searchTreeNodeId": null,
-    "deviceCategoryId": null,
-    "dataPreviewOptions": []
+    "location_code": "TWSB",
+    "location_name": "Tsawwassen - Swartz Bay Ferry Route",
+    "device_code": "RMYOUNGCOMPASS3250056-2299",
+    "search_tree_node_id": null,
+    "device_category_id": null,
+    "data_preview_options": []
   },
   {
-    "deviceId": "16104",
-    "deviceName": "RM Young Pressure 61202V-56 BPA2716",
+    "device_id": "16104",
+    "device_name": "RM Young Pressure 61202V-56 BPA2716",
     "sensors": [
-      [
-        "1113",
-        "Barometric Pressure"
-      ]
+      {
+        "sensor_id": "1113",
+        "sensor_name": "Barometric Pressure"
+      }
     ],
-    "locationCode": "TWSB",
-    "locationName": "Tsawwassen - Swartz Bay Ferry Route",
-    "deviceCode": "RMYOUNGPRES61202V56-2716",
-    "searchTreeNodeId": 172,
-    "deviceCategoryId": 12,
-    "dataPreviewOptions": [
-      [
-        149,
-        1,
-        623
-      ]
+    "location_code": "TWSB",
+    "location_name": "Tsawwassen - Swartz Bay Ferry Route",
+    "device_code": "RMYOUNGPRES61202V56-2716",
+    "search_tree_node_id": 172,
+    "device_category_id": 12,
+    "data_preview_options": [
+      {
+        "data_product_format_id": 149,
+        "plot_number": 1,
+        "sensor_code_id": 623
+      }
     ]
   },
   {
-    "deviceId": "23377",
-    "deviceName": "Rotronic Campbell Scientific Temperature RH HC-S3-XT 61348277",
+    "device_id": "23377",
+    "device_name": "Rotronic Campbell Scientific Temperature RH HC-S3-XT 61348277",
     "sensors": [
-      [
-        "14629",
-        "Relative Humidity"
-      ],
-      [
-        "14628",
-        "Air Temperature"
-      ]
+      {
+        "sensor_id": "14629",
+        "sensor_name": "Relative Humidity"
+      },
+      {
+        "sensor_id": "14628",
+        "sensor_name": "Air Temperature"
+      }
     ],
-    "locationCode": "TWSB",
-    "locationName": "Tsawwassen - Swartz Bay Ferry Route",
-    "deviceCode": "ROTRONICTEMPRH-HC-S3-XT61348277",
-    "searchTreeNodeId": 172,
-    "deviceCategoryId": 20,
-    "dataPreviewOptions": [
-      [
-        149,
-        1,
-        380
-      ],
-      [
-        149,
-        1,
-        611
-      ]
+    "location_code": "TWSB",
+    "location_name": "Tsawwassen - Swartz Bay Ferry Route",
+    "device_code": "ROTRONICTEMPRH-HC-S3-XT61348277",
+    "search_tree_node_id": 172,
+    "device_category_id": 20,
+    "data_preview_options": [
+      {
+        "data_product_format_id": 149,
+        "plot_number": 1,
+        "sensor_code_id": 380
+      },
+      {
+        "data_product_format_id": 149,
+        "plot_number": 1,
+        "sensor_code_id": 611
+      }
     ]
   }
 ]

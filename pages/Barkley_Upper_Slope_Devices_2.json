@@ -1,127 +1,107 @@
 [
   {
-    "deviceId": "23065",
-    "deviceName": "RDI Workhorse Long Ranger ADCP 75 kHz (17431)",
-    "locationCode": "NCBC",
-    "locationName": "Barkley Upper Slope",
-    "dataPreviewOptions": [
-      [
-        3,
-        1,
-        0
-      ],
-      [
-        3,
-        2,
-        0
-      ],
-      [
-        3,
-        3,
-        0
-      ],
-      [
-        3,
-        4,
-        0
-      ],
-      [
-        10,
-        1,
-        0
-      ],
-      [
-        10,
-        2,
-        0
-      ],
-      [
-        10,
-        3,
-        0
-      ],
-      [
-        10,
-        4,
-        0
-      ],
-      [
-        11,
-        1,
-        0
-      ],
-      [
-        11,
-        2,
-        0
-      ],
-      [
-        11,
-        3,
-        0
-      ],
-      [
-        11,
-        4,
-        0
-      ]
+    "device_id": "23065",
+    "device_name": "RDI Workhorse Long Ranger ADCP 75 kHz (17431)",
+    "location_code": "NCBC",
+    "location_name": "Barkley Upper Slope",
+    "data_preview_options": [
+      {
+        "data_product_format_id": 3,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 3,
+        "plot_number": 2
+      },
+      {
+        "data_product_format_id": 3,
+        "plot_number": 3
+      },
+      {
+        "data_product_format_id": 3,
+        "plot_number": 4
+      },
+      {
+        "data_product_format_id": 10,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 10,
+        "plot_number": 2
+      },
+      {
+        "data_product_format_id": 10,
+        "plot_number": 3
+      },
+      {
+        "data_product_format_id": 10,
+        "plot_number": 4
+      },
+      {
+        "data_product_format_id": 11,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 11,
+        "plot_number": 2
+      },
+      {
+        "data_product_format_id": 11,
+        "plot_number": 3
+      },
+      {
+        "data_product_format_id": 11,
+        "plot_number": 4
+      }
     ],
-    "searchTreeNodeId": 20,
-    "deviceCategoryId": 72,
-    "deviceCode": "RDIADCP75WH17431",
-    "fileExtensions": null
+    "search_tree_node_id": 20,
+    "device_category_id": 72,
+    "device_code": "RDIADCP75WH17431",
+    "file_extensions": null
   },
   {
-    "deviceId": "40460",
-    "deviceName": "RBR Quartz3 BPR SN 202320",
-    "locationCode": "NCBC",
-    "locationName": "Barkley Upper Slope",
-    "dataPreviewOptions": [
-      [
-        3,
-        1,
-        0
-      ],
-      [
-        3,
-        2,
-        0
-      ],
-      [
-        3,
-        3,
-        0
-      ],
-      [
-        3,
-        4,
-        0
-      ],
-      [
-        220,
-        1,
-        0
-      ],
-      [
-        220,
-        2,
-        0
-      ],
-      [
-        220,
-        3,
-        0
-      ],
-      [
-        220,
-        4,
-        0
-      ]
+    "device_id": "40460",
+    "device_name": "RBR Quartz3 BPR SN 202320",
+    "location_code": "NCBC",
+    "location_name": "Barkley Upper Slope",
+    "data_preview_options": [
+      {
+        "data_product_format_id": 3,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 3,
+        "plot_number": 2
+      },
+      {
+        "data_product_format_id": 3,
+        "plot_number": 3
+      },
+      {
+        "data_product_format_id": 3,
+        "plot_number": 4
+      },
+      {
+        "data_product_format_id": 220,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 220,
+        "plot_number": 2
+      },
+      {
+        "data_product_format_id": 220,
+        "plot_number": 3
+      },
+      {
+        "data_product_format_id": 220,
+        "plot_number": 4
+      }
     ],
-    "searchTreeNodeId": 20,
-    "deviceCategoryId": 3,
-    "deviceCode": "RBRQUARTZ3BPR202320",
-    "fileExtensions": [
+    "search_tree_node_id": 20,
+    "device_category_id": 3,
+    "device_code": "RBRQUARTZ3BPR202320",
+    "file_extensions": [
       "txt",
       "dt4"
     ]

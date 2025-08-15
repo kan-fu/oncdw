@@ -25,37 +25,37 @@ st.info(
 )
 with st.echo():
     location = {
-        "locationCode": "CODE",
-        "locationName": "Location Name",
+        "location_code": "CODE",
+        "location_name": "Location Name",
     }
     client.ui.location(location)
     client.ui.location_sidebar(location)
 
 with st.echo():
     device = {
-        "deviceId": "12345",
-        "deviceName": "Device Name",
-        "deviceCode": "CODE",
+        "device_id": "12345",
+        "device_name": "Device Name",
+        "device_code": "CODE",
     }
     client.ui.device(device)
     client.ui.device_sidebar(device)
 
 with st.echo():
     sensor = {
-        "sensorId": "67890",
-        "sensorName": "Sensor Name",
+        "sensor_id": "67890",
+        "sensor_name": "Sensor Name",
     }
     client.ui.sensor(sensor)
     client.ui.sensor_sidebar(sensor)
 
 with st.echo():
     sensor1 = {
-        "sensorId": "167890",
-        "sensorName": "Sensor Name 1",
+        "sensor_id": "167890",
+        "sensor_name": "Sensor Name 1",
     }
     sensor2 = {
-        "sensorId": "267890",
-        "sensorName": "Sensor Name 2",
+        "sensor_id": "267890",
+        "sensor_name": "Sensor Name 2",
     }
     client.ui.sensors_two(sensor1, sensor2)
     client.ui.sensors_two_sidebar(sensor1, sensor2)

@@ -1,102 +1,90 @@
 [
   {
-    "deviceId": "11302",
-    "deviceName": "Nortek Aquadopp HR-Profiler 2 MHz 2700",
-    "locationCode": "BACAX",
-    "locationName": "Barkley Canyon Axis",
-    "dataPreviewOptions": [
-      [
-        3,
-        1,
-        0
-      ],
-      [
-        3,
-        2,
-        0
-      ],
-      [
-        57,
-        1,
-        0
-      ],
-      [
-        57,
-        2,
-        0
-      ]
+    "device_id": "11302",
+    "device_name": "Nortek Aquadopp HR-Profiler 2 MHz 2700",
+    "location_code": "BACAX",
+    "location_name": "Barkley Canyon Axis",
+    "data_preview_options": [
+      {
+        "data_product_format_id": 3,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 3,
+        "plot_number": 2
+      },
+      {
+        "data_product_format_id": 57,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 57,
+        "plot_number": 2
+      }
     ],
-    "searchTreeNodeId": 15,
-    "deviceCategoryId": 73,
-    "deviceCode": "BC_POD1_AD2M",
-    "fileExtensions": null
+    "search_tree_node_id": 15,
+    "device_category_id": 73,
+    "device_code": "BC_POD1_AD2M",
+    "file_extensions": null
   },
   {
-    "deviceId": "24420",
-    "deviceName": "Nortek Signature55 Current Profiler 200066",
-    "locationCode": "BACAX",
-    "locationName": "Barkley Canyon Axis",
-    "dataPreviewOptions": [
-      [
-        3,
-        1,
-        0
-      ],
-      [
-        3,
-        2,
-        0
-      ],
-      [
-        57,
-        1,
-        0
-      ],
-      [
-        57,
-        2,
-        0
-      ]
+    "device_id": "24420",
+    "device_name": "Nortek Signature55 Current Profiler 200066",
+    "location_code": "BACAX",
+    "location_name": "Barkley Canyon Axis",
+    "data_preview_options": [
+      {
+        "data_product_format_id": 3,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 3,
+        "plot_number": 2
+      },
+      {
+        "data_product_format_id": 57,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 57,
+        "plot_number": 2
+      }
     ],
-    "searchTreeNodeId": 15,
-    "deviceCategoryId": 98,
-    "deviceCode": "NORTEKSIGNATURE200066",
-    "fileExtensions": [
+    "search_tree_node_id": 15,
+    "device_category_id": 98,
+    "device_code": "NORTEKSIGNATURE200066",
+    "file_extensions": [
       "txt",
       "dt4"
     ]
   },
   {
-    "deviceId": "12007",
-    "deviceName": "Kongsberg Mesotech Rotary Sonar 1071 (0711216)",
-    "locationCode": "BACAX",
-    "locationName": "Barkley Canyon Axis",
-    "dataPreviewOptions": [
-      [
-        3,
-        1,
-        0
-      ],
-      [
-        3,
-        2,
-        0
-      ],
-      [
-        210,
-        1,
-        0
-      ],
-      [
-        210,
-        2,
-        0
-      ]
+    "device_id": "12007",
+    "device_name": "Kongsberg Mesotech Rotary Sonar 1071 (0711216)",
+    "location_code": "BACAX",
+    "location_name": "Barkley Canyon Axis",
+    "data_preview_options": [
+      {
+        "data_product_format_id": 3,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 3,
+        "plot_number": 2
+      },
+      {
+        "data_product_format_id": 210,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 210,
+        "plot_number": 2
+      }
     ],
-    "searchTreeNodeId": 15,
-    "deviceCategoryId": 34,
-    "deviceCode": "BH_POD2_ROTSONAR",
-    "fileExtensions": [
+    "search_tree_node_id": 15,
+    "device_category_id": 34,
+    "device_code": "BH_POD2_ROTSONAR",
+    "file_extensions": [
       "txt",
       "dt4"
     ]
