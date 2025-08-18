@@ -1,9 +1,17 @@
+from datetime import datetime, timedelta
+
 from .data_preview_options import DataPreviewOption
 from .device import Device
 from .sensor import Sensor
+from .util import get_archive_file_download_link, natural_size
 
-__all__ = ["Device", "DataPreviewOption", "Sensor"]
-from datetime import datetime, timedelta
+__all__ = [
+    "Device",
+    "DataPreviewOption",
+    "Sensor",
+    "natural_size",
+    "get_archive_file_download_link",
+]
 
 
 def get_date_from_last_days(last_days: int, date_to: datetime) -> tuple[str, str]:
@@ -32,7 +40,3 @@ def get_date_from_last_days(last_days: int, date_to: datetime) -> tuple[str, str
         date_from.isoformat(timespec="milliseconds").replace("+00:00", "Z"),
         date_to.isoformat(timespec="milliseconds").replace("+00:00", "Z"),
     )
-
-
-def get_archive_file_download_link(filename: str, token: str):
-    return f"https://data.oceannetworks.ca/api/archivefile/download?filename={filename}&token={token}"  # noqa: E501

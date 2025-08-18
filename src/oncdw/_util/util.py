@@ -11,3 +11,18 @@ def _get_val_from_keys(data: dict, keys: list[str], raise_error=True, default=No
         raise KeyError(f"None of the keys {keys} found in the dictionary {data}.")
     else:
         return default
+
+
+def natural_size(size: int) -> str:
+    """
+    Convert a size in bytes to a human-readable format.
+    """
+    for unit in ["B", "KB", "MB", "GB", "TB"]:
+        if size < 1024:
+            return f"{size:.2f} {unit}"
+        size /= 1024
+    return f"{size:.2f} PB"  # If size is larger than 1 PB
+
+
+def get_archive_file_download_link(filename: str, token: str):
+    return f"https://data.oceannetworks.ca/api/archivefile/download?filename={filename}&token={token}"  # noqa: E501

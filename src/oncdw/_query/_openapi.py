@@ -61,9 +61,7 @@ class OpenAPI:
         df["dateFrom"] = pd.to_datetime(df["dateFrom"]).dt.tz_localize(None)
         df["dateTo"] = pd.to_datetime(df["dateTo"]).dt.tz_localize(None)
 
-        df["uncompressedFileSize"] = df["uncompressedFileSize"].apply(
-            lambda x: f"{x / 1024 ** 2:.2f} MB"
-        )
+        df["uncompressedFileSize"] = df["uncompressedFileSize"].apply(util.natural_size)
         df["filename"] = df["filename"].apply(
             util.get_archive_file_download_link, token=self._client.token
         )

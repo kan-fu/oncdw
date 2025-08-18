@@ -122,7 +122,16 @@ class Chart:
         )
 
         tooltip = []
-        for key in ["locationCode", "locationName", "deviceCode", "deviceName"]:
+        for key in [
+            "locationCode",
+            "location_code",
+            "locationName",
+            "location_name",
+            "deviceCode",
+            "device_code",
+            "deviceName",
+            "device_name",
+        ]:
             if key in df.columns:
                 tooltip.append(f"{key}: {{{key}}}")
 

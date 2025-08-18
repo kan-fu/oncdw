@@ -336,7 +336,7 @@ def template1(
         # Data preview plots in two columns
         client.section.data_preview(device)
 
-        # Archive file table, only display if deviceCode is present
-        if device["deviceCode"]:
+        # Archive file table, only display if device_code or deviceCode is present
+        if device.get("device_code", None) or device.get("deviceCode", None):
             st.subheader("Archive file table")
             client.widget.table_archive_files(device)
