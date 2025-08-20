@@ -1,11 +1,8 @@
 from dataclasses import dataclass
-from datetime import datetime, timezone
 from typing import TYPE_CHECKING
 
 import pandas as pd
 import requests
-
-import oncdw._util as util
 
 if TYPE_CHECKING:
     from .._client import ONCDW
@@ -16,7 +13,7 @@ class Internal:
     _client: "ONCDW"
 
     def get_scalar_data(
-        self, sensor_id: int | str, last_days: int
+        self, sensor_id: int | str, date_from: str, date_to: str
     ) -> tuple[pd.DataFrame, str, int]:
         """
         Return scalar data in a pd.DataFrame by calling internal `ScalarDataAPIService`,
@@ -31,11 +28,9 @@ class Internal:
         - label (with the format of "name (uofm)")
         """
         base_url = f"https://{self._client.hostname}/ScalarDataAPIService"
-        now = datetime.now(timezone.utc)
-        date_from_str, date_to_str = util.get_date_from_last_days(last_days, now)
         params = {
-            "datefrom": date_from_str,
-            "dateto": date_to_str,
+            "datefrom": date_from,
+            "dateto": date_to,
             "sensorid": sensor_id,
             "option": 3,
             "isClean": "true",

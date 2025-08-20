@@ -8,7 +8,7 @@ if TYPE_CHECKING:
 
 from ._chart import Chart
 from ._query import Query
-from ._util import DataPreviewOption, Device, Sensor
+from ._util import DataPreviewOption, Device, Sensor, get_date_from_last_days
 
 
 def _error_handler(func):
@@ -19,6 +19,24 @@ def _error_handler(func):
             st.error(f"An error occurred: {e}")
 
     return inner_function
+
+
+def get_date_parameters(
+    last_days: int | None,
+    date_from: str | None,
+    date_to: str | None,
+) -> tuple[str, str]:
+    """
+    Get date parameters for queries.
+
+    Widgets accept either last_days or date_from and date_to.
+    If last_days is provided, it will calculate date_from and date_to based on current datetime.
+    Else date_from and date_to will be used directly.
+    """
+    if last_days:
+        return get_date_from_last_days(last_days)
+    else:
+        return date_from, date_to
 
 
 class Widget:
@@ -33,18 +51,25 @@ class Widget:
         sensor: int | dict,
         color: str = "#1f77b4",
         last_days: int | None = None,
+        date_from: str | None = None,
+        date_to: str | None = None,
         st_wrapper: bool = True,
         engine: str | None = None,
     ):
         _sensor = Sensor(sensor)
         sensor_id = _sensor.get_sensor_id()
 
-        last_days = last_days if last_days else 7
+        date_from, date_to = get_date_parameters(
+            last_days=last_days,
+            date_from=date_from,
+            date_to=date_to,
+        )
 
         df, ylabel, _ = self._query.get_scalar_data(
             source="internal",
             sensor_id=sensor_id,
-            last_days=last_days,
+            date_from=date_from,
+            date_to=date_to,
         )
 
         return self._chart.time_series(df, ylabel, color, st_wrapper, engine)
@@ -57,6 +82,8 @@ class Widget:
         color1: str = "#57A44C",
         color2: str = "#1f77b4",
         last_days: int | None = None,
+        date_from: str | None = None,
+        date_to: str | None = None,
         st_wrapper: bool = True,
         engine: str | None = None,
     ):
@@ -66,17 +93,24 @@ class Widget:
         sensor_id2 = _sensor2.get_sensor_id()
 
         last_days = last_days if last_days else 7
+        date_from, date_to = get_date_parameters(
+            last_days=last_days,
+            date_from=date_from,
+            date_to=date_to,
+        )
 
         df1, ylabel1, sensor_type1 = self._query.get_scalar_data(
             source="internal",
             sensor_id=sensor_id1,
-            last_days=last_days,
+            date_from=date_from,
+            date_to=date_to,
         )
 
         df2, ylabel2, sensor_type2 = self._query.get_scalar_data(
             source="internal",
             sensor_id=sensor_id2,
-            last_days=last_days,
+            date_from=date_from,
+            date_to=date_to,
         )
 
         return self._chart.time_series_two_sensors(
@@ -98,7 +132,9 @@ class Widget:
     def table_archive_files(
         self,
         device: dict,
-        last_days: int = None,
+        last_days: int | None = None,
+        date_from: str | None = None,
+        date_to: str | None = None,
         st_wrapper: bool = True,
         engine: str | None = None,
     ):
@@ -107,11 +143,16 @@ class Widget:
         device_code = _device.get_device_code()
         file_extensions = _device.get_file_extensions()
 
-        last_days = last_days if last_days else 4
+        date_from, date_to = get_date_parameters(
+            last_days=last_days,
+            date_from=date_from,
+            date_to=date_to,
+        )
 
         df = self._query.get_archive_files(
             device_code=device_code,
-            last_days=last_days,
+            date_from=date_from,
+            date_to=date_to,
             file_extensions=file_extensions,
         )
 
@@ -121,8 +162,9 @@ class Widget:
     def heatmap_archive_files(
         self,
         device: dict,
-        file_extensions: list[str] | None = None,
-        last_days: int = 7,
+        last_days: int | None = None,
+        date_from: str | None = None,
+        date_to: str | None = None,
         st_wrapper: bool = True,
         engine: str | None = None,
     ):
@@ -131,9 +173,16 @@ class Widget:
         device_code = _device.get_device_code()
         file_extensions = _device.get_file_extensions()
 
+        date_from, date_to = get_date_parameters(
+            last_days=last_days,
+            date_from=date_from,
+            date_to=date_to,
+        )
+
         df = self._query.get_archive_files(
             device_code=device_code,
-            last_days=last_days,
+            date_from=date_from,
+            date_to=date_to,
             file_extensions=file_extensions,
         )
 

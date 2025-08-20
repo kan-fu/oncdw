@@ -71,7 +71,7 @@ class Section:
 
         return badges
 
-    def time_series(self, sensor: list | dict, last_days: int | None = None):
+    def time_series(self, sensor: list | dict, last_days: int = 7):
         """
         Display time series plots for a given sensor or two sensors.
 

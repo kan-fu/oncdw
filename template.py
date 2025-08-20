@@ -11,7 +11,7 @@ def template3(
     center_lat: float = 49.3,
     center_lon: float = -126.3,
     zoom: float = 6,
-    sticky_device: bool = True,
+    sticky_device: bool = False,
 ):
     """
     Neptune is a template for the dashboard that consists of two sections:
@@ -57,11 +57,7 @@ def template3(
         The longitude of the center of the map.
     zoom : float, optional
         The zoom level of the map.
-    data_preview_widget : bool, default True
-        Whether to show the data preview widget.
-    map_widget: bool, default True
-        Whether to show the map widget.
-    sticky_device : bool, default True
+    sticky_device : bool, default False
         Whether to show the device as sticky in the main part.
     """
     st.set_page_config(layout="wide", page_title=page_title)
@@ -93,7 +89,7 @@ def template3(
             st.divider()
 
     for device in devices:
-        client.ui.location(device)
+        client.section.location_expander(device)
         client.ui.device(device)
 
         # Data preview plots
@@ -101,7 +97,7 @@ def template3(
 
         # Archive file table
         st.subheader("Archive file table")
-        client.widget.table_archive_files(device)
+        client.widget.table_archive_files(device, last_days=7)
 
         if "sensors" in device and len(device["sensors"]) == 2:
             # Time series two sensors
@@ -339,4 +335,4 @@ def template1(
         # Archive file table, only display if device_code or deviceCode is present
         if device.get("device_code", None) or device.get("deviceCode", None):
             st.subheader("Archive file table")
-            client.widget.table_archive_files(device)
+            client.widget.table_archive_files(device, last_days=7)

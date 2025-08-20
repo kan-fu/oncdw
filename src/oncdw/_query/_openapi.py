@@ -25,12 +25,17 @@ class OpenAPI:
         raise NotImplementedError
 
     def get_archive_files(
-        self, device_code: str, last_days: int, file_extensions: list[str] | None = None
+        self,
+        device_code: str,
+        date_from: str,
+        date_to: str,
+        file_extensions: list[str] | None = None,
     ) -> pd.DataFrame:
         archive_files = self._get_onc().getArchivefile(
             {
                 "deviceCode": device_code,
-                "dateFrom": f"-P{last_days}D",
+                "dateFrom": date_from,
+                "dateTo": date_to,
                 "returnOptions": "all",
             }
         )["files"]

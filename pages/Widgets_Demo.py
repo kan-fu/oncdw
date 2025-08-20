@@ -31,9 +31,11 @@ st.header(
 )
 
 with st.echo():
-    client.widget.table_archive_files({"device_code": "BPR_BC"})
+    client.widget.table_archive_files({"device_code": "BPR_BC"}, last_days=7)
     client.widget.table_archive_files(
-        {"device_code": "BPR_BC", "file_extensions": ["txt", "csv"]}
+        {"device_code": "ICLISTENHF6093", "file_extensions": ["flac"]},
+        date_from="-P1D",
+        date_to="-PT23H",
     )
 
 
@@ -42,7 +44,7 @@ st.header(
     "File types existing in the archive for a specific device (file availability)"
 )
 with st.echo():
-    client.widget.heatmap_archive_files({"device_code": "CODAR25VATK"}, last_days=14)
+    client.widget.heatmap_archive_files({"device_code": "CODAR25VATK"}, last_days=7)
 
 
 ############################################
