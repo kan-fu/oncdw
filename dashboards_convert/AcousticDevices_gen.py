@@ -1,6 +1,7 @@
 import json
 
 import lxml.html
+from onc import ONC
 from util import extract_data_preview_option, extract_node_id_category_id
 
 with open("./dashboards_convert/html/AcousticDevices.html") as f:
@@ -33,6 +34,10 @@ for section in tree.xpath("//section[@class='oncWidgetGroup' and @id]"):
     # Get device code
     device_code = section.xpath(".//section[@devicecode]")[0].attrib["devicecode"]
 
+    onc = ONC("TOKEN")
+
+    location_info = onc.getLocations({"locationCode": location_code})
+
     res.append(
         {
             "device_name": device_name,
@@ -43,6 +48,8 @@ for section in tree.xpath("//section[@class='oncWidgetGroup' and @id]"):
             "device_category_id": device_category_id,
             "device_code": device_code,
             "data_preview_options": data_preview_options,
+            "lat": location_info[0]["lat"],
+            "lon": location_info[0]["lon"],
         }
     )
 with open("./pages/Acoustic_Devices.json", "w") as f:

@@ -32,7 +32,9 @@
         "data_product_format_id": 11,
         "plot_number": 2
       }
-    ]
+    ],
+    "lat": 47.933403,
+    "lon": -129.098746
   },
   {
     "device_name": "RDI Workhorse Long Ranger ADCP 75 kHz (24605)",
@@ -67,7 +69,9 @@
         "data_product_format_id": 11,
         "plot_number": 2
       }
-    ]
+    ],
+    "lat": 47.933403,
+    "lon": -129.098746
   },
   {
     "device_name": "RDI Workhorse Monitor ADCP 600 kHz (17574)",
@@ -102,7 +106,9 @@
         "data_product_format_id": 3,
         "plot_number": 2
       }
-    ]
+    ],
+    "lat": 47.895674,
+    "lon": -129.09844
   },
   {
     "device_name": "RDI Workhorse Long Ranger ADCP 75 kHz (3867)",
@@ -137,7 +143,9 @@
         "data_product_format_id": 3,
         "plot_number": 2
       }
-    ]
+    ],
+    "lat": 47.974631,
+    "lon": -129.087201
   },
   {
     "device_name": "RDI Workhorse Long Ranger ADCP 75 kHz (13429)",
@@ -172,7 +180,9 @@
         "data_product_format_id": 3,
         "plot_number": 2
       }
-    ]
+    ],
+    "lat": 47.973602,
+    "lon": -129.082351
   },
   {
     "device_name": "RDI Workhorse Long Ranger ADCP 75 kHz (16511)",
@@ -207,7 +217,9 @@
         "data_product_format_id": 3,
         "plot_number": 2
       }
-    ]
+    ],
+    "lat": 47.762598,
+    "lon": -127.758617
   },
   {
     "device_name": "RDI Workhorse Long Ranger ADCP 75 kHz (9202)",
@@ -242,7 +254,9 @@
         "data_product_format_id": 3,
         "plot_number": 2
       }
-    ]
+    ],
+    "lat": 48.670592,
+    "lon": -126.848031
   },
   {
     "device_name": "RDI Workhorse Monitor ADCP 600 kHz (SN 25472)",
@@ -277,7 +291,9 @@
         "data_product_format_id": 11,
         "plot_number": 2
       }
-    ]
+    ],
+    "lat": 48.426949,
+    "lon": -126.174643
   },
   {
     "device_name": "Nortek Aquadopp HR-Profiler 2 MHz ASP2699 AQD2973",
@@ -304,7 +320,9 @@
         "data_product_format_id": 3,
         "plot_number": 2
       }
-    ]
+    ],
+    "lat": 48.426949,
+    "lon": -126.174643
   },
   {
     "device_name": "RDI Workhorse Long Ranger ADCP 75 kHz (17431)",
@@ -339,7 +357,9 @@
         "data_product_format_id": 3,
         "plot_number": 2
       }
-    ]
+    ],
+    "lat": 48.427311,
+    "lon": -126.174544
   },
   {
     "device_name": "RDI Workhorse Quartermaster ADCP 150 kHz (9455)",
@@ -374,7 +394,9 @@
         "data_product_format_id": 3,
         "plot_number": 2
       }
-    ]
+    ],
+    "lat": 48.314901,
+    "lon": -126.058283
   },
   {
     "device_name": "Nortek Aquadopp HR-Profiler 2 MHz 2978",
@@ -401,7 +423,9 @@
         "data_product_format_id": 3,
         "plot_number": 2
       }
-    ]
+    ],
+    "lat": 48.314901,
+    "lon": -126.058283
   },
   {
     "device_name": "Nortek Signature55 Current Profiler 200066",
@@ -428,7 +452,9 @@
         "data_product_format_id": 57,
         "plot_number": 2
       }
-    ]
+    ],
+    "lat": 48.316654,
+    "lon": -126.05049
   },
   {
     "device_name": "Nortek Aquadopp HR-Profiler 2 MHz 2700",
@@ -455,7 +481,9 @@
         "data_product_format_id": 3,
         "plot_number": 2
       }
-    ]
+    ],
+    "lat": 48.316654,
+    "lon": -126.05049
   },
   {
     "device_name": "RDI Workhorse Monitor ADCP 600 kHz (17434)",
@@ -490,7 +518,9 @@
         "data_product_format_id": 3,
         "plot_number": 2
       }
-    ]
+    ],
+    "lat": 48.808292,
+    "lon": -125.2815
   },
   {
     "device_name": "Nortek Aquadopp Profiler AQD 2958",
@@ -517,7 +547,9 @@
         "data_product_format_id": 3,
         "plot_number": 2
       }
-    ]
+    ],
+    "lat": 48.808292,
+    "lon": -125.2815
   },
   {
     "device_name": "RDI Workhorse Monitor ADCP 300 kHz (9273)",
@@ -552,7 +584,9 @@
         "data_product_format_id": 3,
         "plot_number": 2
       }
-    ]
+    ],
+    "lat": 48.813809,
+    "lon": -125.280591
   },
   {
     "device_name": "BioSonics DT-Xu Scientific Echosounder",
@@ -571,7 +605,9 @@
         "data_product_format_id": 313,
         "plot_number": 2
       }
-    ]
+    ],
+    "lat": 48.813809,
+    "lon": -125.280591
   },
   {
     "device_name": "RDI Workhorse Sentinel ADCP 600 kHz (SN 24287)",
@@ -606,7 +642,9 @@
         "data_product_format_id": 11,
         "plot_number": 2
       }
-    ]
+    ],
+    "lat": 49.486885,
+    "lon": -124.769333
   },
   {
     "device_name": "ASL AZFP Echosounder 55121",
@@ -633,7 +671,9 @@
         "data_product_format_id": 3,
         "plot_number": 2
       }
-    ]
+    ],
+    "lat": 48.651326,
+    "lon": -123.486382
   },
   {
     "device_name": "RDI Workhorse Quartermaster ADCP 150 kHz (SN 17457)",
@@ -668,7 +708,9 @@
         "data_product_format_id": 3,
         "plot_number": 2
       }
-    ]
+    ],
+    "lat": 49.039781,
+    "lon": -123.425695
   },
   {
     "device_name": "RDI Workhorse Quartermaster ADCP 150 kHz (SN 8580)",
@@ -703,7 +745,9 @@
         "data_product_format_id": 3,
         "plot_number": 2
       }
-    ]
+    ],
+    "lat": 49.042625,
+    "lon": -123.317033
   },
   {
     "device_name": "ASL AZFP Echosounder 55196",
@@ -730,7 +774,9 @@
         "data_product_format_id": 132,
         "plot_number": 2
       }
-    ]
+    ],
+    "lat": 49.043098,
+    "lon": -123.316824
   },
   {
     "device_name": "RDI Workhorse Monitor ADCP 600 kHz (SN 25471)",
@@ -765,7 +811,9 @@
         "data_product_format_id": 11,
         "plot_number": 2
       }
-    ]
+    ],
+    "lat": 49.300987,
+    "lon": -123.111138
   },
   {
     "device_name": "Nortek AWAC AST 400 kHz 2226",
@@ -792,7 +840,9 @@
         "data_product_format_id": 3,
         "plot_number": 2
       }
-    ]
+    ],
+    "lat": 45.367205,
+    "lon": -64.408957
   },
   {
     "device_name": "Nortek AWAC AST 400 kHz WAV 7749",
@@ -819,6 +869,8 @@
         "data_product_format_id": 57,
         "plot_number": 2
       }
-    ]
+    ],
+    "lat": 47.425897,
+    "lon": -53.1211
   }
 ]
