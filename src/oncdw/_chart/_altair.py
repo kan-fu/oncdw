@@ -1,5 +1,6 @@
 import altair as alt
 import pandas as pd
+import pydeck
 import streamlit as st
 
 
@@ -190,3 +191,49 @@ class Altair:
             .interactive()
         )
         return _chart_st_wrapper(chart, st_wrapper)
+
+    @staticmethod
+    def map(df, center_lat, center_lon, zoom, st_wrapper):
+        point_layer = pydeck.Layer(
+            "ScatterplotLayer",
+            data=df,
+            get_position=["lon", "lat"],
+            get_color="[255, 0, 0]",
+            get_radius=1000,
+            auto_highlight=True,
+            pickable=True,
+        )
+
+        view_state = pydeck.ViewState(
+            latitude=center_lat,
+            longitude=center_lon,
+            controller=True,
+            zoom=zoom,
+        )
+
+        tooltip = []
+        for key in [
+            "locationCode",
+            "location_code",
+            "locationName",
+            "location_name",
+            "deviceCode",
+            "device_code",
+            "deviceName",
+            "device_name",
+        ]:
+            if key in df.columns:
+                tooltip.append(f"{key}: {{{key}}}")
+
+        chart = pydeck.Deck(
+            map_style=None,
+            layers=point_layer,
+            initial_view_state=view_state,
+            tooltip={
+                "text": "\n".join(tooltip),
+            },
+        )
+        if st_wrapper:
+            return st.pydeck_chart(chart)
+        else:
+            return chart

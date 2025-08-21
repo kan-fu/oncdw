@@ -35,7 +35,6 @@ class Widget:
         date_from: str = "-P2D",
         date_to: str | None = None,
         st_wrapper: bool = True,
-        engine: str | None = None,
     ):
         _sensor = Sensor(sensor)
         sensor_id = _sensor.get_sensor_id()
@@ -52,7 +51,7 @@ class Widget:
             date_to=date_to,
         )
 
-        return self._chart.time_series(df, ylabel, color, st_wrapper, engine)
+        return self._chart.time_series(df, ylabel, color, st_wrapper)
 
     @_error_handler
     def time_series_two_sensors(
@@ -64,7 +63,6 @@ class Widget:
         date_from: str = "-P2D",
         date_to: str | None = None,
         st_wrapper: bool = True,
-        engine: str | None = None,
     ):
         _sensor1 = Sensor(sensor1)
         _sensor2 = Sensor(sensor2)
@@ -102,7 +100,6 @@ class Widget:
             sensor_id2,
             color2,
             st_wrapper,
-            engine,
         )
 
     @_error_handler
@@ -112,7 +109,6 @@ class Widget:
         date_from: str = "-P7D",
         date_to: str | None = None,
         st_wrapper: bool = True,
-        engine: str | None = None,
     ):
         _device = Device(device)
 
@@ -126,7 +122,7 @@ class Widget:
             file_extensions=file_extensions,
         )
 
-        return self._chart.table_archive_files(df, st_wrapper, engine)
+        return self._chart.table_archive_files(df, st_wrapper)
 
     @_error_handler
     def heatmap_archive_files(
@@ -135,7 +131,6 @@ class Widget:
         date_from: str = "-P7D",
         date_to: str | None = None,
         st_wrapper: bool = True,
-        engine: str | None = None,
     ):
         _device = Device(device)
 
@@ -149,7 +144,7 @@ class Widget:
             file_extensions=file_extensions,
         )
 
-        return self._chart.heatmap_archive_files(df, st_wrapper, engine)
+        return self._chart.heatmap_archive_files(df, st_wrapper)
 
     @_error_handler
     def data_preview(
@@ -188,7 +183,6 @@ class Widget:
         date_to: str | None = None,
         resample_period: int | None = None,
         st_wrapper=True,
-        engine: str | None = None,
     ):
         _device = Device(device)
         location_code = _device.get_location_code()
@@ -205,7 +199,7 @@ class Widget:
             date_to=date_to,
         )
 
-        return self._chart.scatter_plot(df, st_wrapper, engine)
+        return self._chart.scatter_plot(df, st_wrapper)
 
     @_error_handler
     def map(

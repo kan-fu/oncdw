@@ -1,12 +1,9 @@
-import warnings
 from typing import TYPE_CHECKING
 
 import pandas as pd
-import pydeck
 import streamlit as st
 
 from ._altair import Altair
-from ._plotly import Plotly
 
 if TYPE_CHECKING:
     from .._client import ONCDW
@@ -36,22 +33,9 @@ class Chart:
     def __init__(self, client: "ONCDW") -> None:
         self._client = client
 
-    def _get_engine_class(self, engine: str | None) -> type[Altair | Plotly]:
-        engine = engine or self._client.engine
-
-        if engine.lower() == "plotly":
-            return Plotly
-        elif engine.lower() == "altair":
-            return Altair
-        else:
-            warnings.warn(
-                f"Engine {engine} is not in (Altair, Plotly), default to Altair.",
-                stacklevel=2,
-            )
-
-    def time_series(self, df, ylabel, color, st_wrapper, engine: str | None):
+    def time_series(self, df, ylabel, color, st_wrapper):
         _show_latest_timestamp(df, ylabel, self._client.now)
-        return self._get_engine_class(engine).time_series(df, ylabel, color, st_wrapper)
+        return Altair.time_series(df, ylabel, color, st_wrapper)
 
     def time_series_two_sensors(
         self,
@@ -66,7 +50,6 @@ class Chart:
         sensor_id2,
         color2,
         st_wrapper,
-        engine: str | None,
     ):
         # If two sensors have the same sensor type, ylabel(i.e. name + uofm)
         # might not be enough to uniquely identify one sensor
@@ -75,7 +58,7 @@ class Chart:
             ylabel2 = f"{ylabel2} - {sensor_id2}"
         _show_latest_timestamp(df1, ylabel1, self._client.now)
         _show_latest_timestamp(df2, ylabel2, self._client.now)
-        return self._get_engine_class(engine).time_series_two_sensors(
+        return Altair.time_series_two_sensors(
             df1,
             ylabel1,
             sensor_type1,
@@ -87,11 +70,11 @@ class Chart:
             st_wrapper,
         )
 
-    def table_archive_files(self, df, st_wrapper, engine: str | None):
-        return self._get_engine_class(engine).table_archive_files(df, st_wrapper)
+    def table_archive_files(self, df, st_wrapper):
+        return Altair.table_archive_files(df, st_wrapper)
 
-    def heatmap_archive_files(self, df, st_wrapper, engine: str | None):
-        return self._get_engine_class(engine).heatmap_archive_files(df, st_wrapper)
+    def heatmap_archive_files(self, df, st_wrapper):
+        return Altair.heatmap_archive_files(df, st_wrapper)
 
     def image(self, url: str, st_wrapper: bool):
         if not st_wrapper:
@@ -100,50 +83,14 @@ class Chart:
             return st.warning("No data preview image available.")
         return st.image(url)
 
-    def scatter_plot(self, df, st_wrapper, engine: str | None):
-        return self._get_engine_class(engine).scatter_plot(df, st_wrapper)
+    def scatter_plot(self, df, st_wrapper):
+        return Altair.scatter_plot(df, st_wrapper)
 
     def map(self, df, center_lat, center_lon, zoom, st_wrapper):
-        point_layer = pydeck.Layer(
-            "ScatterplotLayer",
-            data=df,
-            get_position=["lon", "lat"],
-            get_color="[255, 0, 0]",
-            get_radius=1000,
-            auto_highlight=True,
-            pickable=True,
-        )
-
-        view_state = pydeck.ViewState(
-            latitude=center_lat,
-            longitude=center_lon,
-            controller=True,
+        return Altair.map(
+            df,
+            center_lat=center_lat,
+            center_lon=center_lon,
             zoom=zoom,
+            st_wrapper=st_wrapper,
         )
-
-        tooltip = []
-        for key in [
-            "locationCode",
-            "location_code",
-            "locationName",
-            "location_name",
-            "deviceCode",
-            "device_code",
-            "deviceName",
-            "device_name",
-        ]:
-            if key in df.columns:
-                tooltip.append(f"{key}: {{{key}}}")
-
-        chart = pydeck.Deck(
-            map_style=None,
-            layers=point_layer,
-            initial_view_state=view_state,
-            tooltip={
-                "text": "\n".join(tooltip),
-            },
-        )
-        if st_wrapper:
-            return st.pydeck_chart(chart)
-        else:
-            return chart
