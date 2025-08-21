@@ -31,7 +31,7 @@ st.header(
 )
 
 with st.echo():
-    client.widget.table_archive_files({"device_code": "BPR_BC"}, last_days=7)
+    client.widget.table_archive_files({"device_code": "BPR_BC"}, date_from="-P7D")
     client.widget.table_archive_files(
         {"device_code": "ICLISTENHF6093", "file_extensions": ["flac"]},
         date_from="-P1D",
@@ -44,28 +44,30 @@ st.header(
     "File types existing in the archive for a specific device (file availability)"
 )
 with st.echo():
-    client.widget.heatmap_archive_files({"device_code": "CODAR25VATK"}, last_days=7)
+    client.widget.heatmap_archive_files(
+        {"device_code": "CODAR25VATK"}, date_from="-P7D"
+    )
 
 
 ############################################
 st.header("Time series scalar data plot from one sensor")
 
 with st.echo():
-    client.widget.time_series({"sensor_id": 4182}, last_days=2)
+    client.widget.time_series({"sensor_id": 4182}, date_from="-P2D")
 
 
 ############################################
 st.header("Time series scalar data plot with two sensors of the same type")
 
 with st.echo():
-    client.widget.time_series_two_sensors(4182, 7712, last_days=2)
+    client.widget.time_series_two_sensors(4182, 7712, date_from="-P2D")
 
 
 ############################################
 st.header("Time series scalar data plot with two sensors of different type")
 
 with st.echo():
-    client.widget.time_series_two_sensors(4176, 3016, last_days=2)
+    client.widget.time_series_two_sensors(4176, 3016, date_from="-P2D")
 
 
 ############################################
@@ -74,4 +76,5 @@ with st.echo():
     client.widget.scatter_plot_two_sensors(
         {"location_code": "BACAX", "device_category_code": "CTD"},
         "salinity,temperature",
+        date_from="-P1D",
     )

@@ -21,9 +21,6 @@ class OpenAPI:
             self._client.token, production=is_prod, showInfo=self._client.showInfo
         )
 
-    def get_scalar_data(self, sensor_id: int | str, last_days: int):
-        raise NotImplementedError
-
     def get_archive_files(
         self,
         device_code: str,
@@ -79,12 +76,14 @@ class OpenAPI:
         device_category_code: str,
         sensor_category_codes: str,
         resample_period: int | None,
-        last_days: int = 1,
+        date_from: str,
+        date_to: str,
     ) -> pd.DataFrame:
         scalar_data = self._get_onc().getScalardata(
             {
                 "locationCode": location_code,
-                "dateFrom": f"-P{last_days}D",
+                "dateFrom": date_from,
+                "dateTo": date_to,
                 "deviceCategoryCode": device_category_code,
                 "sensorCategoryCodes": sensor_category_codes,
                 "resamplePeriod": resample_period,

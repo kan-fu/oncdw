@@ -52,9 +52,6 @@ class Internal:
 
         return df, ylabel, sensor_type_id
 
-    def get_archive_files(self, device_code: int | str, last_days: int):
-        raise NotImplementedError
-
     def get_data_preview(
         self,
         sensor_code_id: int | None,

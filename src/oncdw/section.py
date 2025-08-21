@@ -71,7 +71,7 @@ class Section:
 
         return badges
 
-    def time_series(self, sensor: list | dict, last_days: int = 7):
+    def time_series(self, sensor: list | dict, date_from: str = "-P7D"):
         """
         Display time series plots for a given sensor or two sensors.
 
@@ -88,12 +88,12 @@ class Section:
             sensor1, sensor2 = sensor
             self._client.ui.sensors_two(sensor1, sensor2)
             self._client.widget.time_series_two_sensors(
-                sensor1, sensor2, last_days=last_days
+                sensor1, sensor2, date_from=date_from
             )
         elif isinstance(sensor, dict):
             # The sensor is a single sensor
             self._client.ui.sensor(sensor)
-            self._client.widget.time_series(sensor, last_days=last_days)
+            self._client.widget.time_series(sensor, date_from=date_from)
         else:
             raise ValueError(
                 f"Invalid sensor format: {sensor}. Expected a list or dict."

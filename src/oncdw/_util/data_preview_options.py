@@ -32,13 +32,14 @@ class DataPreviewOption:
     def get_plot_number(self) -> int:
         """
         Get the plot number from the data preview options.
-        Defaults to 1 if not specified.
+        Defaults to 1 if not specified or the value is None.
         """
         if isinstance(self._data_preview_option, dict):
             keys = ["plotNumber", "plot_number"]
-            return _get_val_from_keys(
+            val = _get_val_from_keys(
                 self._data_preview_option, keys, raise_error=False, default=1
             )
+            return val if val is not None else 1
         else:
             raise ValueError(
                 f"Could not get plot number from {self._data_preview_option}."

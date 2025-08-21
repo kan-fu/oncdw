@@ -8,7 +8,7 @@ if TYPE_CHECKING:
 
 from ._chart import Chart
 from ._query import Query
-from ._util import DataPreviewOption, Device, Sensor, get_date_from_last_days
+from ._util import DataPreviewOption, Device, Sensor, parse_datetime_parameters
 
 
 def _error_handler(func):
@@ -19,24 +19,6 @@ def _error_handler(func):
             st.error(f"An error occurred: {e}")
 
     return inner_function
-
-
-def get_date_parameters(
-    last_days: int | None,
-    date_from: str | None,
-    date_to: str | None,
-) -> tuple[str, str]:
-    """
-    Get date parameters for queries.
-
-    Widgets accept either last_days or date_from and date_to.
-    If last_days is provided, it will calculate date_from and date_to based on current datetime.
-    Else date_from and date_to will be used directly.
-    """
-    if last_days:
-        return get_date_from_last_days(last_days)
-    else:
-        return date_from, date_to
 
 
 class Widget:
@@ -50,8 +32,7 @@ class Widget:
         self,
         sensor: int | dict,
         color: str = "#1f77b4",
-        last_days: int | None = None,
-        date_from: str | None = None,
+        date_from: str = "-P2D",
         date_to: str | None = None,
         st_wrapper: bool = True,
         engine: str | None = None,
@@ -59,8 +40,7 @@ class Widget:
         _sensor = Sensor(sensor)
         sensor_id = _sensor.get_sensor_id()
 
-        date_from, date_to = get_date_parameters(
-            last_days=last_days,
+        date_from, date_to = parse_datetime_parameters(
             date_from=date_from,
             date_to=date_to,
         )
@@ -81,8 +61,7 @@ class Widget:
         sensor2: int | dict,
         color1: str = "#57A44C",
         color2: str = "#1f77b4",
-        last_days: int | None = None,
-        date_from: str | None = None,
+        date_from: str = "-P2D",
         date_to: str | None = None,
         st_wrapper: bool = True,
         engine: str | None = None,
@@ -92,9 +71,7 @@ class Widget:
         sensor_id1 = _sensor1.get_sensor_id()
         sensor_id2 = _sensor2.get_sensor_id()
 
-        last_days = last_days if last_days else 7
-        date_from, date_to = get_date_parameters(
-            last_days=last_days,
+        date_from, date_to = parse_datetime_parameters(
             date_from=date_from,
             date_to=date_to,
         )
@@ -132,8 +109,7 @@ class Widget:
     def table_archive_files(
         self,
         device: dict,
-        last_days: int | None = None,
-        date_from: str | None = None,
+        date_from: str = "-P7D",
         date_to: str | None = None,
         st_wrapper: bool = True,
         engine: str | None = None,
@@ -142,12 +118,6 @@ class Widget:
 
         device_code = _device.get_device_code()
         file_extensions = _device.get_file_extensions()
-
-        date_from, date_to = get_date_parameters(
-            last_days=last_days,
-            date_from=date_from,
-            date_to=date_to,
-        )
 
         df = self._query.get_archive_files(
             device_code=device_code,
@@ -162,8 +132,7 @@ class Widget:
     def heatmap_archive_files(
         self,
         device: dict,
-        last_days: int | None = None,
-        date_from: str | None = None,
+        date_from: str = "-P7D",
         date_to: str | None = None,
         st_wrapper: bool = True,
         engine: str | None = None,
@@ -172,12 +141,6 @@ class Widget:
 
         device_code = _device.get_device_code()
         file_extensions = _device.get_file_extensions()
-
-        date_from, date_to = get_date_parameters(
-            last_days=last_days,
-            date_from=date_from,
-            date_to=date_to,
-        )
 
         df = self._query.get_archive_files(
             device_code=device_code,
@@ -221,7 +184,8 @@ class Widget:
         self,
         device: dict,
         sensor_category_codes: str,
-        last_days: int | None = None,
+        date_from: str | None = None,
+        date_to: str | None = None,
         resample_period: int | None = None,
         st_wrapper=True,
         engine: str | None = None,
@@ -230,7 +194,6 @@ class Widget:
         location_code = _device.get_location_code()
         device_category_code = _device.get_device_category_code()
 
-        last_days = last_days if last_days else 1
         resample_period = resample_period if resample_period else 60
 
         df = self._query.get_scalar_data_two_sensors(
@@ -238,7 +201,8 @@ class Widget:
             device_category_code=device_category_code,
             sensor_category_codes=sensor_category_codes,
             resample_period=resample_period,
-            last_days=last_days,
+            date_from=date_from,
+            date_to=date_to,
         )
 
         return self._chart.scatter_plot(df, st_wrapper, engine)

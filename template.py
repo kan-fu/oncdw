@@ -97,12 +97,12 @@ def template3(
 
         # Archive file table
         st.subheader("Archive file table")
-        client.widget.table_archive_files(device, last_days=7)
+        client.widget.table_archive_files(device, date_from="-P7D")
 
         if "sensors" in device and len(device["sensors"]) == 2:
             # Time series two sensors
             st.subheader("Time series")
-            client.section.time_series(device["sensors"], last_days=2)
+            client.section.time_series(device["sensors"], date_from="-P2D")
 
 
 def template2(
@@ -335,4 +335,4 @@ def template1(
         # Archive file table, only display if device_code or deviceCode is present
         if device.get("device_code", None) or device.get("deviceCode", None):
             st.subheader("Archive file table")
-            client.widget.table_archive_files(device, last_days=7)
+            client.widget.table_archive_files(device, date_from="-P7D")
