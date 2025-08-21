@@ -1,0 +1,954 @@
+[
+  {
+    "device_name": "Ocean Sonics icListen HF Hydrophone 6095",
+    "device_id": "50381",
+    "location_code": "BACNH.H1",
+    "location_name": "Hydrophone A",
+    "search_tree_node_id": 2366,
+    "device_category_id": 19,
+    "device_code": "ICLISTENHF6095",
+    "data_preview_options": [
+      {
+        "data_product_format_id": 176,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 53,
+        "plot_number": 1
+      }
+    ],
+    "file_extensions": [
+      "wav",
+      "fft",
+      "mp3",
+      "flac",
+      "mat"
+    ],
+    "lat": 48.345174,
+    "lon": -126.157316
+  },
+  {
+    "device_name": "Ocean Sonics icListen HF Hydrophone 6094",
+    "device_id": "50440",
+    "location_code": "BACNH.H2",
+    "location_name": "Hydrophone B",
+    "search_tree_node_id": 2367,
+    "device_category_id": 19,
+    "device_code": "ICLISTENHF6094",
+    "data_preview_options": [
+      {
+        "data_product_format_id": 176,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 53,
+        "plot_number": 1
+      }
+    ],
+    "file_extensions": [
+      "wav",
+      "fft",
+      "mp3",
+      "flac",
+      "mat"
+    ],
+    "lat": 48.345174,
+    "lon": -126.157316
+  },
+  {
+    "device_name": "Ocean Sonics icListen HF Hydrophone 6093",
+    "device_id": "50420",
+    "location_code": "BACNH.H3",
+    "location_name": "Hydrophone C",
+    "search_tree_node_id": 2368,
+    "device_category_id": 19,
+    "device_code": "ICLISTENHF6093",
+    "data_preview_options": [
+      {
+        "data_product_format_id": 176,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 53,
+        "plot_number": 1
+      }
+    ],
+    "file_extensions": [
+      "wav",
+      "fft",
+      "mp3",
+      "flac",
+      "mat"
+    ],
+    "lat": 48.345174,
+    "lon": -126.157316
+  },
+  {
+    "device_name": "Ocean Sonics icListen HF Hydrophone 6092",
+    "device_id": "50361",
+    "location_code": "BACNH.H4",
+    "location_name": "Hydrophone D",
+    "search_tree_node_id": 2369,
+    "device_category_id": 19,
+    "device_code": "ICLISTENHF6092",
+    "data_preview_options": [
+      {
+        "data_product_format_id": 176,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 53,
+        "plot_number": 1
+      }
+    ],
+    "file_extensions": [
+      "wav",
+      "fft",
+      "mp3",
+      "flac",
+      "mat"
+    ],
+    "lat": 48.345174,
+    "lon": -126.157316
+  },
+  {
+    "device_name": "Ocean Sonics icListen AF Hydrophone 2534",
+    "device_id": "29499",
+    "location_code": "BACUS",
+    "location_name": "Upper Slope South",
+    "search_tree_node_id": 21,
+    "device_category_id": 19,
+    "device_code": "ICLISTENAF2534",
+    "data_preview_options": [
+      {
+        "data_product_format_id": 176,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 53,
+        "plot_number": 1
+      }
+    ],
+    "file_extensions": [
+      "wav",
+      "fft",
+      "mp3",
+      "flac",
+      "mat"
+    ],
+    "lat": 48.426949,
+    "lon": -126.174643
+  },
+  {
+    "device_name": "Ocean Sonics icListen HF Hydrophone 1354",
+    "device_id": "23485",
+    "location_code": "BIIP",
+    "location_name": "Burrard Inlet Underwater Network",
+    "search_tree_node_id": 1943,
+    "device_category_id": 19,
+    "device_code": "ICLISTENHF1354",
+    "data_preview_options": [
+      {
+        "data_product_format_id": 176,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 53,
+        "plot_number": 1
+      }
+    ],
+    "file_extensions": [
+      "wav",
+      "fft",
+      "mp3",
+      "flac",
+      "mat"
+    ],
+    "lat": 49.300987,
+    "lon": -123.111138
+  },
+  {
+    "device_name": "Ocean Sonics icListen HF Hydrophone 1953",
+    "device_id": "47260",
+    "location_code": "CBCH.H1",
+    "location_name": "Hydrophone A",
+    "search_tree_node_id": 2285,
+    "device_category_id": 19,
+    "device_code": "ICLISTENHF1953",
+    "data_preview_options": [
+      {
+        "data_product_format_id": 176,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 53,
+        "plot_number": 1
+      }
+    ],
+    "file_extensions": [
+      "wav",
+      "fft",
+      "mp3",
+      "flac",
+      "mat"
+    ],
+    "lat": 47.756974,
+    "lon": -127.731206
+  },
+  {
+    "device_name": "Ocean Sonics icListen HF Hydrophone 1952",
+    "device_id": "47241",
+    "location_code": "CBCH.H2",
+    "location_name": "Hydrophone B",
+    "search_tree_node_id": 2286,
+    "device_category_id": 19,
+    "device_code": "ICLISTENHF1952",
+    "data_preview_options": [
+      {
+        "data_product_format_id": 176,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 53,
+        "plot_number": 1
+      }
+    ],
+    "file_extensions": [
+      "wav",
+      "fft",
+      "mp3",
+      "flac",
+      "mat"
+    ],
+    "lat": 47.756974,
+    "lon": -127.731206
+  },
+  {
+    "device_name": "Ocean Sonics icListen HF Hydrophone 1823",
+    "device_id": "26259",
+    "location_code": "CBCH.H3",
+    "location_name": "Hydrophone C",
+    "search_tree_node_id": 2287,
+    "device_category_id": 19,
+    "device_code": "ICLISTENHF1823",
+    "data_preview_options": [
+      {
+        "data_product_format_id": 176,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 53,
+        "plot_number": 1
+      }
+    ],
+    "file_extensions": [
+      "wav",
+      "fft",
+      "mp3",
+      "flac",
+      "mat"
+    ],
+    "lat": 47.756974,
+    "lon": -127.731206
+  },
+  {
+    "device_name": "Ocean Sonics icListen HF Hydrophone 1822",
+    "device_id": "26239",
+    "location_code": "CBCH.H4",
+    "location_name": "Hydrophone D",
+    "search_tree_node_id": 2288,
+    "device_category_id": 19,
+    "device_code": "ICLISTENHF1822",
+    "data_preview_options": [
+      {
+        "data_product_format_id": 176,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 53,
+        "plot_number": 1
+      }
+    ],
+    "file_extensions": [
+      "wav",
+      "fft",
+      "mp3",
+      "flac",
+      "mat"
+    ],
+    "lat": 47.756974,
+    "lon": -127.731206
+  },
+  {
+    "device_name": "Ocean Sonics icListen HF Hydrophone 1951",
+    "device_id": "47240",
+    "location_code": "CBYIP",
+    "location_name": "Underwater Network",
+    "search_tree_node_id": 88,
+    "device_category_id": 19,
+    "device_code": "ICLISTENHF1951",
+    "data_preview_options": [
+      {
+        "data_product_format_id": 176,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 53,
+        "plot_number": 1
+      }
+    ],
+    "file_extensions": [
+      "wav",
+      "fft",
+      "mp3",
+      "flac",
+      "mat"
+    ],
+    "lat": 69.113063,
+    "lon": -105.063587
+  },
+  {
+    "device_name": "Ocean Sonics icListen HF Hydrophone 6405",
+    "device_id": "74100",
+    "location_code": "CCIP",
+    "location_name": "China Creek Underwater Network",
+    "search_tree_node_id": 2666,
+    "device_category_id": 19,
+    "device_code": "ICLISTENHF6405",
+    "data_preview_options": [
+      {
+        "data_product_format_id": 176,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 53,
+        "plot_number": 1
+      }
+    ],
+    "file_extensions": [
+      "wav",
+      "fft",
+      "mp3",
+      "flac",
+      "mat"
+    ],
+    "lat": 49.153845,
+    "lon": -124.802425
+  },
+  {
+    "device_name": "Ocean Sonics icListen HF Hydrophone 6016",
+    "device_id": "50320",
+    "location_code": "CQSH.H1",
+    "location_name": "Hydrophone A",
+    "search_tree_node_id": 2222,
+    "device_category_id": 19,
+    "device_code": "ICLISTENHF6016",
+    "data_preview_options": [
+      {
+        "data_product_format_id": 176,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 53,
+        "plot_number": 1
+      }
+    ],
+    "file_extensions": [
+      "wav",
+      "fft",
+      "mp3",
+      "flac",
+      "mat"
+    ],
+    "lat": 48.699442,
+    "lon": -126.872439
+  },
+  {
+    "device_name": "Ocean Sonics icListen HF Hydrophone 6015",
+    "device_id": "50300",
+    "location_code": "CQSH.H2",
+    "location_name": "Hydrophone B",
+    "search_tree_node_id": 2223,
+    "device_category_id": 19,
+    "device_code": "ICLISTENHF6015",
+    "data_preview_options": [
+      {
+        "data_product_format_id": 176,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 53,
+        "plot_number": 1
+      }
+    ],
+    "file_extensions": [
+      "wav",
+      "fft",
+      "mp3",
+      "flac",
+      "mat"
+    ],
+    "lat": 48.699442,
+    "lon": -126.872439
+  },
+  {
+    "device_name": "Ocean Sonics icListen HF Hydrophone 6014",
+    "device_id": "50280",
+    "location_code": "CQSH.H3",
+    "location_name": "Hydrophone C",
+    "search_tree_node_id": 2224,
+    "device_category_id": 19,
+    "device_code": "ICLISTENHF6014",
+    "data_preview_options": [
+      {
+        "data_product_format_id": 176,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 53,
+        "plot_number": 1
+      }
+    ],
+    "file_extensions": [
+      "wav",
+      "fft",
+      "mp3",
+      "flac",
+      "mat"
+    ],
+    "lat": 48.699442,
+    "lon": -126.872439
+  },
+  {
+    "device_name": "Ocean Sonics icListen HF Hydrophone 6013",
+    "device_id": "50260",
+    "location_code": "CQSH.H4",
+    "location_name": "Hydrophone D",
+    "search_tree_node_id": 2225,
+    "device_category_id": 19,
+    "device_code": "ICLISTENHF6013",
+    "data_preview_options": [
+      {
+        "data_product_format_id": 176,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 53,
+        "plot_number": 1
+      }
+    ],
+    "file_extensions": [
+      "wav",
+      "fft",
+      "mp3",
+      "flac",
+      "mat"
+    ],
+    "lat": 48.699442,
+    "lon": -126.872439
+  },
+  {
+    "device_name": "Ocean Sonics icListen HF Hydrophone 1349",
+    "device_id": "23480",
+    "location_code": "CRIP",
+    "location_name": "Campbell River Underwater Network",
+    "search_tree_node_id": 400,
+    "device_category_id": 19,
+    "device_code": "ICLISTENHF1349",
+    "data_preview_options": [
+      {
+        "data_product_format_id": 176,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 53,
+        "plot_number": 1
+      }
+    ],
+    "file_extensions": [
+      "wav",
+      "fft",
+      "mp3",
+      "flac",
+      "mat"
+    ],
+    "lat": 50.020757,
+    "lon": -125.23537
+  },
+  {
+    "device_name": "Ocean Sonics icListen HF Hydrophone 6406",
+    "device_id": "74120",
+    "location_code": "DIIP",
+    "location_name": "Digby Island Underwater Network",
+    "search_tree_node_id": 437,
+    "device_category_id": 19,
+    "device_code": "ICLISTENHF6406",
+    "data_preview_options": [
+      {
+        "data_product_format_id": 176,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 53,
+        "plot_number": 1
+      }
+    ],
+    "file_extensions": [
+      "wav",
+      "fft",
+      "mp3",
+      "flac",
+      "mat"
+    ],
+    "lat": 54.258814,
+    "lon": -130.430569
+  },
+  {
+    "device_name": "JASCO M36-V35-100 Hydrophone E000186",
+    "device_id": "43260",
+    "location_code": "ECHO3.H1",
+    "location_name": "Hydrophone A",
+    "search_tree_node_id": 2274,
+    "device_category_id": 19,
+    "device_code": "JASCOAMARHYDROPHONEE000186",
+    "data_preview_options": [
+      {
+        "data_product_format_id": 176,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 53,
+        "plot_number": 1
+      }
+    ],
+    "file_extensions": [
+      "wav",
+      "fft",
+      "mp3",
+      "flac",
+      "mat"
+    ],
+    "lat": 49.0433,
+    "lon": -123.316108
+  },
+  {
+    "device_name": "JASCO M36-V35-100 Hydrophone D001022",
+    "device_id": "43240",
+    "location_code": "ECHO3.H2",
+    "location_name": "Hydrophone B",
+    "search_tree_node_id": 2275,
+    "device_category_id": 19,
+    "device_code": "JASCOAMARHYDROPHONED001022",
+    "data_preview_options": [
+      {
+        "data_product_format_id": 176,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 53,
+        "plot_number": 1
+      }
+    ],
+    "file_extensions": [
+      "wav",
+      "fft",
+      "mp3",
+      "flac",
+      "mat"
+    ],
+    "lat": 49.0433,
+    "lon": -123.316108
+  },
+  {
+    "device_name": "JASCO M36-V35-100 Hydrophone D001025",
+    "device_id": "43241",
+    "location_code": "ECHO3.H3",
+    "location_name": "Hydrophone C",
+    "search_tree_node_id": 2276,
+    "device_category_id": 19,
+    "device_code": "JASCOAMARHYDROPHONED001025",
+    "data_preview_options": [
+      {
+        "data_product_format_id": 176,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 53,
+        "plot_number": 1
+      }
+    ],
+    "file_extensions": [
+      "wav",
+      "fft",
+      "mp3",
+      "flac",
+      "mat"
+    ],
+    "lat": 49.0433,
+    "lon": -123.316108
+  },
+  {
+    "device_name": "JASCO M36-V35-100 Hydrophone E000029",
+    "device_id": "43242",
+    "location_code": "ECHO3.H4",
+    "location_name": "Hydrophone D",
+    "search_tree_node_id": 2277,
+    "device_category_id": 19,
+    "device_code": "JASCOAMARHYDROPHONEE000029",
+    "data_preview_options": [
+      {
+        "data_product_format_id": 176,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 53,
+        "plot_number": 1
+      }
+    ],
+    "file_extensions": [
+      "wav",
+      "fft",
+      "mp3",
+      "flac",
+      "mat"
+    ],
+    "lat": 49.0433,
+    "lon": -123.316108
+  },
+  {
+    "device_name": "Ocean Sonics icListen HF Hydrophone 1266",
+    "device_id": "23235",
+    "location_code": "FGPD",
+    "location_name": "Folger Deep",
+    "search_tree_node_id": 27,
+    "device_category_id": 19,
+    "device_code": "ICLISTENHF1266",
+    "data_preview_options": [
+      {
+        "data_product_format_id": 176,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 53,
+        "plot_number": 1
+      }
+    ],
+    "file_extensions": [
+      "wav",
+      "fft",
+      "mp3",
+      "flac",
+      "mat"
+    ],
+    "lat": 48.813809,
+    "lon": -125.280591
+  },
+  {
+    "device_name": "Ocean Sonics icListen AF Hydrophone 2545",
+    "device_id": "24206",
+    "location_code": "HBIP",
+    "location_name": "Hartley Bay Underwater Network",
+    "search_tree_node_id": 2335,
+    "device_category_id": 19,
+    "device_code": "ICLISTENAF2545",
+    "data_preview_options": [
+      {
+        "data_product_format_id": 176,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 53,
+        "plot_number": 1
+      }
+    ],
+    "file_extensions": [
+      "wav",
+      "fft",
+      "mp3",
+      "flac",
+      "mat"
+    ],
+    "lat": 53.422251,
+    "lon": -129.24654
+  },
+  {
+    "device_name": "Ocean Sonics icListen HF Hydrophone 2098",
+    "device_id": "22356",
+    "location_code": "HRBIP",
+    "location_name": "Holyrood Bay Underwater Network",
+    "search_tree_node_id": 2373,
+    "device_category_id": 19,
+    "device_code": "ICLISTENHF2098",
+    "data_preview_options": [
+      {
+        "data_product_format_id": 176,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 53,
+        "plot_number": 1
+      }
+    ],
+    "file_extensions": [
+      "wav",
+      "fft",
+      "mp3",
+      "flac",
+      "mat"
+    ],
+    "lat": 47.425897,
+    "lon": -53.1211
+  },
+  {
+    "device_name": "Ocean Sonics icListen HF Hydrophone 6324",
+    "device_id": "74140",
+    "location_code": "KEMFH.H1",
+    "location_name": "Hydrophone A",
+    "search_tree_node_id": 2815,
+    "device_category_id": 19,
+    "device_code": "ICLISTENHF6324",
+    "data_preview_options": [
+      {
+        "data_product_format_id": 176,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 53,
+        "plot_number": 1
+      }
+    ],
+    "file_extensions": [
+      "wav",
+      "fft",
+      "mp3",
+      "flac",
+      "mat"
+    ],
+    "lat": 47.949322,
+    "lon": -129.098209
+  },
+  {
+    "device_name": "Ocean Sonics icListen HF Hydrophone 6327",
+    "device_id": "74200",
+    "location_code": "KEMFH.H2",
+    "location_name": "Hydrophone B",
+    "search_tree_node_id": 2817,
+    "device_category_id": 19,
+    "device_code": "ICLISTENHF6327",
+    "data_preview_options": [
+      {
+        "data_product_format_id": 176,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 53,
+        "plot_number": 1
+      }
+    ],
+    "file_extensions": [
+      "wav",
+      "fft",
+      "mp3",
+      "flac",
+      "mat"
+    ],
+    "lat": 47.949322,
+    "lon": -129.098209
+  },
+  {
+    "device_name": "Ocean Sonics icListen HF Hydrophone 6328",
+    "device_id": "74220",
+    "location_code": "KEMFH.H3",
+    "location_name": "Hydrophone C",
+    "search_tree_node_id": 2814,
+    "device_category_id": 19,
+    "device_code": "ICLISTENHF6328",
+    "data_preview_options": [
+      {
+        "data_product_format_id": 176,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 53,
+        "plot_number": 1
+      }
+    ],
+    "file_extensions": [
+      "wav",
+      "fft",
+      "mp3",
+      "flac",
+      "mat"
+    ],
+    "lat": 47.949322,
+    "lon": -129.098209
+  },
+  {
+    "device_name": "Ocean Sonics icListen HF Hydrophone 6329",
+    "device_id": "74240",
+    "location_code": "KEMFH.H4",
+    "location_name": "Hydrophone D",
+    "search_tree_node_id": 2816,
+    "device_category_id": 19,
+    "device_code": "ICLISTENHF6329",
+    "data_preview_options": [
+      {
+        "data_product_format_id": 176,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 53,
+        "plot_number": 1
+      }
+    ],
+    "file_extensions": [
+      "wav",
+      "fft",
+      "mp3",
+      "flac",
+      "mat"
+    ],
+    "lat": 47.949322,
+    "lon": -129.098209
+  },
+  {
+    "device_name": "Ocean Sonics icListen HF Hydrophone 1352",
+    "device_id": "23483",
+    "location_code": "KVIP",
+    "location_name": "Kitamaat Village Underwater Network",
+    "search_tree_node_id": 412,
+    "device_category_id": 19,
+    "device_code": "ICLISTENHF1352",
+    "data_preview_options": [
+      {
+        "data_product_format_id": 176,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 53,
+        "plot_number": 1
+      }
+    ],
+    "file_extensions": [
+      "wav",
+      "fft",
+      "mp3",
+      "flac",
+      "mat"
+    ],
+    "lat": 53.974627,
+    "lon": -128.657132
+  },
+  {
+    "device_name": "Ocean Sonics icListen HF Hydrophone 6326",
+    "device_id": "74180",
+    "location_code": "PSGCH.H1",
+    "location_name": "Hydrophone A",
+    "search_tree_node_id": 2753,
+    "device_category_id": 19,
+    "device_code": "ICLISTENHF6326",
+    "data_preview_options": [
+      {
+        "data_product_format_id": 176,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 53,
+        "plot_number": 1
+      }
+    ],
+    "file_extensions": [
+      "wav",
+      "fft",
+      "mp3",
+      "flac",
+      "mat"
+    ],
+    "lat": 49.039564,
+    "lon": -123.425255
+  },
+  {
+    "device_name": "Ocean Sonics icListen HF Hydrophone 1353",
+    "device_id": "23484",
+    "location_code": "PSGCH.H3",
+    "location_name": "Hydrophone C",
+    "search_tree_node_id": 2754,
+    "device_category_id": 19,
+    "device_code": "ICLISTENHF1353",
+    "data_preview_options": [
+      {
+        "data_product_format_id": 176,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 53,
+        "plot_number": 1
+      }
+    ],
+    "file_extensions": [
+      "wav",
+      "fft",
+      "mp3",
+      "flac",
+      "mat"
+    ],
+    "lat": 49.039564,
+    "lon": -123.425255
+  },
+  {
+    "device_name": "Ocean Sonics icListen HF Hydrophone 1332",
+    "device_id": "23478",
+    "location_code": "PVIPH.H1",
+    "location_name": "Hydrophone A",
+    "search_tree_node_id": 2744,
+    "device_category_id": 19,
+    "device_code": "ICLISTENHF1332",
+    "data_preview_options": [
+      {
+        "data_product_format_id": 176,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 53,
+        "plot_number": 1
+      }
+    ],
+    "file_extensions": [
+      "wav",
+      "fft",
+      "mp3",
+      "flac",
+      "mat"
+    ],
+    "lat": 48.651762,
+    "lon": -123.486981
+  },
+  {
+    "device_name": "Ocean Sonics icListen HF Hydrophone 1560",
+    "device_id": "24346",
+    "location_code": "PVIPH.H3",
+    "location_name": "Hydrophone C",
+    "search_tree_node_id": 2745,
+    "device_category_id": 19,
+    "device_code": "ICLISTENHF1560",
+    "data_preview_options": [
+      {
+        "data_product_format_id": 176,
+        "plot_number": 1
+      },
+      {
+        "data_product_format_id": 53,
+        "plot_number": 1
+      }
+    ],
+    "file_extensions": [
+      "wav",
+      "fft",
+      "mp3",
+      "flac",
+      "mat"
+    ],
+    "lat": 48.651762,
+    "lon": -123.486981
+  }
+]
