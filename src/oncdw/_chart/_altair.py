@@ -199,7 +199,7 @@ class Altair:
             data=df,
             get_position=["lon", "lat"],
             get_color="[255, 0, 0]",
-            get_radius=1000,
+            radius_min_pixels=3,
             auto_highlight=True,
             pickable=True,
         )

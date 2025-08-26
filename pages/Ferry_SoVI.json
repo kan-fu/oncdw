@@ -41,7 +41,9 @@
     "device_code": "HEMISPHEREGNSSGPS-C14360018202663",
     "search_tree_node_id": null,
     "device_category_id": null,
-    "data_preview_options": []
+    "data_preview_options": [],
+    "lat": 48.691286,
+    "lon": -123.407506
   },
   {
     "device_id": "14080",
@@ -77,7 +79,9 @@
     "device_code": "PVCS01",
     "search_tree_node_id": null,
     "device_category_id": null,
-    "data_preview_options": []
+    "data_preview_options": [],
+    "lat": 48.691286,
+    "lon": -123.407506
   },
   {
     "device_id": "505",
@@ -117,7 +121,9 @@
         "plot_number": 1,
         "sensor_code_id": 796
       }
-    ]
+    ],
+    "lat": 48.691286,
+    "lon": -123.407506
   },
   {
     "device_id": "23203",
@@ -166,7 +172,9 @@
         "plot_number": 1,
         "sensor_code_id": 733
       }
-    ]
+    ],
+    "lat": 48.691286,
+    "lon": -123.407506
   },
   {
     "device_id": "23139",
@@ -206,7 +214,9 @@
         "plot_number": 1,
         "sensor_code_id": 856
       }
-    ]
+    ],
+    "lat": 48.691286,
+    "lon": -123.407506
   },
   {
     "device_id": "16102",
@@ -222,7 +232,9 @@
     "device_code": "RMYOUNGCOMPASS3250056-2299",
     "search_tree_node_id": null,
     "device_category_id": null,
-    "data_preview_options": []
+    "data_preview_options": [],
+    "lat": 48.691286,
+    "lon": -123.407506
   },
   {
     "device_id": "16104",
@@ -244,7 +256,9 @@
         "plot_number": 1,
         "sensor_code_id": 623
       }
-    ]
+    ],
+    "lat": 48.691286,
+    "lon": -123.407506
   },
   {
     "device_id": "23377",
@@ -275,6 +289,8 @@
         "plot_number": 1,
         "sensor_code_id": 611
       }
-    ]
+    ],
+    "lat": 48.691286,
+    "lon": -123.407506
   }
 ]

@@ -97,7 +97,7 @@ def template3(
 
         # Archive file table
         st.subheader("Archive file table")
-        client.widget.table_archive_files(device, date_from="-P7D")
+        client.widget.table_archive_files(device, date_from="-P4D")
 
         if "sensors" in device and len(device["sensors"]) == 2:
             # Time series two sensors
@@ -109,6 +109,7 @@ def template2(
     json_filename: str,
     page_title: str,
     links: dict,
+    zoom: float = 7,
     sticky_device: bool = False,
     sticky_location: bool = False,
 ):
@@ -146,6 +147,8 @@ def template2(
     links : dict
         A dictionary of links to be displayed at the top of the page.
         The keys are the link titles, and the values are the URLs.
+    zoom : float, optional
+        The zoom level of the map.
     sticky_device : bool, default True
         Whether to show the device as sticky in the main part.
     sticky_location : bool, default True
@@ -175,6 +178,9 @@ def template2(
                 client.ui.sensor_sidebar(sensor)
             st.divider()
 
+    client.widget.map(
+        devices, center_lat=devices[0]["lat"], center_lon=devices[0]["lon"], zoom=zoom
+    )
     client.section.links(links)
 
     for device in devices:
@@ -289,6 +295,8 @@ def template1(
         sticky_device=sticky_device, sticky_location=sticky_location
     )
 
+    client.section.map(location_code)
+
     client.section.links(links)
 
     state_of_ocean_images_badges = client.section.state_of_ocean_images(location_code)
@@ -335,4 +343,4 @@ def template1(
         # Archive file table, only display if device_code or deviceCode is present
         if device.get("device_code", None) or device.get("deviceCode", None):
             st.subheader("Archive file table")
-            client.widget.table_archive_files(device, date_from="-P7D")
+            client.widget.table_archive_files(device, date_from="-P4D")

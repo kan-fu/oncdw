@@ -2,6 +2,7 @@ import json
 import re
 
 import lxml.html
+from onc import ONC
 
 
 def extract_data_preview_option(url: str) -> dict:
@@ -225,6 +226,10 @@ def template_ferry_gen(html_filename, json_filename):
             for ele in h3.xpath("./following-sibling::div/div[@class='sensor']")
         ]
 
+        onc = ONC("TOKEN")
+
+        location_info = onc.getLocations({"locationCode": location_code})
+
         res.append(
             {
                 "device_id": device_id,
@@ -236,6 +241,8 @@ def template_ferry_gen(html_filename, json_filename):
                 "search_tree_node_id": node_id,
                 "device_category_id": device_category_id,
                 "data_preview_options": data_preview_options,
+                "lat": location_info[0]["lat"],
+                "lon": location_info[0]["lon"],
             }
         )
 
