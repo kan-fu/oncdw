@@ -17,7 +17,7 @@ class Internal:
     ) -> tuple[pd.DataFrame, str, int]:
         """
         Return scalar data in a pd.DataFrame by calling internal `ScalarDataAPIService`,
-        together with label (combination of name and uofm) and sensor type id.
+        together with label (combination of sensor id, name and uofm) and sensor type id.
 
         The dataframe would have no empty cells, and have following columns:
         - datetime
@@ -25,7 +25,6 @@ class Internal:
         - max
         - avg
         - qaqcflag
-        - label (with the format of "name (uofm)")
         """
         base_url = f"https://{self._client.hostname}/ScalarDataAPIService"
         params = {
@@ -38,10 +37,16 @@ class Internal:
         }
 
         r = requests.get(base_url, params)
+        if self._client.showInfo:
+            print(f"Requesting data from {r.url}")
 
         payload = r.json()["payload"]
 
-        ylabel = f"{payload['name']} ({payload['uofm']})"
+        if not payload:
+            # This usually means the sensor id is invalid, or there are malformed parameters
+            raise ValueError(f"No data returned for sensor {sensor_id}.")
+
+        ylabel = f"{sensor_id} - {payload['name']} ({payload['uofm']})"
         sensor_type_id = payload["sensortypeid"]
 
         df = pd.DataFrame(

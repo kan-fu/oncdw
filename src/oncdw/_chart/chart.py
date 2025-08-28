@@ -42,20 +42,13 @@ class Chart:
         df1,
         ylabel1,
         sensor_type1,
-        sensor_id1,
         color1,
         df2,
         ylabel2,
         sensor_type2,
-        sensor_id2,
         color2,
         st_wrapper,
     ):
-        # If two sensors have the same sensor type, ylabel(i.e. name + uofm)
-        # might not be enough to uniquely identify one sensor
-        if ylabel1 == ylabel2:
-            ylabel1 = f"{ylabel1} - {sensor_id1}"
-            ylabel2 = f"{ylabel2} - {sensor_id2}"
         _show_latest_timestamp(df1, ylabel1, self._client.now)
         _show_latest_timestamp(df2, ylabel2, self._client.now)
         return Altair.time_series_two_sensors(
@@ -70,8 +63,8 @@ class Chart:
             st_wrapper,
         )
 
-    def table_archive_files(self, df, st_wrapper):
-        return Altair.table_archive_files(df, st_wrapper)
+    def table_archive_files(self, df, device_code, st_wrapper):
+        return Altair.table_archive_files(df, device_code, st_wrapper)
 
     def heatmap_archive_files(self, df, st_wrapper):
         return Altair.heatmap_archive_files(df, st_wrapper)

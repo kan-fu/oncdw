@@ -1,3 +1,5 @@
+import logging
+
 import altair as alt
 import pandas as pd
 import pydeck
@@ -11,11 +13,18 @@ def _chart_st_wrapper(chart, st_wrapper):
         return chart
 
 
+def _log_no_data_warning(warning_msg):
+    logging.warning(warning_msg)
+    return st.warning(warning_msg)
+
+
 class Altair:
     @staticmethod
     def time_series(df: pd.DataFrame, ylabel: str, color: str, st_wrapper: bool):
         if df.empty and st_wrapper:
-            return st.warning(f"No data available for time series plot of {ylabel}.")
+            warning_msg = f"No data available for time series plot of {ylabel}."
+            return _log_no_data_warning(warning_msg)
+
         df["label"] = ylabel
         band = (
             alt.Chart(df)
@@ -67,9 +76,10 @@ class Altair:
         st_wrapper,
     ):
         if df1.empty and df2.empty and st_wrapper:
-            return st.warning(
+            warning_msg = (
                 f"No data available for time series plot of {ylabel1} and {ylabel2}."
             )
+            return _log_no_data_warning(warning_msg)
 
         if sensor_type1 == sensor_type2:
             df1["label"] = ylabel1
@@ -121,8 +131,12 @@ class Altair:
         return _chart_st_wrapper(chart, st_wrapper)
 
     @staticmethod
-    def table_archive_files(df, st_wrapper):
+    def table_archive_files(df, device_code, st_wrapper):
         if st_wrapper:
+            if df.empty:
+                warning_msg = f"No archive files available for device {device_code}."
+                return _log_no_data_warning(warning_msg)
+
             return st.dataframe(
                 df,
                 column_config={

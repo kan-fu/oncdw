@@ -16,10 +16,17 @@ requires-python = ">= 3.10"
 [project.optional-dependencies]
 dev = [
     "ipykernel",
-    "tox",
     "black",
     "isort",
     "ruff",
+]
+
+test = [
+    "black",
+    "isort",
+    "ruff",
+    "pytest",
+    "python-dotenv",
 ]
 
 [tool.ruff.lint]

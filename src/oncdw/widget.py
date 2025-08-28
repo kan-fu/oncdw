@@ -1,3 +1,4 @@
+import logging
 from typing import TYPE_CHECKING
 
 import pandas as pd
@@ -10,6 +11,8 @@ from ._chart import Chart
 from ._query import Query
 from ._util import DataPreviewOption, Device, Sensor, parse_datetime_parameters
 
+logger = logging.getLogger(__name__)
+
 
 def _error_handler(func):
     def inner_function(*args, **kwargs):
@@ -17,6 +20,7 @@ def _error_handler(func):
             func(*args, **kwargs)
         except Exception as e:
             st.error(f"An error occurred: {e}")
+            logger.exception(f"Error in {func.__name__}: {e}")
 
     return inner_function
 
@@ -27,13 +31,13 @@ class Widget:
         self._query = Query(client)
         self._chart = Chart(client)
 
-    # @_error_handler
+    @_error_handler
     def time_series(
         self,
         sensor: int | dict,
-        color: str = "#1f77b4",
         date_from: str = "-P2D",
         date_to: str | None = None,
+        color: str = "#1f77b4",
         st_wrapper: bool = True,
     ):
         _sensor = Sensor(sensor)
@@ -58,10 +62,10 @@ class Widget:
         self,
         sensor1: int | dict,
         sensor2: int | dict,
-        color1: str = "#57A44C",
-        color2: str = "#1f77b4",
         date_from: str = "-P2D",
         date_to: str | None = None,
+        color1: str = "#57A44C",
+        color2: str = "#1f77b4",
         st_wrapper: bool = True,
     ):
         _sensor1 = Sensor(sensor1)
@@ -92,12 +96,10 @@ class Widget:
             df1,
             ylabel1,
             sensor_type1,
-            sensor_id1,
             color1,
             df2,
             ylabel2,
             sensor_type2,
-            sensor_id2,
             color2,
             st_wrapper,
         )
@@ -122,29 +124,9 @@ class Widget:
             file_extensions=file_extensions,
         )
 
-        return self._chart.table_archive_files(df, st_wrapper)
+        return self._chart.table_archive_files(df, device_code, st_wrapper)
 
-    @_error_handler
-    def heatmap_archive_files(
-        self,
-        device: dict,
-        date_from: str = "-P7D",
-        date_to: str | None = None,
-        st_wrapper: bool = True,
-    ):
-        _device = Device(device)
 
-        device_code = _device.get_device_code()
-        file_extensions = _device.get_file_extensions()
-
-        df = self._query.get_archive_files(
-            device_code=device_code,
-            date_from=date_from,
-            date_to=date_to,
-            file_extensions=file_extensions,
-        )
-
-        return self._chart.heatmap_archive_files(df, st_wrapper)
 
     @_error_handler
     def data_preview(
@@ -173,6 +155,28 @@ class Widget:
         )
 
         return self._chart.image(image_url, st_wrapper)
+    
+    @_error_handler
+    def heatmap_archive_files(
+        self,
+        device: dict,
+        date_from: str = "-P7D",
+        date_to: str | None = None,
+        st_wrapper: bool = True,
+    ):
+        _device = Device(device)
+
+        device_code = _device.get_device_code()
+        file_extensions = _device.get_file_extensions()
+
+        df = self._query.get_archive_files(
+            device_code=device_code,
+            date_from=date_from,
+            date_to=date_to,
+            file_extensions=file_extensions,
+        )
+
+        return self._chart.heatmap_archive_files(df, st_wrapper)
 
     @_error_handler
     def scatter_plot_two_sensors(

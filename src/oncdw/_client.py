@@ -13,7 +13,6 @@ from .widget import Widget
 @dataclass
 class ONCDW:
     token: str | None = None
-    engine: str = "Altair"  # "Altair" | "Plotly"
     env: str = "PROD"  # "PROD" | "QA"
     showInfo: bool = False
 
