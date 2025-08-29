@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from .util import _get_val_from_keys
+from .util import get_val_from_keys
 
 
 @dataclass
@@ -20,7 +20,7 @@ class Sensor:
         """
         if isinstance(self._sensor, dict):
             keys = ["sensor_id", "sensorId"]
-            return _get_val_from_keys(self._sensor, keys)
+            return get_val_from_keys(self._sensor, keys)
         elif isinstance(self._sensor, int):
             return str(self._sensor)
         else:
@@ -32,6 +32,6 @@ class Sensor:
         """
         if isinstance(self._sensor, dict):
             keys = ["sensor_name", "sensorName"]
-            return _get_val_from_keys(self._sensor, keys)
+            return get_val_from_keys(self._sensor, keys)
         else:
             raise ValueError(f"Could not get sensor name from {self._sensor}.")

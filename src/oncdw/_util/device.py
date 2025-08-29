@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from .util import _get_val_from_keys
+from .util import get_val_from_keys
 
 
 @dataclass
@@ -18,7 +18,7 @@ class Device:
         Raise KeyError if the dict does not contain the expected key.
         """
         keys = ["deviceId", "device_id"]
-        return _get_val_from_keys(self._device, keys, raise_error=True)
+        return get_val_from_keys(self._device, keys, raise_error=True)
 
     def get_device_code(self) -> str:
         """
@@ -26,7 +26,7 @@ class Device:
         Raise KeyError if the dict does not contain the expected key.
         """
         keys = ["deviceCode", "device_code"]
-        return _get_val_from_keys(self._device, keys, raise_error=True)
+        return get_val_from_keys(self._device, keys, raise_error=True)
 
     def get_device_name(self) -> str | None:
         """
@@ -34,7 +34,7 @@ class Device:
         Return None if the dict does not contain the expected key.
         """
         keys = ["deviceName", "device_name"]
-        return _get_val_from_keys(self._device, keys, raise_error=False)
+        return get_val_from_keys(self._device, keys, raise_error=False)
 
     def get_file_extensions(self) -> list[str] | None:
         """
@@ -42,7 +42,7 @@ class Device:
         Return None if the dict does not contain the expected key.
         """
         keys = ["fileExtensions", "file_extensions", "file_extension", "fileExtension"]
-        return _get_val_from_keys(self._device, keys, raise_error=False)
+        return get_val_from_keys(self._device, keys, raise_error=False)
 
     def get_device_category_id(self) -> int | str:
         """
@@ -50,7 +50,7 @@ class Device:
         Raise KeyError if the dict does not contain the expected key.
         """
         keys = ["deviceCategoryId", "device_category_id"]
-        return _get_val_from_keys(self._device, keys, raise_error=True)
+        return get_val_from_keys(self._device, keys, raise_error=True)
 
     def get_search_tree_node_id(self) -> int | str:
         """
@@ -58,7 +58,7 @@ class Device:
         Raise KeyError if the dict does not contain the expected key.
         """
         keys = ["searchTreeNodeId", "search_tree_node_id"]
-        return _get_val_from_keys(self._device, keys, raise_error=True)
+        return get_val_from_keys(self._device, keys, raise_error=True)
 
     def get_location_code(self) -> str:
         """
@@ -66,7 +66,7 @@ class Device:
         Raise KeyError if the dict does not contain the expected key.
         """
         keys = ["locationCode", "location_code"]
-        return _get_val_from_keys(self._device, keys, raise_error=True)
+        return get_val_from_keys(self._device, keys, raise_error=True)
 
     def get_location_name(self) -> str:
         """
@@ -74,7 +74,7 @@ class Device:
         Raise KeyError if the dict does not contain the expected key.
         """
         keys = ["locationName", "location_name"]
-        return _get_val_from_keys(self._device, keys, raise_error=True)
+        return get_val_from_keys(self._device, keys, raise_error=True)
 
     def get_device_category_code(self) -> str:
         """
@@ -82,7 +82,7 @@ class Device:
         Raise KeyError if the dict does not contain the expected key.
         """
         keys = ["deviceCategoryCode", "device_category_code"]
-        return _get_val_from_keys(self._device, keys, raise_error=True)
+        return get_val_from_keys(self._device, keys, raise_error=True)
 
     def get_data_preview_options(self) -> list | None:
         """
@@ -90,4 +90,4 @@ class Device:
         Return None if the dict does not contain the expected key.
         """
         keys = ["dataPreviewOptions", "data_preview_options"]
-        return _get_val_from_keys(self._device, keys, raise_error=False, default=None)
+        return get_val_from_keys(self._device, keys, raise_error=False, default=None)

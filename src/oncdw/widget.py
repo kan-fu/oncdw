@@ -14,6 +14,11 @@ from ._util import DataPreviewOption, Device, Sensor, parse_datetime_parameters
 logger = logging.getLogger(__name__)
 
 
+def _log_no_data_warning(warning_msg):
+    logger.warning(warning_msg)
+    return st.warning(warning_msg)
+
+
 def _error_handler(func):
     def inner_function(*args, **kwargs):
         try:
@@ -55,6 +60,10 @@ class Widget:
             date_to=date_to,
         )
 
+        if df.empty and st_wrapper:
+            warning_msg = f"No data available for time series plot of {ylabel}."
+            return _log_no_data_warning(warning_msg)
+
         return self._chart.time_series(df, ylabel, color, st_wrapper)
 
     @_error_handler
@@ -92,6 +101,12 @@ class Widget:
             date_to=date_to,
         )
 
+        if df1.empty and df2.empty and st_wrapper:
+            warning_msg = (
+                f"No data available for time series plot of {ylabel1} and {ylabel2}."
+            )
+            return _log_no_data_warning(warning_msg)
+
         return self._chart.time_series_two_sensors(
             df1,
             ylabel1,
@@ -124,9 +139,11 @@ class Widget:
             file_extensions=file_extensions,
         )
 
-        return self._chart.table_archive_files(df, device_code, st_wrapper)
+        if df.empty:
+            warning_msg = f"No archive files available for device {device_code}."
+            return _log_no_data_warning(warning_msg)
 
-
+        return self._chart.table_archive_files(df, st_wrapper)
 
     @_error_handler
     def data_preview(
@@ -154,8 +171,11 @@ class Widget:
             sensor_code_id=sensor_code_id,
         )
 
+        if not image_url:
+            return _log_no_data_warning("No data preview image available.")
+
         return self._chart.image(image_url, st_wrapper)
-    
+
     @_error_handler
     def heatmap_archive_files(
         self,
@@ -202,6 +222,12 @@ class Widget:
             date_from=date_from,
             date_to=date_to,
         )
+
+        col1, col2 = df.columns[0], df.columns[1]
+
+        if df.empty and st_wrapper:
+            warning_msg = f"No data available for scatter plot of {col1} and {col2}."
+            return _log_no_data_warning(warning_msg)
 
         return self._chart.scatter_plot(df, st_wrapper)
 

@@ -29,6 +29,8 @@ def _show_latest_timestamp(
         show(message)
 
 
+
+
 class Chart:
     def __init__(self, client: "ONCDW") -> None:
         self._client = client
@@ -63,8 +65,8 @@ class Chart:
             st_wrapper,
         )
 
-    def table_archive_files(self, df, device_code, st_wrapper):
-        return Altair.table_archive_files(df, device_code, st_wrapper)
+    def table_archive_files(self, df, st_wrapper):
+        return Altair.table_archive_files(df, st_wrapper)
 
     def heatmap_archive_files(self, df, st_wrapper):
         return Altair.heatmap_archive_files(df, st_wrapper)
@@ -72,8 +74,6 @@ class Chart:
     def image(self, url: str, st_wrapper: bool):
         if not st_wrapper:
             return url
-        if not url:
-            return st.warning("No data preview image available.")
         return st.image(url)
 
     def scatter_plot(self, df, st_wrapper):

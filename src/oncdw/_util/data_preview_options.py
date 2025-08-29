@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from .util import _get_val_from_keys
+from .util import get_val_from_keys
 
 
 @dataclass
@@ -23,7 +23,7 @@ class DataPreviewOption:
         """
         if isinstance(self._data_preview_option, dict):
             keys = ["dataProductFormatId", "data_product_format_id"]
-            return _get_val_from_keys(self._data_preview_option, keys)
+            return get_val_from_keys(self._data_preview_option, keys)
         else:
             raise ValueError(
                 f"Could not get data product format id from {self._data_preview_option}."
@@ -36,7 +36,7 @@ class DataPreviewOption:
         """
         if isinstance(self._data_preview_option, dict):
             keys = ["plotNumber", "plot_number"]
-            val = _get_val_from_keys(
+            val = get_val_from_keys(
                 self._data_preview_option, keys, raise_error=False, default=1
             )
             return val if val is not None else 1
@@ -52,7 +52,7 @@ class DataPreviewOption:
         """
         if isinstance(self._data_preview_option, dict):
             keys = ["sensorCodeId", "sensor_code_id"]
-            return _get_val_from_keys(
+            return get_val_from_keys(
                 self._data_preview_option, keys, raise_error=False, default=None
             )
         else:

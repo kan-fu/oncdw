@@ -1,5 +1,3 @@
-import logging
-
 import altair as alt
 import pandas as pd
 import pydeck
@@ -12,18 +10,9 @@ def _chart_st_wrapper(chart, st_wrapper):
     else:
         return chart
 
-
-def _log_no_data_warning(warning_msg):
-    logging.warning(warning_msg)
-    return st.warning(warning_msg)
-
-
 class Altair:
     @staticmethod
     def time_series(df: pd.DataFrame, ylabel: str, color: str, st_wrapper: bool):
-        if df.empty and st_wrapper:
-            warning_msg = f"No data available for time series plot of {ylabel}."
-            return _log_no_data_warning(warning_msg)
 
         df["label"] = ylabel
         band = (
@@ -75,12 +64,6 @@ class Altair:
         color2,
         st_wrapper,
     ):
-        if df1.empty and df2.empty and st_wrapper:
-            warning_msg = (
-                f"No data available for time series plot of {ylabel1} and {ylabel2}."
-            )
-            return _log_no_data_warning(warning_msg)
-
         if sensor_type1 == sensor_type2:
             df1["label"] = ylabel1
             df2["label"] = ylabel2
@@ -131,12 +114,8 @@ class Altair:
         return _chart_st_wrapper(chart, st_wrapper)
 
     @staticmethod
-    def table_archive_files(df, device_code, st_wrapper):
+    def table_archive_files(df, st_wrapper):
         if st_wrapper:
-            if df.empty:
-                warning_msg = f"No archive files available for device {device_code}."
-                return _log_no_data_warning(warning_msg)
-
             return st.dataframe(
                 df,
                 column_config={
@@ -149,7 +128,7 @@ class Altair:
                     "dateTo": "To",
                     "uncompressedFileSize": "File Size",
                 },
-                use_container_width=True,
+                width="stretch",
                 hide_index=True,
             )
         else:
@@ -158,10 +137,7 @@ class Altair:
     @staticmethod
     def scatter_plot(df, st_wrapper):
         col1, col2 = df.columns[0], df.columns[1]
-        if df.empty and st_wrapper:
-            return st.warning(
-                f"No data available for scatter plot of {col1} and {col2}."
-            )
+
         chart = (
             alt.Chart(df)
             .mark_circle()
