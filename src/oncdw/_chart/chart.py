@@ -29,8 +29,6 @@ def _show_latest_timestamp(
         show(message)
 
 
-
-
 class Chart:
     def __init__(self, client: "ONCDW") -> None:
         self._client = client
@@ -79,11 +77,9 @@ class Chart:
     def scatter_plot(self, df, st_wrapper):
         return Altair.scatter_plot(df, st_wrapper)
 
-    def map(self, df, center_lat, center_lon, zoom, st_wrapper):
+    def map(self, df, initial_view_state, st_wrapper):
         return Altair.map(
             df,
-            center_lat=center_lat,
-            center_lon=center_lon,
-            zoom=zoom,
+            initial_view_state=initial_view_state,
             st_wrapper=st_wrapper,
         )

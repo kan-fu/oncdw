@@ -1,6 +1,7 @@
 import altair as alt
 import pandas as pd
 import pydeck
+import pydeck as pdk
 import streamlit as st
 
 
@@ -9,6 +10,7 @@ def _chart_st_wrapper(chart, st_wrapper):
         return st.altair_chart(chart, use_container_width=True)
     else:
         return chart
+
 
 class Altair:
     @staticmethod
@@ -183,7 +185,7 @@ class Altair:
         return _chart_st_wrapper(chart, st_wrapper)
 
     @staticmethod
-    def map(df, center_lat, center_lon, zoom, st_wrapper):
+    def map(df, initial_view_state, st_wrapper):
         point_layer = pydeck.Layer(
             "ScatterplotLayer",
             data=df,
@@ -192,13 +194,6 @@ class Altair:
             radius_min_pixels=3,
             auto_highlight=True,
             pickable=True,
-        )
-
-        view_state = pydeck.ViewState(
-            latitude=center_lat,
-            longitude=center_lon,
-            controller=True,
-            zoom=zoom,
         )
 
         tooltip = []
@@ -218,7 +213,7 @@ class Altair:
         chart = pydeck.Deck(
             map_style=None,
             layers=point_layer,
-            initial_view_state=view_state,
+            initial_view_state=initial_view_state,
             tooltip={
                 "text": "\n".join(tooltip),
             },

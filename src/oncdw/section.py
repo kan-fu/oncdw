@@ -164,12 +164,18 @@ class Section:
             # The sensor dict is a single sensor
             self._client.ui.sensor_sidebar(sensor)
 
-    def map(self, location_code: str):
+    def map(
+        self,
+        location_code: str,
+        center_lat: float | None = None,
+        center_lon: float | None = None,
+        zoom: int | None = None,
+    ):
         onc = ONC(self._client.token)
         location_info = onc.getLocations({"locationCode": location_code})
         self._client.widget.map(
             location_info,
-            center_lat=location_info[0]["lat"],
-            center_lon=location_info[0]["lon"],
-            zoom=7,
+            center_lat=center_lat,
+            center_lon=center_lon,
+            zoom=zoom,
         )

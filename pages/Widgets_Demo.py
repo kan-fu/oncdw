@@ -78,3 +78,23 @@ with st.echo():
         "salinity,temperature",
         date_from="-P1D",
     )
+
+############################################
+st.header("Map widget")
+with st.echo():
+    devices = [
+        {
+            "lat": 48.314627,
+            "lon": -126.058106,
+            "locationName":"Location X",
+            "locationCode":"LocX"
+        },
+        {
+            "lat": 50.54427,
+            "lon": -126.84264,
+            "locationName":"Location Y",
+            "locationCode":"LocY"
+        },
+    ]
+    # Hover over the point to show the tooltip
+    client.widget.map(devices, zoom=6)

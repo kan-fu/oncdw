@@ -38,7 +38,7 @@ class Internal:
 
         r = requests.get(base_url, params)
         if self._client.showInfo:
-            print(f"Requesting data from {r.url}")
+            print(f"Requesting scalar data from {r.url}")
 
         payload = r.json()["payload"]
 
@@ -77,6 +77,9 @@ class Internal:
         }
 
         r = requests.get(base_url, params)
+        if self._client.showInfo:
+            print(f"Requesting data preview from {r.url}")
+
         response_json = r.json()
 
         if response_json:

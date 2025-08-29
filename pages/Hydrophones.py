@@ -7,7 +7,6 @@ from oncdw import ONCDW
 json_filename = "Hydrophones_Devices"
 page_title = "Hydrophones Devices"
 sticky_device = False
-center_lat, center_lon = 49.3, -126.3
 
 st.set_page_config(layout="wide", page_title=page_title)
 
@@ -21,7 +20,7 @@ client.ui.import_custom_badge_css(sticky_device=sticky_device)
 
 st.title(f"{page_title} Monitoring Dashboard")
 
-client.widget.map(devices, center_lat=center_lat, center_lon=center_lon, zoom=6)
+client.widget.map(devices)
 
 with st.sidebar:
     st.title("Device List")

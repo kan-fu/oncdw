@@ -2,6 +2,7 @@ import logging
 from typing import TYPE_CHECKING
 
 import pandas as pd
+import pydeck as pdk
 import streamlit as st
 
 if TYPE_CHECKING:
@@ -102,9 +103,7 @@ class Widget:
         )
 
         if df1.empty and df2.empty and st_wrapper:
-            warning_msg = (
-                f"No data available for time series plot of {ylabel1} and {ylabel2}."
-            )
+            warning_msg = f"No scalar data available for time series plot of {ylabel1} and {ylabel2}."
             return _log_no_data_warning(warning_msg)
 
         return self._chart.time_series_two_sensors(
@@ -196,6 +195,12 @@ class Widget:
             file_extensions=file_extensions,
         )
 
+        if df.empty:
+            warning_msg = (
+                f"No heatmap archive files available for device {device_code}."
+            )
+            return _log_no_data_warning(warning_msg)
+
         return self._chart.heatmap_archive_files(df, st_wrapper)
 
     @_error_handler
@@ -235,15 +240,30 @@ class Widget:
     def map(
         self,
         devices: list[dict],
-        center_lat,
-        center_lon,
-        zoom,
+        center_lat: float | None = None,
+        center_lon: float | None = None,
+        zoom: int | None = None,
         st_wrapper=True,
     ):
+        df = pd.DataFrame(devices)
+        if ("lat" not in df.columns or "lon" not in df.columns) and st_wrapper:
+            # To correctly render a map, both 'lat' and 'lon' columns are required
+            warning_msg = "No location data (lat and lon) for the map widget."
+            return _log_no_data_warning(warning_msg)
+
+        initial_view_state = pdk.data_utils.viewport_helpers.compute_view(
+            df[["lon", "lat"]]
+        )
+
+        if center_lat:
+            initial_view_state.latitude = center_lat
+        if center_lon:
+            initial_view_state.longitude = center_lon
+        if zoom:
+            initial_view_state.zoom = zoom
+
         return self._chart.map(
-            pd.DataFrame(devices),
-            center_lat=center_lat,
-            center_lon=center_lon,
-            zoom=zoom,
+            df,
+            initial_view_state=initial_view_state,
             st_wrapper=st_wrapper,
         )

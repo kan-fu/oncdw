@@ -8,9 +8,9 @@ from oncdw import ONCDW
 def template3(
     json_filename: str,
     page_title: str,
-    center_lat: float = 49.3,
-    center_lon: float = -126.3,
-    zoom: float = 6,
+    center_lat: float = None,
+    center_lon: float = None,
+    zoom: float = None,
     sticky_device: bool = False,
 ):
     """
@@ -52,11 +52,11 @@ def template3(
     page_title : str
         The title of the page.
     center_lat : float, optional
-        The latitude of the center of the map.
+        The latitude of the center of the map that overrides the calculated one.
     center_lon : float, optional
-        The longitude of the center of the map.
+        The longitude of the center of the map that overrides the calculated one.
     zoom : float, optional
-        The zoom level of the map.
+        The zoom level of the map that overrides the calculated one.
     sticky_device : bool, default False
         Whether to show the device as sticky in the main part.
     """
@@ -109,7 +109,9 @@ def template2(
     json_filename: str,
     page_title: str,
     links: dict,
-    zoom: float = 7,
+    center_lat: float = None,
+    center_lon: float = None,
+    zoom: float | None = 8,
     sticky_device: bool = False,
     sticky_location: bool = False,
 ):
@@ -147,8 +149,12 @@ def template2(
     links : dict
         A dictionary of links to be displayed at the top of the page.
         The keys are the link titles, and the values are the URLs.
+    center_lat : float, optional
+        The latitude of the center of the map that overrides the calculated one.
+    center_lon : float, optional
+        The longitude of the center of the map that overrides the calculated one.
     zoom : float, optional
-        The zoom level of the map.
+        The zoom level of the map that overrides the calculated one.
     sticky_device : bool, default True
         Whether to show the device as sticky in the main part.
     sticky_location : bool, default True
@@ -178,9 +184,7 @@ def template2(
                 client.ui.sensor_sidebar(sensor)
             st.divider()
 
-    client.widget.map(
-        devices, center_lat=devices[0]["lat"], center_lon=devices[0]["lon"], zoom=zoom
-    )
+    client.widget.map(devices, center_lat=center_lat, center_lon=center_lon, zoom=zoom)
     client.section.links(links)
 
     for device in devices:
@@ -295,7 +299,7 @@ def template1(
         sticky_device=sticky_device, sticky_location=sticky_location
     )
 
-    client.section.map(location_code)
+    client.section.map(location_code, zoom=7)
 
     client.section.links(links)
 
