@@ -17,7 +17,7 @@ def pytest_configure():
 
 @pytest.fixture()
 def client() -> ONCDW:
-    return ONCDW(token, env, showInfo=True)
+    return ONCDW(token, env, show_info=True)
 
 
 @pytest.fixture()

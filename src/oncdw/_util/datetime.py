@@ -1,5 +1,6 @@
 from datetime import datetime, timezone
 
+import pandas as pd
 from isodate import parse_duration
 
 
@@ -7,7 +8,7 @@ def _standardize_datetime_format(dt: datetime) -> str:
     """
     Convert a datetime object to a standardized string format.
     isoformat will return a string like 2019-11-23T00:00:00.000+00:00.
-    The desired format is like 2019-11-23T00:00:00.000Z.
+    The desired format for ONC web services is like 2019-11-23T00:00:00.000Z.
     """
     return dt.isoformat(timespec="milliseconds").replace("+00:00", "Z")
 
@@ -32,3 +33,7 @@ def parse_datetime_parameters(date_from: str, date_to: str | None) -> tuple[str,
         date_from_str = date_from
 
     return date_from_str, date_to_str
+
+
+def now():
+    return pd.Timestamp.now(timezone.utc).tz_localize(None)

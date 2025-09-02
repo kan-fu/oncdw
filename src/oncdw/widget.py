@@ -16,14 +16,21 @@ logger = logging.getLogger(__name__)
 
 
 def _log_no_data_warning(warning_msg):
+    """
+    Log the warning message to the logger and in the UI.
+    """
     logger.warning(warning_msg)
     return st.warning(warning_msg)
 
 
 def _error_handler(func):
+    """
+    Catch error and log it in the UI without exiting the program.
+    """
+
     def inner_function(*args, **kwargs):
         try:
-            func(*args, **kwargs)
+            return func(*args, **kwargs)
         except Exception as e:
             st.error(f"An error occurred: {e}")
             logger.exception(f"Error in {func.__name__}: {e}")
@@ -46,6 +53,41 @@ class Widget:
         color: str = "#1f77b4",
         st_wrapper: bool = True,
     ):
+        """
+        Display time series plots for a given sensor or two sensors, with labels above the plot.
+
+        Parameters
+        ----------
+        sensor : list
+            A list representing a sensor or a pair of sensors.
+            The format can be either:
+            1. dict: a single sensor, {"sensor_id": sensor_id, "sensor_name": sensor_name}
+            2. list: a pair of sensors, [{},{}]. The format of each dict is the same as a single sensor
+        date_from : str
+            date_from parameter for the web service
+        date_to : str or None, optional
+            date_to parameter for the web service
+        st_wrapper : bool, default True
+            Bool flag to indicate whether it returns a streamlit object or its underlying object (Altair chart)
+            This is useful if the code is not ran
+        Examples
+        --------
+        >>> sensor = {
+        ...    "sensor_id": 7684,
+        ...    "sensor_name": "True Heading",
+        ... }
+        >>> client.section.time_series(sensor)
+        >>> sensor1 = {
+        ...     "sensor_id": 4182,
+        ...     "sensor_name": "Seafloor Pressure"
+        ... }
+        >>> sensor2 = {
+        ...     "sensor_id": 7712,
+        ...     "sensor_name": "Uncompensated Seafloor Pressure"
+        ... }
+        >>> sensor = [sensor1, sensor2]
+        >>> client.section.time_series(sensor)
+        """
         _sensor = Sensor(sensor)
         sensor_id = _sensor.get_sensor_id()
 

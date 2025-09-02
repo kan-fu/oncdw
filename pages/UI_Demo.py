@@ -5,6 +5,8 @@ from oncdw import ONCDW
 client = ONCDW()
 client.ui.import_custom_badge_css()
 
+st.title("UI Demo")
+
 st.info(
     "The only difference between the hX_badges is the parent html tag that wraps the badge, "
     "which can be used to customize its appearance in the css file."
@@ -25,7 +27,7 @@ st.info(
 )
 with st.echo():
     location = {
-        "location_code": "CODE",
+        "location_code": "BACAX",
         "location_name": "Location Name",
     }
     client.ui.location(location)
@@ -33,7 +35,7 @@ with st.echo():
 
 with st.echo():
     device = {
-        "device_id": "12345",
+        "device_id": "20100",
         "device_name": "Device Name",
         "device_code": "CODE",
     }
@@ -42,7 +44,7 @@ with st.echo():
 
 with st.echo():
     sensor = {
-        "sensor_id": "67890",
+        "sensor_id": "8300",
         "sensor_name": "Sensor Name",
     }
     client.ui.sensor(sensor)
@@ -50,11 +52,11 @@ with st.echo():
 
 with st.echo():
     sensor1 = {
-        "sensor_id": "167890",
+        "sensor_id": "8300",
         "sensor_name": "Sensor Name 1",
     }
     sensor2 = {
-        "sensor_id": "267890",
+        "sensor_id": "8301",
         "sensor_name": "Sensor Name 2",
     }
     client.ui.sensors_two(sensor1, sensor2)

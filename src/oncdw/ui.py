@@ -4,8 +4,8 @@ from ._util import Device, Sensor
 
 
 def _badge_shields(left: str | int, right: str, color) -> str:
-    def _sanitize(input):
-        return str(input).replace(" ", "%20").replace("-", "--").replace("_", "__")
+    def _sanitize(input_text):
+        return str(input_text).replace(" ", "%20").replace("-", "--").replace("_", "__")
 
     encoded_left = _sanitize(left)
     encoded_right = _sanitize(right)
@@ -231,7 +231,7 @@ class UI:
     @staticmethod
     def device_sidebar(device: dict):
         """
-        Device badge for the side bar wrapped inside a h2 tag.
+        Device badge for the sidebar wrapped inside a h2 tag.
 
         The href a link to the anchor of `device()`.
 
@@ -270,6 +270,8 @@ class UI:
         ----------
         sensor: dict
             A dictionary containing the sensor id and sensor name.
+        anchor : str
+            The anchor link of the badge.
 
         Example
         -------
@@ -291,14 +293,16 @@ class UI:
     @staticmethod
     def sensor_sidebar(sensor: dict, href: str | None = None):
         """
-        Sensor badge for the side bar wrapped inside a h3 tag.
+        Sensor badge for the sidebar wrapped inside a h3 tag.
 
         The href a link to the anchor of `sensor()`.
 
         Parameters
         ----------
-        sensor: dict
+        sensor : dict
             A dictionary containing the sensor id and sensor name.
+        href : str or None, optional
+            The href link of the badge.
 
         Example
         -------

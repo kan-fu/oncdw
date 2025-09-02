@@ -16,9 +16,9 @@ class OpenAPI:
     _client: "ONCDW"
 
     def _get_onc(self) -> ONC:
-        is_prod = self._client.hostname == "data.oceannetworks.ca"
+        is_prod = self._client.env.upper() == "PROD"
         return ONC(
-            self._client.token, production=is_prod, showInfo=self._client.showInfo
+            self._client.token, production=is_prod, showInfo=self._client.show_info
         )
 
     def get_archive_files(
