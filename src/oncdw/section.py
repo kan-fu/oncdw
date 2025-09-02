@@ -24,6 +24,16 @@ class Section:
         links : dict
             A dictionary of links to be displayed at the top of the page.
             The keys are the link titles, and the values are the URLs.
+        header : str
+            Header string above the links
+
+        Examples
+        --------
+        >>> links = {
+        ...     "Oceans 3.0": "https://data.oceannetworks.ca",
+        ...     "Marine Traffic": "https://www.marinetraffic.com",
+        ... }
+        >>> client.section.links(links, "Useful Links")
         """
         st.header(header)
         for title, url in links.items():
@@ -32,6 +42,8 @@ class Section:
     def state_of_ocean_images(self, location_code: str):
         """
         Display the State of Ocean images for a given location code.
+
+        Also return the information needed to display badges in the sidebar.
 
         Parameters
         ----------
@@ -42,6 +54,11 @@ class Section:
         -------
         badges : list of tuples
             A list of tuples containing the badge titles and their corresponding URLs.
+
+        Examples
+        --------
+        >>> client.section.state_of_ocean_images("BACAX")
+
         """
         images = [
             (
@@ -71,9 +88,11 @@ class Section:
 
         return badges
 
-    def time_series(self, sensor: list | dict, date_from: str = "-P7D"):
+    def time_series(
+        self, sensor: list | dict, date_from: str = "-P7D", date_to: str | None = None
+    ):
         """
-        Display time series plots for a given sensor or two sensors.
+        Display time series plots for a given sensor or two sensors, with labels above the plot.
 
         Parameters
         ----------
@@ -82,18 +101,42 @@ class Section:
             The format can be either:
             1. dict: a single sensor, {"sensor_id": sensor_id, "sensor_name": sensor_name}
             2. list: a pair of sensors, [{},{}]. The format of each dict is the same as a single sensor
+        date_from : str
+            date_from parameter for the web service
+        date_to : str or None, optional
+            date_to parameter for the web service
+
+        Examples
+        --------
+        >>> sensor = {
+        ...    "sensor_id": 7684,
+        ...    "sensor_name": "True Heading",
+        ... }
+        >>> client.section.time_series(sensor)
+        >>> sensor1 = {
+        ...     "sensor_id": 4182,
+        ...     "sensor_name": "Seafloor Pressure"
+        ... }
+        >>> sensor2 = {
+        ...     "sensor_id": 7712,
+        ...     "sensor_name": "Uncompensated Seafloor Pressure"
+        ... }
+        >>> sensor = [sensor1, sensor2]
+        >>> client.section.time_series(sensor)
         """
         if isinstance(sensor, list):
             # The sensor is a pair of sensors
             sensor1, sensor2 = sensor
             self._client.ui.sensors_two(sensor1, sensor2)
             self._client.widget.time_series_two_sensors(
-                sensor1, sensor2, date_from=date_from
+                sensor1, sensor2, date_from=date_from, date_to=date_to
             )
         elif isinstance(sensor, dict):
             # The sensor is a single sensor
             self._client.ui.sensor(sensor)
-            self._client.widget.time_series(sensor, date_from=date_from)
+            self._client.widget.time_series(
+                sensor, date_from=date_from, date_to=date_to
+            )
         else:
             raise ValueError(
                 f"Invalid sensor format: {sensor}. Expected a list or dict."
@@ -101,13 +144,42 @@ class Section:
 
     def data_preview(self, device: dict):
         """
+        Display date preview plots for multiple data preview options.
+
         Assume data preview plots are placed in two columns,
-        and the options are a dict that has the following format:
-        {
-            "data_product_format_id": data_product_format_id,
-            "plot_number": plot_number,
-            "sensor_code_id": sensor_code_id # This is optional
-        }
+        and the options are a list of a dict that has the following format:
+        [
+            {
+                "data_product_format_id": data_product_format_id,
+                "plot_number": plot_number,
+                "sensor_code_id": sensor_code_id # This is optional
+            }
+        ]
+        in device["data_preview_options"].
+
+        Parameters
+        ----------
+        device : dict
+            a dict containing search tree node id, device category id
+            and a list of data preview options,
+
+        Examples
+        --------
+        >>> device = {
+        ...     "search_tree_node_id": 23,
+        ...     "device_category_id": 72,
+        ...     "data_preview_options": [
+        ...         {
+        ...             "data_product_format_id": 11,
+        ...             "plot_number": 1
+        ...         },
+        ...         {
+        ...             "data_product_format_id": 11,
+        ...             "plot_number": 2
+        ...         },
+        ...     ]
+        ... }
+        >>> client.section.date_preview(device)
         """
         _device = Device(device)
         data_preview_options = _device.get_data_preview_options()
@@ -137,6 +209,25 @@ class Section:
                         self._client.widget.data_preview(device, option2)
 
     def location_expander(self, location: dict):
+        """
+        Display a location badge and information retrieved from /api/location web service.
+
+        This method has a global variable `_prev_location_code` to record the previous location,
+        so that it only displays distinct locations.
+
+        Parameters
+        ----------
+        location : dict
+            A dict that contains a location code
+
+        Examples
+        --------
+        >>> device = {
+        ...     "location_code": "BACAX",
+        ...     "location_name": "Barkley Canyon Axis",
+        ... }
+        >>> client.location_expander(device)
+        """
         _location = Device(location)
         if self._prev_location_code != _location.get_location_code():
             self._prev_location_code = _location.get_location_code()
@@ -150,16 +241,64 @@ class Section:
                 st.json(location_info)
 
     def location_sidebar(self, location: dict):
+        """
+        Display a location badge in the side bar.
+
+        This method has a global variable `_prev_location_code_sidebar` to record the previous location,
+        so that it only displays distinct locations.
+
+        Parameters
+        ----------
+        location : dict
+            A dict that contains a location code
+
+        Examples
+        --------
+        >>> device = {
+        ...     "location_code": "BACAX"
+        ... }
+        >>> client.location_sidebar(device)
+        """
         _location = Device(location)
         if self._prev_location_code_sidebar != _location.get_location_code():
             self._prev_location_code_sidebar = _location.get_location_code()
             self._client.ui.location_sidebar(location)
 
     def sensor_sidebar(self, sensor: list | dict):
+        """
+        Display a sensor or two sensors badge in the sidebar, with the correct href link.
+
+        Parameters
+        ----------
+        sensor : list
+            A list representing a sensor or a pair of sensors.
+            The format can be either:
+            1. dict: a single sensor, {"sensor_id": sensor_id, "sensor_name": sensor_name}
+            2. list: a pair of sensors, [{},{}]. The format of each dict is the same as a single sensor
+
+        Examples
+        --------
+        >>> sensor = {
+        ...    "sensor_id": 7684,
+        ...    "sensor_name": "True Heading",
+        ... }
+        >>> client.section.sensor_sidebar(sensor)
+        >>> sensor1 = {
+        ...     "sensor_id": 4182,
+        ...     "sensor_name": "Seafloor Pressure"
+        ... }
+        >>> sensor2 = {
+        ...     "sensor_id": 7712,
+        ...     "sensor_name": "Uncompensated Seafloor Pressure"
+        ... }
+        >>> sensor = [sensor1, sensor2]
+        >>> client.section.sensor_sidebar(sensor)
+
+        """
         if isinstance(sensor, list):
             # The sensor list contains two sensors
-            sensor0, sensor2 = sensor
-            self._client.ui.sensors_two_sidebar(sensor0, sensor2)
+            sensor1, sensor2 = sensor
+            self._client.ui.sensors_two_sidebar(sensor1, sensor2)
         else:
             # The sensor dict is a single sensor
             self._client.ui.sensor_sidebar(sensor)
@@ -171,6 +310,29 @@ class Section:
         center_lon: float | None = None,
         zoom: int | None = None,
     ):
+        """
+        Display a map with a location code.
+
+        It uses `/api/location` web service to query the lat and lon for the location.
+
+        Parameters
+        ----------
+        location_code : str
+            The location code for the location
+        center_lat : float or None, optional
+            The center latitude for the initial view state of the map widget.
+            If not give, it will use the default one
+        center_lon : float or None, optional
+            The center longitude for the initial view state of the map widget.
+            If not give, it will use the default one
+        zoom : int or None, optional
+            The zoom for the initial view state of the map widget.
+            If not give, it will use the default one
+
+        Examples
+        --------
+        >>> client.section.map("BACAX")
+        """
         onc = ONC(self._client.token)
         location_info = onc.getLocations({"locationCode": location_code})
         self._client.widget.map(

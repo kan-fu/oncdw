@@ -2,8 +2,8 @@ import logging
 from typing import TYPE_CHECKING
 
 import pandas as pd
-import pydeck as pdk
 import streamlit as st
+from pydeck.data_utils.viewport_helpers import compute_view
 
 if TYPE_CHECKING:
     from ._client import ONCDW
@@ -62,7 +62,10 @@ class Widget:
         )
 
         if df.empty and st_wrapper:
-            warning_msg = f"No data available for time series plot of {ylabel}."
+            warning_msg = (
+                f"No data available for time series plot of {ylabel}, "
+                f"with date from {date_from} and date to {date_to}."
+            )
             return _log_no_data_warning(warning_msg)
 
         return self._chart.time_series(df, ylabel, color, st_wrapper)
@@ -103,7 +106,10 @@ class Widget:
         )
 
         if df1.empty and df2.empty and st_wrapper:
-            warning_msg = f"No scalar data available for time series plot of {ylabel1} and {ylabel2}."
+            warning_msg = (
+                f"No scalar data available for time series plot of {ylabel1} and {ylabel2}, "
+                f"with date from {date_from} and date to {date_to}."
+            )
             return _log_no_data_warning(warning_msg)
 
         return self._chart.time_series_two_sensors(
@@ -139,7 +145,10 @@ class Widget:
         )
 
         if df.empty:
-            warning_msg = f"No archive files available for device {device_code}."
+            warning_msg = (
+                f"No archive files available for device {device_code}, "
+                f"with date from {date_from} and date to {date_to}."
+            )
             return _log_no_data_warning(warning_msg)
 
         return self._chart.table_archive_files(df, st_wrapper)
@@ -197,7 +206,8 @@ class Widget:
 
         if df.empty:
             warning_msg = (
-                f"No heatmap archive files available for device {device_code}."
+                f"No heatmap archive files available for device {device_code}, "
+                f"with date from {date_from} and date to {date_to}."
             )
             return _log_no_data_warning(warning_msg)
 
@@ -231,7 +241,10 @@ class Widget:
         col1, col2 = df.columns[0], df.columns[1]
 
         if df.empty and st_wrapper:
-            warning_msg = f"No data available for scatter plot of {col1} and {col2}."
+            warning_msg = (
+                f"No data available for scatter plot of {col1} and {col2}, "
+                f"with date from {date_from} and date to {date_to}."
+            )
             return _log_no_data_warning(warning_msg)
 
         return self._chart.scatter_plot(df, st_wrapper)
@@ -251,9 +264,7 @@ class Widget:
             warning_msg = "No location data (lat and lon) for the map widget."
             return _log_no_data_warning(warning_msg)
 
-        initial_view_state = pdk.data_utils.viewport_helpers.compute_view(
-            df[["lon", "lat"]]
-        )
+        initial_view_state = compute_view(df[["lon", "lat"]])
 
         if center_lat:
             initial_view_state.latitude = center_lat

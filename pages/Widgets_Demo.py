@@ -86,14 +86,14 @@ with st.echo():
         {
             "lat": 48.314627,
             "lon": -126.058106,
-            "locationName":"Location X",
-            "locationCode":"LocX"
+            "locationName": "Location X",
+            "locationCode": "LocX",
         },
         {
             "lat": 50.54427,
             "lon": -126.84264,
-            "locationName":"Location Y",
-            "locationCode":"LocY"
+            "locationName": "Location Y",
+            "locationCode": "LocY",
         },
     ]
     # Hover over the point to show the tooltip
