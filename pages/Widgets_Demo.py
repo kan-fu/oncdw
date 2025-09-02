@@ -35,7 +35,7 @@ with st.echo():
     client.widget.table_archive_files(
         {"device_code": "ICLISTENHF6093", "file_extensions": ["flac"]},
         date_from="-P1D",
-        date_to="-PT23H",
+        date_to="-PT23H45M",
     )
 
 
@@ -64,7 +64,7 @@ with st.echo():
 
 
 ############################################
-st.header("Time series scalar data plot with two sensors of different type")
+st.header("Time series scalar data plot with two sensors of different types")
 
 with st.echo():
     client.widget.time_series_two_sensors(4176, 3016, date_from="-P2D")

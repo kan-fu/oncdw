@@ -166,15 +166,15 @@ class Section:
         Examples
         --------
         >>> device = {
-        ...     "search_tree_node_id": 23,
+        ...     "search_tree_node_id": 450,
         ...     "device_category_id": 72,
         ...     "data_preview_options": [
         ...         {
-        ...             "data_product_format_id": 11,
+        ...             "data_product_format_id": 3,
         ...             "plot_number": 1
         ...         },
         ...         {
-        ...             "data_product_format_id": 11,
+        ...             "data_product_format_id": 3,
         ...             "plot_number": 2
         ...         },
         ...     ]

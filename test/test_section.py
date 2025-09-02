@@ -34,8 +34,8 @@ def test_time_series(client, caplog, sensor1):
 def test_time_series_iso_date_format(client, caplog, sensor1):
     client.section.time_series(
         sensor1,
-        date_from="2010-02-21T00:00:00.000Z",
-        date_to="2010-02-23T00:00:00.000Z",
+        date_from="2010-02-18T00:00:00.000Z",
+        date_to="2010-02-21T00:00:00.000Z",
     )
     _assert_no_logs(caplog, logging.WARNING)
 
@@ -49,7 +49,7 @@ def test_time_series_two_sensors(client, caplog, sensor1, sensor2):
 def test_time_series_two_sensors_iso_date_format(client, caplog, sensor1, sensor2):
     sensor = [sensor1, sensor2]
     client.section.time_series(
-        sensor, "2010-02-21T00:00:00.000Z", "2010-02-23T00:00:00.000Z"
+        sensor, "2010-02-18T00:00:00.000Z", "2010-02-21T00:00:00.000Z"
     )
     _assert_no_logs(caplog, logging.WARNING)
 
@@ -60,11 +60,11 @@ def test_time_series_two_sensors_iso_date_format(client, caplog, sensor1, sensor
 @pytest.fixture
 def device_dp():
     return {
-        "search_tree_node_id": 23,
+        "search_tree_node_id": 450,
         "device_category_id": 72,
         "data_preview_options": [
-            {"data_product_format_id": 11, "plot_number": 1},
-            {"data_product_format_id": 11, "plot_number": 2},
+            {"data_product_format_id": 3, "plot_number": 1},
+            {"data_product_format_id": 3, "plot_number": 2},
         ],
     }
 
