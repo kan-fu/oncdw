@@ -12,7 +12,7 @@ class Device:
 
     _device: dict
 
-    def get_device_id(self) -> str:
+    def get_device_id(self):
         """
         Get the device id from the device dictionary.
         Raise KeyError if the dict does not contain the expected key.

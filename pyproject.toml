@@ -41,4 +41,8 @@ select = [
 
 ignore = [
     "E501",
+    "SIM117", # multiple-with-statements
 ]
+
+[tool.isort]
+profile = "black"

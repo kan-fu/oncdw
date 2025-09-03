@@ -29,6 +29,7 @@ class Section:
 
         Examples
         --------
+        >>> client = ONCDW()
         >>> links = {
         ...     "Oceans 3.0": "https://data.oceannetworks.ca",
         ...     "Marine Traffic": "https://www.marinetraffic.com",
@@ -57,6 +58,7 @@ class Section:
 
         Examples
         --------
+        >>> client = ONCDW()
         >>> client.section.state_of_ocean_images("BACAX")
 
         """
@@ -108,6 +110,7 @@ class Section:
 
         Examples
         --------
+        >>> client = ONCDW()
         >>> sensor = {
         ...    "sensor_id": 7684,
         ...    "sensor_name": "True Heading",
@@ -165,6 +168,7 @@ class Section:
 
         Examples
         --------
+        >>> client = ONCDW()
         >>> device = {
         ...     "search_tree_node_id": 450,
         ...     "device_category_id": 72,
@@ -222,11 +226,12 @@ class Section:
 
         Examples
         --------
+        >>> client = ONCDW()
         >>> device = {
         ...     "location_code": "BACAX",
         ...     "location_name": "Barkley Canyon Axis",
         ... }
-        >>> client.location_expander(device)
+        >>> client.section.location_expander(device)
         """
         _location = Device(location)
         if self._prev_location_code != _location.get_location_code():
@@ -254,10 +259,11 @@ class Section:
 
         Examples
         --------
+        >>> client = ONCDW()
         >>> device = {
         ...     "location_code": "BACAX"
         ... }
-        >>> client.location_sidebar(device)
+        >>> client.section.location_sidebar(device)
         """
         _location = Device(location)
         if self._prev_location_code_sidebar != _location.get_location_code():
@@ -278,6 +284,7 @@ class Section:
 
         Examples
         --------
+        >>> client = ONCDW()
         >>> sensor = {
         ...    "sensor_id": 7684,
         ...    "sensor_name": "True Heading",
@@ -331,6 +338,7 @@ class Section:
 
         Examples
         --------
+        >>> client = ONCDW()
         >>> client.section.map("BACAX")
         """
         onc = ONC(self._client.token)

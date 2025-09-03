@@ -1,7 +1,6 @@
 import altair as alt
 import pandas as pd
 import pydeck
-import pydeck as pdk
 import streamlit as st
 
 

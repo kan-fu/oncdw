@@ -7,14 +7,13 @@ from .util import get_val_from_keys
 class Sensor:
     """
     A helper class to handle value retrieval from a sensor dictionary.
-    If it is a list or tuple, the format is expected to be [sensor_id, color].
     If it is a dict, it should contain keys like 'sensorId' / 'sensor_id' or 'sensorName' / 'sensor_name'.
     If it is an int, it is assumed to be the sensor id.
     """
 
     _sensor: dict | int
 
-    def get_sensor_id(self) -> str:
+    def get_sensor_id(self):
         """
         Get the sensor id from the sensor.
         """
@@ -22,7 +21,7 @@ class Sensor:
             keys = ["sensor_id", "sensorId"]
             return get_val_from_keys(self._sensor, keys)
         elif isinstance(self._sensor, int):
-            return str(self._sensor)
+            return self._sensor
         else:
             raise ValueError(f"Could not get sensor id from {self._sensor}.")
 
