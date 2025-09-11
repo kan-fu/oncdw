@@ -167,3 +167,6 @@ cython_debug/
 dashboards_convert/html
 test.py
 *.ipynb
+
+# Sphinx documentation
+doc/_build/

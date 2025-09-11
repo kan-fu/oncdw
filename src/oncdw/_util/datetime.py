@@ -1,6 +1,5 @@
 from datetime import datetime, timezone
 
-import pandas as pd
 from isodate import parse_duration
 
 
@@ -25,20 +24,31 @@ def parse_datetime_parameters(date_from: str, date_to: str | None) -> tuple[str,
     Parse date_from and date_to parameters to a standardized format.
 
     This is only used in internal web services. OpenAPI supports duration format.
+    If date_to is duration, it is always calculated from the current datetime.
+    If both date_from and date_to are duration, they are all calculated from current datetime,
+    otherwise (date_from is duration and date_to is not), date_from is calculated from date_to.
 
     Examples
     --------
     >>> date_from, date_to = "-P7D", "2019-11-23T00:00:00.000Z"
     >>> parse_datetime_parameters(date_from, date_to)
     ('2019-11-16T00:00:00.000Z', '2019-11-23T00:00:00.000Z')
+    >>> date_from, date_to = "-P7D", "-P6D"
+    >>> parse_datetime_parameters(date_from, date_to)
+    # date_from and date_to should only have one day difference
+    >>> date_from, date_to = "2019-11-23T00:00:00.000Z", "-P6D"
+    >>> parse_datetime_parameters(date_from, date_to)
+    # date_to is six days prior to the current datetime
     """
+    now = datetime.now(timezone.utc)
+    is_date_to_duration = date_to and "P" in date_to
+
     if date_to is None:
         # If date_to is not provided, use current datetime for date_to
-        date_to = datetime.now(timezone.utc)
+        date_to = now
         date_to_str = _to_onc_format(date_to)
     elif "P" in date_to:
         # If date_to is a duration, use current datetime + duration for date_to
-        now = datetime.now(timezone.utc)
         duration_date_to = date_to
         date_to = now + parse_duration(duration_date_to)
         date_to_str = _to_onc_format(date_to)
@@ -48,9 +58,15 @@ def parse_datetime_parameters(date_from: str, date_to: str | None) -> tuple[str,
         date_to = datetime.fromisoformat(date_to.replace("Z", "+00:00"))
 
     if "P" in date_from:
-        # If date_from is a duration, use date_to + duration for date_from
+        # If date_from is a duration
         duration_date_from = date_from
-        date_from_str = _to_onc_format(date_to + parse_duration(duration_date_from))
+        if is_date_to_duration:
+            # use current datetime + duration for date_from
+            date_from_str = _to_onc_format(now + parse_duration(duration_date_from))
+        else:
+            # use date_to + duration for date_from
+            date_from_str = _to_onc_format(date_to + parse_duration(duration_date_from))
+
     else:
         # If date_from is in standard format, just use it
         date_from_str = date_from
@@ -59,4 +75,4 @@ def parse_datetime_parameters(date_from: str, date_to: str | None) -> tuple[str,
 
 
 def now():
-    return pd.Timestamp.now(timezone.utc).tz_localize(None)
+    return datetime.now(timezone.utc).replace(tzinfo=None)

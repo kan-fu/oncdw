@@ -16,6 +16,14 @@ def _badge_shields(left: str | int, right: str, color) -> str:
 class UI:
     @staticmethod
     def import_custom_badge_css(sticky_device=False, sticky_location=False):
+        """
+        Include a custom css to make badge look bigger.
+
+        Example
+        -------
+        >>> client = ONCDW()
+        >>> client.ui.import_custom_badge_css()
+        """
         badge_css = """
             /* Sidebar CSS */
             section[data-testid="stSidebar"] div[data-testid="stVerticalBlock"] {
@@ -150,11 +158,12 @@ class UI:
 
         Example
         -------
+        >>> client = ONCDW()
         >>> device = {
         ...     "location_code": "CODE",
         ...     "location_name": "Location Name",
         ... }
-        >>> UI.location(device)
+        >>> client.ui.location(device)
         """
         _location = Device(location)
         left = _location.get_location_code()
@@ -179,11 +188,12 @@ class UI:
 
         Example
         -------
+        >>> client = ONCDW()
         >>> device = {
         ...     "location_code": "CODE",
         ...     "location_name": "Location Name",
         ... }
-        >>> UI.location_sidebar(device)
+        >>> client.ui.location_sidebar(device)
         """
         _location = Device(location)
         left = "Site"
@@ -207,12 +217,12 @@ class UI:
 
         Example
         -------
+        >>> client = ONCDW()
         >>> device = {
         ...     "device_id": "12345",
         ...     "device_name": "Device Name",
-        ...     "device_code": "CODE"
         ... }
-        >>> UI.device(device)
+        >>> client.ui.device(device)
         """
         _device = Device(device)
 
@@ -242,11 +252,12 @@ class UI:
 
         Example
         -------
+        >>> client = ONCDW()
         >>> device = {
         ...     "device_id": "12345",
         ...     "device_code": "CODE"
         ... }
-        >>> UI.device_sidebar(device)
+        >>> client.ui.device_sidebar(device)
         """
         _device = Device(device)
 
@@ -275,11 +286,12 @@ class UI:
 
         Example
         -------
+        >>> client = ONCDW()
         >>> sensor = {
         ...     "sensor_id": "67900",
         ...     "sensor_name": "Sensor Name"
         ... }
-        >>> UI.sensor_sidebar(sensor)
+        >>> client.ui.sensor_sidebar(sensor)
         """
         _sensor = Sensor(sensor)
         left = _sensor.get_sensor_id()
@@ -306,11 +318,12 @@ class UI:
 
         Example
         -------
+        >>> client = ONCDW()
         >>> sensor = {
         ...     "sensor_id": "67900",
         ...     "sensor_name": "Sensor Name"
         ... }
-        >>> UI.sensor_sidebar(sensor)
+        >>> client.ui.sensor_sidebar(sensor)
         """
         _sensor = Sensor(sensor)
         left = _sensor.get_sensor_id()
@@ -335,6 +348,7 @@ class UI:
 
         Example
         -------
+        >>> client = ONCDW()
         >>> sensor1 = {
         ...     "sensor_id": "167900",
         ...     "sensor_name": "Sensor Name 1"
@@ -343,7 +357,7 @@ class UI:
         ...     "sensor_id": "267900",
         ...     "sensor_name": "Sensor Name 2"
         ... }
-        >>> UI.sensor_sidebar(sensor1, sensor2)
+        >>> client.ui.sensor_sidebar(sensor1, sensor2)
         """
         col1, col2 = st.columns(2, gap="large")
         _sensor1 = Sensor(sensor1)
@@ -368,6 +382,7 @@ class UI:
 
         Example
         -------
+        >>> client = ONCDW()
         >>> sensor1 = {
         ...     "sensor_id": "167900",
         ...     "sensor_name": "Sensor Name 1"
@@ -376,7 +391,7 @@ class UI:
         ...     "sensor_id": "267900",
         ...     "sensor_name": "Sensor Name 2"
         ... }
-        >>> UI.sensors_two_sidebar(sensor1, sensor2)
+        >>> client.ui.sensors_two_sidebar(sensor1, sensor2)
         """
         _sensor1 = Sensor(sensor1)
         _sensor2 = Sensor(sensor2)

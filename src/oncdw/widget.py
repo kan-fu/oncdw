@@ -3,6 +3,7 @@ from typing import TYPE_CHECKING
 
 import pandas as pd
 import streamlit as st
+import re
 from pydeck.data_utils.viewport_helpers import compute_view
 
 if TYPE_CHECKING:
@@ -32,7 +33,10 @@ def _error_handler(func):
         try:
             return func(*args, **kwargs)
         except Exception as e:
-            st.error(f"An error occurred: {e}")
+            exception_message_without_token = re.sub(
+                "token=[a-zA-Z0-9\-]*", "token=TOKEN", str(e)
+            )
+            st.error(f"An error occurred: {exception_message_without_token}")
             logger.exception(f"Error in {func.__name__}: {e}")
 
     return inner_function
@@ -62,6 +66,7 @@ class Widget:
         sensor : int or dict
             A int or dict representing a sensor.
             The format can be either:
+
             1. dict: a single sensor, {"sensor_id": sensor_id}
             2. int: the sensor id
         date_from : str, default "-P2D"
@@ -75,16 +80,17 @@ class Widget:
             hex color, rgb string and hsl string. For Altair, see
             https://docs.streamlit.io/develop/concepts/configuration/theming-customize-colors-and-borders
         st_wrapper : bool, default True
-            Bool flag to indicate whether it returns a streamlit object or its underlying object (Altair chart)
+            Bool flag to indicate whether it returns a streamlit object or its underlying object (Altair chart).
             This is useful if the code is run in bare mode like Jupyter notebook (not with `streamlit run`).
+
         Examples
         --------
         >>> client = ONCDW()
         >>> sensor = {
         ...    "sensor_id": 4182,
         ... }
-        >>> client.widget.time_series(sensor)
-        >>> client.widget.time_series(4182)
+        >>> client.widget.time_series(sensor, "-P3D")
+        >>> client.widget.time_series(4182, "-P3D")
         """
         _sensor = Sensor(sensor)
         sensor_id = _sensor.get_sensor_id()
@@ -127,9 +133,16 @@ class Widget:
 
         Parameters
         ----------
-        sensor1, sensor2 : int or dict
-            A int or dict representing a sensor.
+        sensor1 : int or dict
+            A int or dict representing one sensor.
             The format can be either:
+
+            1. dict: a single sensor, {"sensor_id": sensor_id}
+            2. int: the sensor id
+        sensor2 : int or dict
+            A int or dict representing the other sensor.
+            The format can be either:
+
             1. dict: a single sensor, {"sensor_id": sensor_id}
             2. int: the sensor id
         date_from : str, default "-P2D"
@@ -138,13 +151,18 @@ class Widget:
         date_to : str or None, optional
             date_to parameter for the web service
             Accept ISO 8601 standard format and duration format.
-        color1, color2 : str, default "royalblue" and "seagreen"
-            Color of the plot and label text used in chart widget, can be a css named color,
+        color1 : str, default "royalblue"
+            Color of the first plot and label text used in chart widget, can be a css named color,
+            hex color, rgb string and hsl string. For Altair, see
+            https://docs.streamlit.io/develop/concepts/configuration/theming-customize-colors-and-borders
+        color2 : str, default "seagreen"
+            Color of the second plot and label text used in chart widget, can be a css named color,
             hex color, rgb string and hsl string. For Altair, see
             https://docs.streamlit.io/develop/concepts/configuration/theming-customize-colors-and-borders
         st_wrapper : bool, default True
-            Bool flag to indicate whether it returns a streamlit object or its underlying object (Altair chart)
+            Bool flag to indicate whether it returns a streamlit object or its underlying object (Altair chart).
             This is useful if the code is run in bare mode like Jupyter notebook (not with `streamlit run`).
+
         Examples
         --------
         >>> client = ONCDW()
@@ -154,8 +172,8 @@ class Widget:
         >>> sensor2 = {
         ...     "sensor_id": 7712,
         ... }
-        >>> client.section.time_series(sensor1, sensor2)
-        >>> client.section.time_series(4182, 7712)
+        >>> client.widget.time_series_two_sensors(sensor1, sensor2, "-P4D")
+        >>> client.widget.time_series_two_sensors(4182, 7712, "-P4D")
         """
         _sensor1 = Sensor(sensor1)
         _sensor2 = Sensor(sensor2)
@@ -215,6 +233,7 @@ class Widget:
         ----------
         device : dict
             a dict containing
+
              - device code,
              - file extensions, optional, a list of file extensions to be included
         date_from : str, default "-P4D"
@@ -224,7 +243,7 @@ class Widget:
             date_to parameter for the web service
             Accept ISO 8601 standard format and duration format.
         st_wrapper : bool, default True
-            Bool flag to indicate whether it returns a streamlit object or its underlying object (pandas Dataframe)
+            Bool flag to indicate whether it returns a streamlit object or its underlying object (pandas Dataframe).
             This is useful if the code is run in bare mode like Jupyter notebook (not with `streamlit run`).
 
         Examples
@@ -269,21 +288,23 @@ class Widget:
         st_wrapper=True,
     ):
         """
-        Display a date preview plot with a data preview option.
+        Display a data preview plot with a data preview option.
 
         Parameters
         ----------
         device : dict
             a dict containing
+
              - search tree node id,
              - device category id
         data_preview_option : dict
             a dict containing
+
              - data product format id,
              - plot number, optional, default to 1
              - sensor code id, optional
         st_wrapper : bool, default True
-            Bool flag to indicate whether it returns a streamlit object or its underlying object (image url)
+            Bool flag to indicate whether it returns a streamlit object or its underlying object (image url).
             This is useful if the code is run in bare mode like Jupyter notebook (not with `streamlit run`).
 
         Examples
@@ -297,7 +318,7 @@ class Widget:
         ...     "data_product_format_id": 3,
         ...     "plot_number": 1
         ... }
-        >>> client.section.date_preview(device, data_preview_option)
+        >>> client.widget.data_preview(device, data_preview_option)
         """
         _device = Device(device)
 
@@ -338,6 +359,7 @@ class Widget:
         ----------
         device : dict
             a dict containing
+
              - device code,
              - file extensions, optional, a list of file extensions to be included
         date_from : str, default "-P7D"
@@ -347,7 +369,7 @@ class Widget:
             date_to parameter for the web service
             Accept ISO 8601 standard format and duration format.
         st_wrapper : bool, default True
-            Bool flag to indicate whether it returns a streamlit object or its underlying object (Altair chart)
+            Bool flag to indicate whether it returns a streamlit object or its underlying object (Altair chart).
             This is useful if the code is run in bare mode like Jupyter notebook (not with `streamlit run`).
 
         Examples
@@ -402,6 +424,7 @@ class Widget:
         ----------
         device : dict
             a dict containing
+
              - location_code
              - device_category_code
         date_from : str, default "-P1D"
@@ -415,7 +438,7 @@ class Widget:
         resample_period : int, default to 60
              resamplePeriod parameter used by `/api/scalardata/location` web service
         st_wrapper : bool, default True
-            Bool flag to indicate whether it returns a streamlit object or its underlying object (Altair Chart)
+            Bool flag to indicate whether it returns a streamlit object or its underlying object (Altair Chart).
             This is useful if the code is run in bare mode like Jupyter notebook (not with `streamlit run`).
 
         Examples
@@ -423,7 +446,7 @@ class Widget:
         >>> client = ONCDW()
         >>> device = {"location_code": "BACAX", "device_category_code": "CTD"}
         >>> sensor_category_codes = "salinity,temperature"
-        >>> client.widget.scatter_plot_two_sensors(device, sensor_category_codes,date_from="-P1D"
+        >>> client.widget.scatter_plot_two_sensors(device, sensor_category_codes,date_from="-P1D")
 
         """
         _device = Device(device)
@@ -479,7 +502,7 @@ class Widget:
             The zoom for the initial view state of the map widget.
             If not give, it will use a calculated one
         st_wrapper : bool, default True
-            Bool flag to indicate whether it returns a streamlit object or its underlying object (Altair chart)
+            Bool flag to indicate whether it returns a streamlit object or its underlying object (Altair chart).
             This is useful if the code is run in bare mode like Jupyter notebook (not with `streamlit run`).
 
         Examples

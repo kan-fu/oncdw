@@ -29,10 +29,10 @@ class ONCDW:
     Examples
     --------
     >>> from oncdw import ONCDW
-    >>> client = ONCDW()  # Works if the token is set by env variable ONC_TOKEN
+    >>> client = ONCDW()  # Works if the token is set by an env variable ONC_TOKEN
     >>> client2 = ONCDW("YOUR_TOKEN_HERE")
     >>> client3 = ONCDW("YOUR_TOKEN_HERE", show_info=True, env="QA")
-    """  # noqa: E501
+    """
 
     token: str | None = None
     env: str = "PROD"  # "PROD" | "QA"

@@ -44,7 +44,7 @@ class Section:
         """
         Display the State of Ocean images for a given location code.
 
-        Also return the information needed to display badges in the sidebar.
+        Also return the information needed to display labels in the sidebar.
 
         Parameters
         ----------
@@ -53,8 +53,8 @@ class Section:
 
         Returns
         -------
-        badges : list of tuples
-            A list of tuples containing the badge titles and their corresponding URLs.
+        labels : list of tuples
+            A list of tuples containing the label titles and their corresponding URLs.
 
         Examples
         --------
@@ -81,14 +81,14 @@ class Section:
             st.header(title)
             st.image(url)
 
-        # Format is [(badge_left, badge_right, href)]
-        badges = [
+        # Format is [(label_left, label_right, href)]
+        labels = [
             ("SOOC", "Climate", "#state-of-ocean-climate-plot"),
             ("SOOA", "Anomaly", "#state-of-ocean-anomaly-plot"),
             ("SOOM", "MinMax", "#state-of-ocean-min-max-plot"),
         ]
 
-        return badges
+        return labels
 
     def time_series(
         self, sensor: list | dict, date_from: str = "-P7D", date_to: str | None = None
@@ -147,24 +147,21 @@ class Section:
 
     def data_preview(self, device: dict):
         """
-        Display date preview plots for multiple data preview options.
+        Display data preview plots for multiple data preview options.
 
         Assume data preview plots are placed in two columns,
-        and the options are a list of a dict that has the following format:
-        [
-            {
-                "data_product_format_id": data_product_format_id,
-                "plot_number": plot_number,
-                "sensor_code_id": sensor_code_id # This is optional
-            }
-        ]
-        in device["data_preview_options"].
+        and the options are a list of a dict in device["data_preview_options"].
 
         Parameters
         ----------
         device : dict
             a dict containing search tree node id, device category id
-            and a list of data preview options,
+            and data preview options, which is a list of data preview option.
+            The dict of data preview option should have the following keys:
+
+            - data_product_format_id
+            - plot_number, optional, default 1
+            - sensor_code_id, optional
 
         Examples
         --------
@@ -183,7 +180,7 @@ class Section:
         ...         },
         ...     ]
         ... }
-        >>> client.section.date_preview(device)
+        >>> client.section.data_preview(device)
         """
         _device = Device(device)
         data_preview_options = _device.get_data_preview_options()
@@ -214,7 +211,7 @@ class Section:
 
     def location_expander(self, location: dict):
         """
-        Display a location badge and information retrieved from /api/location web service.
+        Display a location label and information retrieved from /api/location web service.
 
         This method has a global variable `_prev_location_code` to record the previous location,
         so that it only displays distinct locations.
@@ -247,7 +244,7 @@ class Section:
 
     def location_sidebar(self, location: dict):
         """
-        Display a location badge in the side bar.
+        Display a location label in the side bar.
 
         This method has a global variable `_prev_location_code_sidebar` to record the previous location,
         so that it only displays distinct locations.
@@ -272,7 +269,7 @@ class Section:
 
     def sensor_sidebar(self, sensor: list | dict):
         """
-        Display a sensor or two sensors badge in the sidebar, with the correct href link.
+        Display a sensor or two sensors label in the sidebar, with the correct href link.
 
         Parameters
         ----------
