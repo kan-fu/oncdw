@@ -1,0 +1,216 @@
+[
+  {
+    "device_id": "15201",
+    "device_name": "RM Young Electronic Compass 32500-56 CI 2525",
+    "sensors": [
+      {
+        "sensor_id": "909",
+        "sensor_name": "Magnetic Heading"
+      }
+    ],
+    "location_code": "YPVPF",
+    "location_name": "Instrument Float",
+    "device_code": "RMYOUNGCOMPASS3250056CI2525",
+    "search_tree_node_id": null,
+    "device_category_id": null,
+    "data_preview_options": [],
+    "lat": 48.622399,
+    "lon": -123.498835
+  },
+  {
+    "device_id": "15202",
+    "device_name": "RM Young Wind Monitor 5103 117264",
+    "sensors": [
+      {
+        "sensor_id": "911",
+        "sensor_name": "Wind Direction Corrected"
+      },
+      {
+        "sensor_id": "910",
+        "sensor_name": "Wind Direction Uncorrected"
+      },
+      {
+        "sensor_id": "912",
+        "sensor_name": "Wind Speed"
+      }
+    ],
+    "location_code": "YPVPF",
+    "location_name": "Instrument Float",
+    "device_code": "RMYOUNGWINDMON-5103-117264",
+    "search_tree_node_id": null,
+    "device_category_id": null,
+    "data_preview_options": [],
+    "lat": 48.622399,
+    "lon": -123.498835
+  },
+  {
+    "device_id": "67740",
+    "device_name": "Rotronic Campbell Scientific Temperature RH HC2A-S3 20496167",
+    "sensors": [
+      {
+        "sensor_id": "77740",
+        "sensor_name": "Relative Humidity"
+      },
+      {
+        "sensor_id": "77720",
+        "sensor_name": "Air Temperature"
+      }
+    ],
+    "location_code": "YPVPF",
+    "location_name": "Instrument Float",
+    "device_code": "ROTRONICTEMPRHHC2AS3SN20496167",
+    "search_tree_node_id": null,
+    "device_category_id": null,
+    "data_preview_options": [],
+    "lat": 48.622399,
+    "lon": -123.498835
+  },
+  {
+    "device_id": "15204",
+    "device_name": "Vaisala PTB110 Barometer H1960068",
+    "sensors": [
+      {
+        "sensor_id": "915",
+        "sensor_name": "Barometric Pressure"
+      }
+    ],
+    "location_code": "YPVPF",
+    "location_name": "Instrument Float",
+    "device_code": "VAISBAROMETER-H1960068",
+    "search_tree_node_id": null,
+    "device_category_id": null,
+    "data_preview_options": [],
+    "lat": 48.622399,
+    "lon": -123.498835
+  },
+  {
+    "device_id": "74760",
+    "device_name": "Garmin 19X HVS GPS 2J5089875",
+    "sensors": [
+      {
+        "sensor_id": "91400",
+        "sensor_name": "Latitude"
+      },
+      {
+        "sensor_id": "91420",
+        "sensor_name": "Longitude"
+      }
+    ],
+    "location_code": "YPVPF",
+    "location_name": "Instrument Float",
+    "device_code": "GARMIN19XGPS2J5089875",
+    "search_tree_node_id": null,
+    "device_category_id": null,
+    "data_preview_options": [],
+    "lat": 48.622399,
+    "lon": -123.498835
+  },
+  {
+    "device_id": "24122",
+    "device_name": "Sea-Bird SeaCAT SBE19plus V2 7792",
+    "sensors": [
+      {
+        "sensor_id": "22227",
+        "sensor_name": "Pressure"
+      },
+      {
+        "sensor_id": "22239",
+        "sensor_name": "Sound Speed"
+      },
+      {
+        "sensor_id": "22226",
+        "sensor_name": "Temperature"
+      },
+      {
+        "sensor_id": "22236",
+        "sensor_name": "Conductivity"
+      },
+      {
+        "sensor_id": "22238",
+        "sensor_name": "Density"
+      },
+      {
+        "sensor_id": "22234",
+        "sensor_name": "Practical Salinity"
+      },
+      {
+        "sensor_id": "22235",
+        "sensor_name": "Sigma-t"
+      },
+      {
+        "sensor_id": "22237",
+        "sensor_name": "Sigma-theta (0 dbar)"
+      }
+    ],
+    "location_code": "YPVPP",
+    "location_name": "Profiling Instrument Package",
+    "device_code": "SBECTD19p7792",
+    "search_tree_node_id": null,
+    "device_category_id": null,
+    "data_preview_options": [],
+    "lat": 48.622355,
+    "lon": -123.498853
+  },
+  {
+    "device_id": "80692",
+    "device_name": "Alec Electronics Rinko-III 0471",
+    "sensors": [
+      {
+        "sensor_id": "101212",
+        "sensor_name": "Temperature"
+      },
+      {
+        "sensor_id": "101192",
+        "sensor_name": "Oxygen Concentration Corrected"
+      }
+    ],
+    "location_code": "YPVPP.O1",
+    "location_name": "Oxygen Rinko",
+    "device_code": "ALECRINKO0471",
+    "search_tree_node_id": null,
+    "device_category_id": null,
+    "data_preview_options": [],
+    "lat": 48.622398,
+    "lon": -123.498835
+  },
+  {
+    "device_id": "24123",
+    "device_name": "Sea-Bird SBE 43 Oxygen (S/N 3417)",
+    "sensors": [
+      {
+        "sensor_id": "22240",
+        "sensor_name": "Oxygen Concentration Corrected"
+      }
+    ],
+    "location_code": "YPVPP.O2",
+    "location_name": "Oxygen SBE43",
+    "device_code": "SBE43-3417",
+    "search_tree_node_id": null,
+    "device_category_id": null,
+    "data_preview_options": [],
+    "lat": 48.622442,
+    "lon": -123.498817
+  },
+  {
+    "device_id": "24117",
+    "device_name": "WET Labs ECO FLNTUS 4670",
+    "sensors": [
+      {
+        "sensor_id": "22190",
+        "sensor_name": "Chlorophyll"
+      },
+      {
+        "sensor_id": "22191",
+        "sensor_name": "Turbidity"
+      }
+    ],
+    "location_code": "YPVPP.F2",
+    "location_name": "Fluorometer FLNTU",
+    "device_code": "WETLABSECOFLNTUS4670",
+    "search_tree_node_id": null,
+    "device_category_id": null,
+    "data_preview_options": [],
+    "lat": 48.622464,
+    "lon": -123.498807
+  }
+]

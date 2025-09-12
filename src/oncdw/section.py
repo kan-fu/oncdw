@@ -184,7 +184,7 @@ class Section:
         """
         _device = Device(device)
         data_preview_options = _device.get_data_preview_options()
-        if data_preview_options is None:
+        if not data_preview_options:
             return
 
         st.subheader("Data Preview plot")
