@@ -40,4 +40,6 @@ if st.button("Run", key="archivefile_button"):
         "returnOptions": "all",
     }
     archivefile = onc.getArchivefile(param)
-    st.dataframe(pd.DataFrame(archivefile["files"]))
+    df = pd.DataFrame(archivefile["files"])
+    df["dateFrom"]=pd.to_datetime(df["dateFrom"])
+    st.line_chart(df,x="dateFrom",y="uncompressedFileSize")
